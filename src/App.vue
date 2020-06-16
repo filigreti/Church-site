@@ -1,32 +1,57 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <HeaderTop />
+    <router-view />
+    <FooterBottom />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import HeaderTop from "@/components/HeaderTop";
+import FooterBottom from "@/components/FooterBottom";
+export default {
+  components: {
+    HeaderTop,
+    FooterBottom
   }
+};
+</script>
+
+<style>
+.h-60 {
+  height: 29rem;
+}
+.h-38 {
+  height: 9.5rem;
+}
+.play {
+  font-family: "Playfair Display", serif;
+}
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+.VueCarousel-navigation-prev {
+  margin-left: -20px;
+}
+.VueCarousel-navigation-next {
+  margin-right: -20px;
+}
+.VueCarousel-navigation-prev,
+.VueCarousel-navigation-next {
+  background: white !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.897) !important;
+}
+.VueCarousel-navigation--disabled[data-v-453ad8cd] {
+  opacity: 1;
+  cursor: default;
+}
+.VueCarousel-navigation-button[data-v-453ad8cd] {
+  color: black !important;
+  outline: none !important;
 }
 </style>
