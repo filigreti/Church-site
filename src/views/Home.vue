@@ -59,7 +59,7 @@
           :navigationEnabled="width"
           :paginationEnabled="false"
           :loop="true"
-          :perPageCustom="[[400, 1],[900,3]]"
+          :perPageCustom="[[500, 1],[900,3]]"
         >
           <slide v-for="(img,index) in images" :key="index">
             <div :class="`box-${index}`" class="rounded overflow-hidden shadow-xl h-64 mx-4 p-6">
