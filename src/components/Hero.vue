@@ -6,7 +6,7 @@
 
     <div class="text-center">
       <h1
-        class="uppercase font-medium play text-2xl pt-8 text-white lg:pt-20 tracking-wider leading-10 lg:leading-10 lg:text-4xl"
+        class="uppercase font-medium play text-2xl pt-8 text-white lg:pt-16 tracking-wider leading-10 lg:leading-10 lg:text-4xl"
       >{{mainText}}</h1>
       <p
         class="lg:max-w-3xl mt-2 leading-6 tracking-tight text-gray-300 text-sm lg:mx-auto mx-5"
