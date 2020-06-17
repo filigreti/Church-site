@@ -1,10 +1,27 @@
 <template>
-  <div class="z-10 mx-16 mt-8 text-black flex justify-between items-center">
-    <div>
-      <h2 class="uppercase tracking-wide text-gray-200 leading-3 play text-2xl">Gods care missions</h2>
-      <p class="text-xs capitalize text-gray-200 mt-2 pt-1">We care, because God Cares</p>
+  <div
+    class="z-10 lg:mx-16 lg:mt-8 lg:text-black lg:justify-between lg:items-center lg:flex flex justify-between m-8"
+  >
+    <div class>
+      <h2
+        class="lg:uppercase lg:tracking-wide text-gray-200 lg:leading-3 play lg:text-2xl text-xl leading-3"
+      >Gods care missions</h2>
+      <p class="text-xs capitalize text-gray-200 lg:mt-2 lg:pt-1 pt-2">We care, because God Cares</p>
     </div>
-    <ul class="flex text-white items-center">
+    <div class="lg:hidden">
+      <svg
+        class="h-8 w-8 text-gray-300"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </div>
+    <ul class="lg:flex lg:text-white lg:items-center hidden">
       <li class="ml-16">
         <router-link to="/" class="text-gray-500 hover:text-white text-xs">Home</router-link>
       </li>

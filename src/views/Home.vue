@@ -10,15 +10,17 @@
     />
     <div class="mt-16 text-center">
       <h1
-        class="text-xl font-bold leading-5 tracking-wider text-blue-500 text-center"
+        class="lg:text-xl text-sm font-bold leading-5 tracking-wider text-blue-500 text-center"
       >We Care, Because God Cares</h1>
       <p
-        class="max-w-lg mt-4 leading-6 tracking-tight text-gray-600 text-sm mx-auto"
+        class="lg:max-w-lg mt-4 leading-6 tracking-tight text-gray-600 text-sm mx-auto px-10 lg:px-0"
       >Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti at animi ex aut rerum soluta deserunt voluptate eum</p>
     </div>
     <div>
-      <div class="mt-16 max-w-4xl mx-auto flex text-center justify-between">
-        <div class="shadow-2xl rounded-lg py-4 px-8 bg-white max-w-xs">
+      <div
+        class="mt-16 flex w-full justify-center flex-col items-center lg:max-w-4xl lg:mx-auto lg:flex-row text-center lg:justify-between"
+      >
+        <div class="shadow-xl rounded-lg py-4 px-8 bg-white lg:mx-0 mx-4 lg:max-w-xs lg:mb-0 mb-6">
           <div class="border-b pb-2 border-blue-400">
             <h2
               class="text-lg font-bold uppercase text-blue-500 tracking-wider text-center"
@@ -28,7 +30,7 @@
             class="mt-4 leading-6 tracking-normal text-gray-600 text-xs"
           >At God's Insurance and clear direction, 25 years ago i came into Okpo with my late wife. Evang. Esther Omojo Oguche and son, Joshua! To the glory of God, today i have five biological children and other adopted children living with me, and a great number of spiritual children world over unto God's glory, and also a lovely wife, co-partner,heler,encourager,adviser and supporter. Pastor (Mrs) Rose Ojone Oguche</p>
         </div>
-        <div class="shadow-2xl rounded-lg py-4 px-8 bg-white max-w-xs">
+        <div class="shadow-xl rounded-lg py-4 px-8 bg-white lg:mx-0 mx-4 lg:max-w-xs">
           <div class="border-b pb-2 border-blue-400">
             <h2
               class="text-lg font-bold uppercase text-blue-500 tracking-wider text-center"
@@ -47,16 +49,17 @@
       <div class="mt-16 text-center">
         <h1 class="text-xl font-bold leading-5 tracking-wider text-blue-500 text-center">Events</h1>
         <p
-          class="max-w-lg mt-4 leading-6 tracking-tight text-gray-600 text-sm mx-auto"
+          class="lg:max-w-lg mt-4 leading-6 tracking-tight text-gray-600 text-sm mx-auto lg:px-0 px-10"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti at animi ex aut rerum soluta deserunt voluptate eum</p>
       </div>
-      <div class="max-w-4xl mx-auto mt-12">
+      <div class="lg:max-w-4xl mx-auto mt-12">
         <carousel
           :per-page="3"
           :centerMode="false"
-          :navigationEnabled="true"
+          :navigationEnabled="width"
           :paginationEnabled="false"
           :loop="true"
+          :perPageCustom="[[400, 1],[900,3]]"
         >
           <slide v-for="(img,index) in images" :key="index">
             <div :class="`box-${index}`" class="rounded overflow-hidden shadow-xl h-64 mx-4 p-6">
@@ -71,34 +74,36 @@
         </div>
       </div>
     </div>
-    <div class="flex max-w-4xl mx-auto my-12">
-      <div class="flex items-center border-r w-6/12">
+    <div
+      class="flex lg:flex-row flex-col lg:max-w-4xl justify-between lg:mx-auto lg:mx-0 mx-3 my-8"
+    >
+      <div class="lg:w-1/2 flex items-center lg:border-r lg:ml-0 ml-3 lg:mb-0 mb-8">
         <div class="flex flex-col items-center">
-          <h1 style="color:red" class="text-3xl leading-6 tracking-wider font-black">25</h1>
-          <h2 class="text-lg font-black text-blue-700">JUNE</h2>
+          <h1 style="color:red" class="text-4xl leading-6 tracking-wider font-black">25</h1>
+          <h2 class="text-xl font-black text-blue-700">JUNE</h2>
         </div>
         <div class="ml-4">
           <h1 class="text-blue-700 font-black text-xl tracking-wide">Upcoming Event</h1>
           <p
-            class="text-xs text-gray-600 w-9/12"
+            class="text-xs text-gray-600 max-w-xs lg:pr-0 pr-16"
           >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit quam excepturi quisquam natus officiis perferendis</p>
         </div>
       </div>
-      <div class="flex items-center pl-4 w-6/12 justify-end">
+      <div class="lg:w-1/2 flex items-center justify-end lg:ml-0 ml-3">
         <div class="flex flex-col items-center">
-          <h1 style="color:red" class="text-3xl leading-6 tracking-wider font-black">04</h1>
-          <h2 class="text-lg font-black text-blue-700">JUNE</h2>
+          <h1 style="color:red" class="text-4xl leading-6 tracking-wider font-black">25</h1>
+          <h2 class="text-xl font-black text-blue-700">JUNE</h2>
         </div>
-        <div class="ml-4 w-9/12">
+        <div class="ml-4 flex flex-col justify-end">
           <h1 class="text-blue-700 font-black text-xl tracking-wide">Upcoming Event</h1>
           <p
-            class="text-xs text-gray-600 mr-12"
+            class="text-xs text-gray-600 max-w-xs lg:pr-0 pr-16"
           >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit quam excepturi quisquam natus officiis perferendis</p>
         </div>
       </div>
     </div>
     <div class="bg-blue-100 bg-opacity-25 py-16">
-      <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
+      <div class="lg:max-w-4xl lg:mx-auto bg-white rounded-lg shadow-xl lg:mx-0 mx-4">
         <div class="py-8">
           <h1
             class="text-xl font-bold leading-6 tracking-wider text-blue-500 text-center"
@@ -107,7 +112,7 @@
             Get the latest law events and coferences and also
             <br />updates from God's care mission
           </p>
-          <div class="max-w-xl mx-auto">
+          <div class="max-w-xl mx-auto lg:px-0 px-6">
             <input
               class="bg-gray-200 mt-6 text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="email"
@@ -140,6 +145,11 @@ export default {
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/GAROUA-FLYER-2020-768x1038.png"
       ]
     };
+  },
+  computed: {
+    width() {
+      return window.innerWidth > 650 ? true : false;
+    }
   },
   components: {
     Carousel,

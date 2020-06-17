@@ -101,8 +101,7 @@
       <h1 class="text-sm font-black mt-6">Quick Links</h1>
     </div>
     <div
-      class="max-w-4xl mx-auto grid-flow-col grid mt-6 justify-between"
-      style="grid-template-columns:repeat(1fr,6)"
+      class="lg:max-w-4xl lg:mx-auto lg:grid-flow-col grid grid-cols-2 ml-3 gap-4 lg:grid mt-6 lg:justify-between lg:grid-cols-6"
     >
       <div>
         <h1 class="font-black text-lg">Events</h1>
