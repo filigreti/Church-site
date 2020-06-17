@@ -54,12 +54,11 @@
       </div>
       <div class="lg:max-w-4xl mx-auto mt-12">
         <carousel
-          :per-page="3"
+          :per-page="page"
           :centerMode="false"
           :navigationEnabled="width"
           :paginationEnabled="false"
           :loop="true"
-          :perPageCustom="[[500, 1],[900,3]]"
         >
           <slide v-for="(img,index) in images" :key="index">
             <div :class="`box-${index}`" class="rounded overflow-hidden shadow-xl h-64 mx-4 p-6">
@@ -149,6 +148,9 @@ export default {
   computed: {
     width() {
       return window.innerWidth > 650 ? true : false;
+    },
+    page() {
+      return window.innerWidth > 650 ? 3 : 1;
     }
   },
   components: {
