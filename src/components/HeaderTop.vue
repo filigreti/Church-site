@@ -2,11 +2,13 @@
   <div
     class="z-10 lg:mx-16 lg:mt-8 lg:text-black lg:justify-between lg:items-center lg:flex flex justify-between m-8"
   >
-    <div class>
+    <div class="cursor-pointer" @click="$router.push('/')">
       <h2
-        class="lg:uppercase lg:tracking-wide text-gray-200 lg:leading-3 play lg:text-2xl text-xl leading-3"
+        class="lg:uppercase lg:tracking-wide text-gray-200 lg:leading-3 play lg:text-2xl text-xl leading-3 font-light"
       >Gods care missions</h2>
-      <p class="text-xs capitalize text-gray-200 lg:mt-2 lg:pt-1 pt-2">We care, because God Cares</p>
+      <p
+        class="text-xs capitalize text-gray-200 lg:mt-2 lg:pt-1 pt-2 font-light"
+      >We care, because God Cares</p>
     </div>
     <div class="lg:hidden">
       <svg
@@ -23,18 +25,18 @@
     </div>
     <ul class="lg:flex lg:text-white lg:items-center hidden">
       <li class="ml-16">
-        <router-link to="/" class="text-gray-500 hover:text-white text-xs">Home</router-link>
+        <router-link to="/" class="text-gray-500 font-hairline hover:text-white text-xs">Home</router-link>
       </li>
       <router-link
         to="/events"
-        class="ml-16 text-gray-500 hover:text-white text-xs events"
+        class="ml-16 text-gray-500 font-hairline hover:text-white text-xs events"
         :class="[$route.name == 'MainTheme' ? 'all-white' :'']"
       >
         <span class="flex items-center hover:text-white">
           <div>Events</div>
           <svg
             :class="[$route.name == 'MainTheme' ? 'all-white' :'']"
-            class="w-3 h-3 ml-1 text-gray-500"
+            class="w-3 h-3 ml-1 text-gray-500 font-hairline"
             fill="none"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -47,16 +49,31 @@
         </span>
       </router-link>
       <li class="ml-16">
-        <router-link to="/live" class="text-gray-500 hover:text-white text-xs">Live</router-link>
+        <router-link to="/live" class="text-gray-500 font-hairline hover:text-white text-xs">Live</router-link>
       </li>
       <li class="ml-16">
-        <router-link to="/contact-us" class="text-gray-500 hover:text-white text-xs">Contact Us</router-link>
+        <router-link
+          to="/contact-us"
+          class="text-gray-500 font-hairline hover:text-white text-xs"
+        >Contact Us</router-link>
       </li>
       <li class="ml-16">
-        <router-link to="/about-us" class="text-gray-500 hover:text-white text-xs">About Us</router-link>
+        <router-link
+          to="/about-us"
+          class="text-gray-500 font-hairline hover:text-white text-xs"
+        >About Us</router-link>
       </li>
       <li class="ml-16">
-        <router-link to="/carts" class="text-gray-500 hover:text-white text-xs">Carts</router-link>
+        <router-link
+          to="/auth/login"
+          class="text-gray-500 font-hairline hover:text-white text-xs"
+        >SignIn</router-link>
+      </li>
+      <li class="ml-16">
+        <router-link
+          to="/media/books/cart"
+          class="text-gray-500 font-hairline hover:text-white text-xs"
+        >Cart</router-link>
       </li>
     </ul>
   </div>

@@ -1,6 +1,7 @@
 <template>
   <main>
     <Hero
+      :position="'object-center'"
       :color="'bg-blue-900'"
       :buttonText="'About Us'"
       :screen="'Home'"
@@ -10,33 +11,35 @@
     />
     <div class="mt-16 text-center">
       <h1
-        class="lg:text-xl text-sm font-bold leading-5 tracking-wider text-blue-500 text-center"
+        class="lg:text-xl text-sm font-light leading-5 tracking-wider text-blue-500 text-center"
       >We Care, Because God Cares</h1>
       <p
-        class="lg:max-w-lg mt-4 leading-6 tracking-tight text-gray-600 text-sm mx-auto px-10 lg:px-0"
+        class="lg:max-w-lg mt-4 leading-6 font-light tracking-tight text-gray-600 text-sm mx-auto px-10 lg:px-0"
       >Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti at animi ex aut rerum soluta deserunt voluptate eum</p>
     </div>
     <div>
       <div
-        class="mt-16 flex w-full justify-center flex-col items-center lg:max-w-4xl lg:mx-auto lg:flex-row text-center lg:justify-between"
+        class="mt-16 flex w-full justify-center flex-col lg:max-w-4xl lg:mx-auto lg:flex-row text-center lg:justify-between"
       >
         <div class="shadow-xl rounded-lg py-4 px-8 bg-white lg:mx-0 mx-4 lg:max-w-xs lg:mb-0 mb-6">
           <div class="border-b pb-2 border-blue-400">
             <h2
-              class="text-lg font-bold uppercase text-blue-500 tracking-wider text-center"
+              class="text-lg font-normal uppercase text-blue-500 tracking-wider text-center"
             >Our Genesis</h2>
           </div>
           <p
-            class="mt-4 leading-6 tracking-normal text-gray-600 text-xs"
+            class="mt-4 leading-6 tracking-normal font-light text-gray-600 text-xs"
           >At God's Insurance and clear direction, 25 years ago i came into Okpo with my late wife. Evang. Esther Omojo Oguche and son, Joshua! To the glory of God, today i have five biological children and other adopted children living with me, and a great number of spiritual children world over unto God's glory, and also a lovely wife, co-partner,heler,encourager,adviser and supporter. Pastor (Mrs) Rose Ojone Oguche</p>
         </div>
-        <div class="shadow-xl rounded-lg py-4 px-8 bg-white lg:mx-0 mx-4 lg:max-w-xs">
+        <div
+          class="shadow-xl rounded-lg py-4 flex-grow lg:h-auto px-8 bg-white lg:mx-0 mx-4 lg:max-w-xs h-full"
+        >
           <div class="border-b pb-2 border-blue-400">
             <h2
-              class="text-lg font-bold uppercase text-blue-500 tracking-wider text-center"
+              class="text-lg font-normal uppercase text-blue-500 tracking-wider text-center"
             >Our Commission</h2>
           </div>
-          <p class="leading-6 tracking-wider mt-4 leading-6 text-gray-600 text-xs">
+          <p class="leading-6 tracking-wider font-light mt-4 leading-6 text-gray-600 text-xs">
             Our Commission is to bring God's loving
             care and intervention
             <br />to the human race at no charge through various outlets,
@@ -47,9 +50,9 @@
     </div>
     <div class="bg-blue-100 bg-opacity-25 py-4">
       <div class="mt-16 text-center">
-        <h1 class="text-xl font-bold leading-5 tracking-wider text-blue-500 text-center">Events</h1>
+        <h1 class="text-xl font-normal leading-5 tracking-wider text-blue-500 text-center">Events</h1>
         <p
-          class="lg:max-w-lg mt-4 leading-6 tracking-tight text-gray-600 text-sm mx-auto lg:px-0 px-10"
+          class="lg:max-w-lg mt-4 leading-6 tracking-tight text-gray-600 text-sm mx-auto lg:px-0 px-10 font-light"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti at animi ex aut rerum soluta deserunt voluptate eum</p>
       </div>
       <div class="lg:max-w-4xl mx-auto mt-12">
@@ -68,7 +71,7 @@
         </carousel>
         <div class="w-full flex justify-center mt-8 items-center">
           <button
-            class="text-sm rounded-full bg-transparent hover:bg-blue-500 text-blue-500 font-semibold hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
+            class="text-sm font-normal rounded-full bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
           >View All</button>
         </div>
       </div>
@@ -82,9 +85,9 @@
           <h2 class="text-xl font-black text-blue-700">JUNE</h2>
         </div>
         <div class="ml-4">
-          <h1 class="text-blue-700 font-black text-xl tracking-wide">Upcoming Event</h1>
+          <h1 class="text-blue-700 font-normal text-xl tracking-wide">Upcoming Event</h1>
           <p
-            class="text-xs text-gray-600 max-w-xs lg:pr-0 pr-16"
+            class="text-xs text-gray-600 max-w-xs lg:pr-0 pr-16 font-light"
           >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit quam excepturi quisquam natus officiis perferendis</p>
         </div>
       </div>
@@ -94,9 +97,9 @@
           <h2 class="text-xl font-black text-blue-700">JUNE</h2>
         </div>
         <div class="ml-4 flex flex-col justify-end">
-          <h1 class="text-blue-700 font-black text-xl tracking-wide">Upcoming Event</h1>
+          <h1 class="text-blue-700 font-normal text-xl tracking-wide">Upcoming Event</h1>
           <p
-            class="text-xs text-gray-600 max-w-xs lg:pr-0 pr-16"
+            class="text-xs text-gray-600 max-w-xs lg:pr-0 pr-16 font-light"
           >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit quam excepturi quisquam natus officiis perferendis</p>
         </div>
       </div>
@@ -105,11 +108,11 @@
       <div class="lg:max-w-4xl lg:mx-auto bg-white rounded-lg shadow-xl lg:mx-0 mx-4">
         <div class="py-8">
           <h1
-            class="text-xl font-bold leading-6 tracking-wider text-blue-500 text-center"
+            class="lg:text-xl text-sm font-normal leading-6 tracking-wider text-blue-500 text-center"
           >Subscribe to Our Newsletter</h1>
-          <p class="mt-2 text-gray-600 text-xs text-center">
+          <p class="w-64 mx-auto mt-2 text-gray-600 text-xs text-center lg:px-0 px-3">
             Get the latest law events and coferences and also
-            <br />updates from God's care mission
+            updates from God's care mission
           </p>
           <div class="max-w-xl mx-auto lg:px-0 px-6">
             <input
@@ -121,7 +124,7 @@
 
           <div class="w-full flex items-center mt-4">
             <button
-              class="font-bold mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white font-semibold hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
+              class="font-normal mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
             >Subscribe</button>
           </div>
         </div>

@@ -98,7 +98,7 @@
       </svg>
     </div>
     <div class="text-center">
-      <h1 class="text-sm font-black mt-6">Quick Links</h1>
+      <h1 class="text-sm font-normal mt-6">Quick Links</h1>
     </div>
     <div
       class="lg:max-w-4xl lg:mx-auto lg:grid-flow-col grid grid-cols-2 ml-3 gap-4 lg:grid mt-6 lg:justify-between lg:grid-cols-6"

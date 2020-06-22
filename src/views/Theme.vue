@@ -14,8 +14,8 @@
         />
       </div>
       <div class="ml-10 h-full flex-1">
-        <h1 class="uppercase text-2xl font-black tracking-wider">Youth Blaze 2020</h1>
-        <h1 class="uppercase text-2xl font-black tracking-wider leading-6">Theme: Blazed to Blaze</h1>
+        <h1 class="uppercase text-2xl font-light tracking-wider">Youth Blaze 2020</h1>
+        <h1 class="uppercase text-2xl font-light tracking-wider leading-6">Theme: Blazed to Blaze</h1>
         <div class="flex mt-4 w-full">
           <div class="flex items-center">
             <svg
@@ -45,8 +45,8 @@
               </g>
             </svg>
             <div class="ml-2">
-              <p class="text-sm font-black">Arrival time,</p>
-              <p class="font-black text-sm">Thursday, 3.00 PM</p>
+              <p class="text-sm font-light">Arrival time,</p>
+              <p class="font-light text-sm">Thursday, 3.00 PM</p>
             </div>
           </div>
           <div class="flex items-center ml-16">
@@ -86,14 +86,14 @@
               </g>
             </svg>
             <div class="ml-2">
-              <p class="text-sm font-black">Gods Care Mission Tenth</p>
-              <p class="font-black text-sm">Okpo, Kogi State</p>
+              <p class="text-sm font-light">Gods Care Mission Tenth</p>
+              <p class="font-light text-sm">Okpo, Kogi State</p>
             </div>
           </div>
         </div>
         <div>
           <p
-            class="text-sm text-gray-700 mt-4 leading-5"
+            class="text-sm text-gray-700 mt-4 leading-5 font-light"
           >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio nam distinctio optio impedit laudantium voluptas enim eligendi, perferendis molestias, reprehenderit iusto vel animi tenetur aperiam aut quaerat! Beatae, deleniti aperiam.</p>
         </div>
       </div>
@@ -101,27 +101,27 @@
     <div class="bg-blue-100 bg-opacity-25 py-16">
       <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
         <div class="py-8">
-          <h1 class="text-xl font-bold leading-6 tracking-wider text-blue-500 text-center">Register</h1>
+          <h1 class="text-xl font-light leading-6 tracking-wider text-blue-500 text-center">Register</h1>
           <p
-            class="mt-2 text-gray-600 text-xs text-center"
+            class="mt-2 text-gray-600 text-xs text-center font-light"
           >Fill in your Detail so we can welcome you properly</p>
           <div class="max-w-xl mx-auto">
             <input
-              class="bg-gray-200 mt-6 text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              class="bg-gray-200 mt-6 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Full name"
             />
           </div>
           <div class="max-w-xl mx-auto">
             <input
-              class="bg-gray-200 mt-2 text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              class="bg-gray-200 mt-2 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Mobile Number"
             />
           </div>
           <div class="max-w-xl mx-auto">
             <input
-              class="bg-gray-200 mt-2 text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              class="bg-gray-200 mt-2 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="email"
               placeholder="Email Address"
             />
@@ -129,7 +129,7 @@
 
           <div class="w-full flex items-center mt-4">
             <button
-              class="font-bold mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white font-semibold hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
+              class="font-light mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
             >Register</button>
           </div>
         </div>

@@ -1,6 +1,7 @@
 <template>
   <main>
     <Hero
+      :position="'object-center'"
       :color="'bg-indigo-800'"
       :buttonText="false"
       :screen="'Views'"

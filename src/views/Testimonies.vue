@@ -1,0 +1,108 @@
+<template>
+  <main>
+    <div>
+      <Hero
+        @open="modal = true"
+        :position="'object-center'"
+        :color="'bg-black bg-opacity-90'"
+        :buttonText="'Submit'"
+        :button="'bg-blue-500 border-none'"
+        :screen="'testimonies'"
+        :mainText="'Testimonies'"
+        :subText="`God has always been faithful to his children, take your time to read Through our faith strengthing testimonies and the wonderful miracles that God is doing. Do you have a testimony, use the submit button and submit to us your testimony`"
+        :bgImage="'https://images.pexels.com/photos/2351721/pexels-photo-2351721.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
+      />
+      <div
+        v-for=" i in 4"
+        :key="i"
+        :class="i == 1 ? 'lg:mt-40' : 'lg:mt-6'"
+        class="bg-d max-w-4xl mx-auto py-4"
+      >
+        <div :class="(i % 2 == 0) ? 'lg:flex  lg:flex-row-reverse ' : 'lg:flex'">
+          <div class="h-48 max-w-sm">
+            <img
+              class="object-top shadow-xl rounded-lg object-cover w-full h-full"
+              src="https://images.pexels.com/photos/1181695/pexels-photo-1181695.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              alt
+            />
+          </div>
+          <div :class="(i % 2 == 0) ? ' w-full pr-20 lg:flex flex-col ' : '   w-full pl-20'">
+            <div
+              :class="(i % 2 == 0) ? ' lg:flex-row-reverse  ':'lg:flex-row'"
+              class="flex justify-between w-full flex-col"
+            >
+              <div :class="(i % 2 == 0) ? 'flex items-end flex-col':''">
+                <h1
+                  class="text-blue-800 font-light leading-none text-2xl tracking-wide"
+                >Melody Sandra</h1>
+                <p
+                  class="text-gray-600 text-xs items-start leading-5 font-normal"
+                >Olamaboro, Kogi State</p>
+              </div>
+              <div>
+                <p class="text-gray-500 text-xs">January 20th, 2020</p>
+              </div>
+            </div>
+            <div
+              :class="(i % 2 == 0) ? ' text-right':''"
+              class="text-xs text-gray-600 w-full mt-3 leading-6 font-light"
+            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi fugit exercitationem rerum dolor vero tenetur voluptas eum. Minima, accusantium quibusdam architecto recusandae voluptate quod impedit expedita possimus rem est, nemo ipsam? Vel, tempora! Excepturi molestiae id debitis quod accusamus sit.</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-center mt-10 mb-20">
+        <button
+          class="text-sm rounded-full bg-transparent hover:bg-blue-500 text-blue-500 font-light hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
+        >Load More</button>
+      </div>
+    </div>
+
+    <TestimonialModal v-show="modal" @close="modal = false" />
+  </main>
+</template>
+
+<script>
+import TestimonialModal from "@/components/TestimonialModal";
+import { Carousel, Slide } from "vue-carousel";
+import Hero from "@/components/Hero";
+export default {
+  data() {
+    return {
+      modal: false,
+      images: [
+        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/BONGOR-002.jpg",
+        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/PST-DJIMAS-1.jpg",
+        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/MAROUA-003.jpg",
+        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/NGOUNDERE.jpg",
+        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/GAROUA-FLYER-2020-768x1038.png"
+      ]
+    };
+  },
+  watch: {
+    modal(x) {
+      if (x) {
+        document.body.style.setProperty("overflow", "hidden");
+      } else {
+        document.body.style.removeProperty("overflow");
+      }
+    }
+  },
+  computed: {
+    width() {
+      return window.innerWidth > 650 ? true : false;
+    },
+    page() {
+      return window.innerWidth > 650 ? 3 : 1;
+    }
+  },
+  components: {
+    Carousel,
+    Hero,
+    Slide,
+    TestimonialModal
+  }
+};
+</script>
+
+<style>
+</style>
