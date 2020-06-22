@@ -105,7 +105,7 @@
     >
       <div>
         <h1 class="font-black text-lg">Events</h1>
-        <p class="text-xs">Celebrities</p>
+        <p class="text-xs">Calebites</p>
         <p class="text-xs">Conferences</p>
         <p class="text-xs">Crusades</p>
         <p class="text-xs">Miracle Services</p>
