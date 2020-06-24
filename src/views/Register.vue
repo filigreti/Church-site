@@ -1,7 +1,7 @@
 <template>
   <main
     :style="toggle ? 'filter:blur(1.3px); z-index:5' :''"
-    class="flex items-center pt-32 h-full flex-col lg:mx-0 mx-3"
+    class="flex items-center pt-32 h-full flex-col lg:mx-0 mx-3 overflow-y-auto"
   >
     <h2
       class="lg:uppercase font-normal lg:tracking-wider text-gray-900 lg:leading-3 play lg:text-2xl text-xl leading-3"
