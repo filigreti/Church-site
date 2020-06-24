@@ -89,7 +89,7 @@
         />
       </div>
       <div class="flex-1">
-        <div class="fixed lg:hidden w-full z-50">
+        <div class="absolute top-0 lg:hidden w-full z-50">
           <div class="m-8 relative">
             <div class="lg:hidden relative w-full flex justify-between top-0">
               <div class="cursor-pointer" @click="$router.push('/')">
