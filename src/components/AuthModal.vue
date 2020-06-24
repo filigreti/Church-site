@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="fixed inset-0 bg-white flex h-screen box-border">
+    <div class="absolute top-0 inset-0 bg-white flex h-screen box-border">
       <div class="lg:w-1/2 hidden lg:block f-full bg-blue-900 relative p-12 overflow-hidden">
         <div class="justify-between flex w-full">
           <div class="z-20 cursor-pointer" @click="$router.push('/')">
@@ -88,10 +88,10 @@
           alt
         />
       </div>
-      <div class="flex-1">
-        <div class="absolute top-0 lg:hidden w-full z-50">
+      <div class="flex-1 bg-white">
+        <div class="absolute top-0 lg:hidden w-full z-50 overflow-y-scroll bg-white">
           <div class="m-8 relative">
-            <div class="lg:hidden relative w-full flex justify-between top-0">
+            <div class="lg:hidden relative w-full flex justify-between top-0 bg-white">
               <div class="cursor-pointer" @click="$router.push('/')">
                 <h2
                   class="lg:uppercase lg:tracking-wide text-gray-900 lg:leading-3 play lg:text-2xl text-xl leading-3 font-light"
