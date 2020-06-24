@@ -10,8 +10,8 @@
       :subText="`Learn about our Bible School, the durations and certification type. Do you want to enroll in any of the programs, just click on the enroll button to start. Your Journey on a wonderful study process and learn more about God's word.`"
       :bgImage="'https://images.pexels.com/photos/3118214/pexels-photo-3118214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
     />
-    <div class="lg:mt-32 bg-d bg-blue-100 bg-opacity-25 max-w-4xl mx-auto py-4">
-      <div class="grid grid-cols-3 gap-6 justify-between">
+    <div class="lg:mt-32 mt-32 bg-d bg-blue-100 bg-opacity-25 max-w-4xl mx-auto py-4">
+      <div class="grid lg:grid-cols-3 gap-6 justify-between">
         <div class="shadow-xl rounded-lg py-4 px-8 bg-white lg:mx-0 mx-4 lg:max-w-xs lg:mb-0 mb-6">
           <div class="border-b pb-2 border-gray-300">
             <h2

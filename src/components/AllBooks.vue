@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="flex items-center">
+    <div class="flex items-center lg:px-0 px-3">
       <div class="flex items-center">
         <p class="text-sm font-medium">Filter</p>
         <div>
@@ -54,7 +54,7 @@
           </svg>
         </div>
       </div>
-      <div class="w-3/5 ml-24">
+      <div class="lg:w-3/5 w-4/5 ml-6 lg:ml-24">
         <input
           class="bg-gray-100 focus:outline-none border focus:shadow-outline rounded-full text-xs font-light py-2 pl-5 pr-4 block w-full appearance-none leading-6"
           type="email"
@@ -62,7 +62,7 @@
         />
       </div>
     </div>
-    <div class="grid grid-cols-5 col-gap-8 row-gap-24 mt-10">
+    <div class="grid lg:grid-cols-5 grid-cols-2 lg:px-0 px-3  col-gap-8 row-gap-24 mt-10">
       <div
         v-for=" i in 15"
         @click="viewBook(i)"

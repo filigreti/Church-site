@@ -1,13 +1,13 @@
 <template>
   <main>
     <div
-      class="fixed inset-0 w-full z-20 bg-black bg-opacity-75 overflow-y-auto flex justify-center pt-8"
+      class="fixed inset-0 w-full lg:px-0 px-3 z-20 bg-black bg-opacity-75 overflow-y-auto flex justify-center pt-8"
     >
-      <div class="max-w-3xl w-full">
-        <div class="bg-white w-full py-6 px-20 rounded-lg relative h-auto">
+      <div class="lg:max-w-3xl w-full">
+        <div class="bg-white w-full py-6 lg:px-20 rounded-lg relative h-auto">
           <div class="flex w-full items-center justify-center flex-col">
             <h1
-              class="uppercase text-2xl font-black tracking-wide text-blue-700 text-center leading-5"
+              class="uppercase text-2xl font-black tracking-wide text-blue-700 text-center leading-5 lg:mt-0 mt-2"
             >Submit your Testimony</h1>
             <p
               class="mt-2 leading-6 tracking-normal text-gray-600 text-xs font-light"
@@ -17,7 +17,7 @@
             >our administrator approves it</p>
             <svg
               @click="close"
-              class="w-8 h-8 absolute right-0 mr-8 cursor-pointer top-0 mt-4 pt-1"
+              class="lg:w-8 lg:h-8 h-5 w-5 absolute mt-2 lg:right-0 mr-8 cursor-pointer top-0 lg:mt-4 lg:pt-1"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               version="1.1"

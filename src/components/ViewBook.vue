@@ -1,7 +1,7 @@
 <template>
   <main>
-    <div class="max-w-4xl mx-auto mt-16 mb-32 justify-between flex">
-      <div class="w-5/12">
+    <div class="max-w-4xl mx-auto mt-16 mb-32 justify-between lg:flex-row flex-col flex">
+      <div class="lg:w-5/12 lg:px-0 px-3">
         <div class="shadow-lg flex items-center flex-col py-4 w-full bg-white">
           <h2 class="text-2xl text-gray-800">Divine Agenda</h2>
           <p class="text-gray-500 text-sm">Evang. Sunday Oguche</p>
@@ -101,10 +101,10 @@
           class="py-4 w-full bg-black text-white rounded-lg mt-5 text-2xl outline-none"
         >Buy Now</button>
       </div>
-      <div class="ml-12 w-2/3">
+      <div class="lg:ml-12 lg:w-2/3 lg:px-0 px-3 lg:mt-0 mt-5">
         <div class="flex justify-between items-center">
           <div>
-            <h1 class="text-4xl tracking-wide capitalize text-gray-900 font-normal">Divine Agenda</h1>
+            <h1 class="lg:text-4xl tracking-wide capitalize text-gray-900 font-normal">Divine Agenda</h1>
             <p class="text-sm font-thin leading-3">Evang. Sunday Oguche</p>
           </div>
           <div class="flex items-center">
@@ -127,7 +127,7 @@
           <h1 class="text-sm text-gray-900 font-bold leading-5">Page Number Source ISBN:</h1>
           <p class="text-sm font-light ml-1 leading-5 text-gray-900">1574585523</p>
         </div>
-        <div class="mt-1 flex items-center">
+        <div class="mt-1 flex items-cente">
           <h1 class="text-sm text-gray-900 font-bold leading-5">Publisher:</h1>
           <p
             class="text-sm font-light ml-1 leading-5 text-gray-900"

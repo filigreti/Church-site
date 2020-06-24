@@ -14,7 +14,7 @@
       :bgImage="'https://images.unsplash.com/photo-1475483768296-6163e08872a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"
     />
     <div class="lg:mt-2 bg-d flex justify-center max-w-4xl mx-auto py-4">
-      <div class="grid grid-cols-2 gap-20 justify-between">
+      <div class="grid lg:grid-cols-2 lg:gap-20 gap-5 justify-between">
         <div class="shadow-xl rounded-lg py-4 px-8 bg-white lg:mx-0 mx-4 lg:max-w-xs lg:mb-0 mb-6">
           <div class="border-b border-blue-200 pb-2 border-gray-300">
             <h2
@@ -37,12 +37,12 @@
         </div>
       </div>
     </div>
-    <div class="max-w-4xl flex items-center mx-auto mt-10">
+    <div class="max-w-4xl flex items-center lg:mx-auto mx-3 lg:mt-10 mt-2">
       <div class="bg-white shadow-2xl w-full flex items-center rounded-lg justify-center">
         <p class="text-xl font-medium tracking-wider py-8 text-blue-500">MEET THE FOUNDER</p>
       </div>
     </div>
-    <div class="max-w-4xl flex mx-auto mt-12">
+    <div class="max-w-4xl flex lg:flex-row flex-col mx-auto lg:mt-12 mt-20">
       <div class="flex flex-col items-center justify-center">
         <div class="p-3 bg-white shadow-xl rounded-lg">
           <img
@@ -54,7 +54,7 @@
         </div>
         <p class="text-xs py-3 text-center text-red-500 w-full">Founder God's Care Mission</p>
       </div>
-      <div class="ml-16 mt-4">
+      <div class="lg:ml-16 mx-5 mt-4">
         <p
           class="text-gray-800 font-light text-xs max-w-xl tracking-wide leading-6"
         >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque quam non, consequatur in unde maiores aliquam quos, consequuntur ipsum architecto doloremque. Ullam quos quam nisi doloremque exercitationem sapiente quae repellat quisquam, magnam consequuntur expedita. Molestias, necessitatibus numquam! Nostrum amet, tempora tempore quos blanditiis corrupti commodi adipisci, quod facilis animi, perspiciatis labore. Officiis, iste maxime corporis eos facilis consequuntur hic quidem quae, eveniet accusantium earum ad quam aliquam? Eos est adipisci maxime distinctio perferendis facilis cumque rerum placeat, quod veniam molestias consequuntur libero temporibus maiores nam, voluptas quia illo quae, vero nesciunt recusandae expedita! Aliquid deleniti officiis obcaecati neque culpa aspernatur!</p>

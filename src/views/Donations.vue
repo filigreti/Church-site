@@ -14,9 +14,9 @@
         :donations="`Feel free to give to give your support to God's Care Missions Inc.`"
         :bgImage="'https://images.pexels.com/photos/3833052/pexels-photo-3833052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
       />
-      <div class="flex justify-center items-center w-full mt-40">
+      <div class="flex justify-center lg:flex-row flex-col items-center w-full mt-40 lg:mx-0 px-3">
         <div
-          class="shadow-xl bg-white w-56 px-3 text-center rounded py-4 flex flex-col justify-center items-center"
+          class="shadow-xl bg-white lg:w-56 w-full px-3 lg:mb-0 mb-3 text-center rounded py-4 flex flex-col justify-center items-center"
         >
           <h1 class="text-sm font-black text-gray-900">Local Donations</h1>
           <div class="my-5">
@@ -43,7 +43,7 @@
         </div>
 
         <div
-          class="shadow-xl bg-white w-56 px-3 text-center py-4 rounyded ml-12 flex flex-col justify-center items-center"
+          class="shadow-xl bg-white lg:w-56 w-full px-3 text-center py-4 rounded lg:ml-12 flex flex-col justify-center items-center"
         >
           <h1 class="text-sm font-black text-gray-900">International Donations</h1>
           <div class="my-5">
@@ -70,23 +70,23 @@
         </div>
       </div>
       <div class="mt-32 max-w-4xl mx-auto">
-        <div class="inline-flex w-full">
-          <div class="max-w-xs">
+        <div class="inline-flex w-full lg:flex-row flex-col lg:px-0 px-3">
+          <div class="lg:max-w-xs">
             <img
               class="w-full object-cover h-full"
-              src="https://images.unsplash.com/photo-1497375638960-ca368c7231e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1450&q=80"
+              src="https://images.unsplash.com/photo-1580152343511-80ef2e53f1c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1614&q=80"
               alt
             />
           </div>
-          <div class="flex-1 ml-12">
+          <div class="flex-1 lg:ml-12">
             <div class="w-full">
-              <h2 class="text-3xl font-bold tracking-wide leading-9 text-gray-900">
+              <h2 class="text-3xl font-bold tracking-wide leading-9 text-gray-900 lg:mt-0 mt-5">
                 You can make a
                 <br />difference, so why
                 <br />don't you ?
               </h2>
             </div>
-            <div class="grid grid-cols-2 gap-5 mt-5">
+            <div class="grid lg:grid-cols-2 gap-5 mt-5">
               <div
                 class="text-xs text-gray-500 leading-6 font-light"
               >Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quaerat accusantium quod autem vitae est? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsa labore quaerat sit fugit, a culpa alias? Voluptate, sequi aliquid accusamus, dicta iste expedita voluptas rerum ullam cupiditate vel, debitis asperiores ipsam! Ipsum dignissimos porro necessitatibus quisquam id, consequuntur ea! Accusantium ducimus atque corrupti nesciunt animi sunt alias ad dignissimos.</div>
@@ -106,7 +106,9 @@
       </div>
       <div class="max-w-4xl mx-auto mt-20 mb-20">
         <div class="bg-blue-400 w-full h-32 flex items-center justify-center leading-6">
-          <h1 class="text-2xl text-white tracking-wider">Support God's Care Missions, Donate Now !</h1>
+          <h1
+            class="lg:text-2xl text-white tracking-wider"
+          >Support God's Care Missions, Donate Now !</h1>
         </div>
       </div>
     </div>

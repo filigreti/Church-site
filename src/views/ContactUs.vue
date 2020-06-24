@@ -12,7 +12,7 @@
       :bgImage="'https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?ixlib=rb-1.2.1&auto=format&fit=crop&w=706&q=80'"
     />
     <div class="bg-blue-100 bg-opacity-25 py-16">
-      <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
+      <div class="lg:max-w-4xl mx-3 lg:px-0 px-5 lg:mx-auto bg-white rounded-lg shadow-xl">
         <div class="py-8">
           <h1
             class="text-xl font-light leading-6 tracking-wider text-blue-500 text-center"

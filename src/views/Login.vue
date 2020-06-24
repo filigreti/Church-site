@@ -1,7 +1,7 @@
 <template>
   <main
     :style="toggle ? 'filter:blur(1.3px); z-index:5' :''"
-    class="flex justify-center items-center h-full flex-col"
+    class="flex justify-center items-center h-full flex-col lg:mx-0 mx-3"
   >
     <h2
       class="lg:uppercase lg:tracking-wider font-normal text-gray-900 lg:leading-3 play lg:text-2xl text-xl leading-3"
@@ -12,8 +12,8 @@
     <p
       class="text-xs capitalize text-blue-500 leading-none font-light"
     >Because God cares even more about you</p>
-    <div class="lg:w-9/12 lg:mt-6 lg:px-12 lg:mx-auto bg-white rounded-lg shadow-xl lg:mx-0 mx-4">
-      <div class="py-6 lg:w-full">
+    <div class="lg:w-9/12 lg:mt-6 lg:px-12 w-full lg:mx-auto bg-white mt-6 rounded-lg shadow-xl">
+      <form @submit.prevent="login" class="py-6 lg:w-full">
         <h1
           class="lg:text-2xl text-sm font-light leading-6 tracking-wider text-blue-500 text-center"
         >Sign In</h1>
@@ -23,6 +23,8 @@
             class="bg-gray-200 mt-6 font-light text-xs text-center rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
             type="email"
             placeholder="Email Address"
+            required
+            v-model="loginDetails.email"
           />
         </div>
         <div class="max-w-xl mx-auto lg:px-0 px-6">
@@ -30,8 +32,14 @@
             class="bg-gray-200 font-light mt-3 text-center text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
             type="password"
             placeholder="Password"
+            required
+            v-model="loginDetails.password"
           />
         </div>
+        <p
+          v-if="this.error !== ''"
+          class="py-3 text-red-500 text-xs font-light text-center"
+        >{{this.error}}</p>
         <router-link to="/forgot-password">
           <p class="text-xs text-gray-500 font-light text-center my-4">Forgot Password ?</p>
         </router-link>
@@ -47,7 +55,7 @@
             <span class="text-blue-500 font-light">Register</span>
           </router-link>
         </span>
-      </div>
+      </form>
     </div>
   </main>
 </template>
@@ -55,9 +63,30 @@
 <script>
 export default {
   props: ["toggle"],
+  data() {
+    return {
+      loginDetails: {
+        email: "",
+        password: ""
+      },
+      error: ""
+    };
+  },
   watch: {
-    toggle(x) {
-      console.log(x);
+    error(x) {
+      setTimeout(() => {
+        this.error = "";
+      }, 5000);
+    }
+  },
+  methods: {
+    async login() {
+      let res = await this.$store.dispatch("loginUser", this.loginDetails);
+      if (res.status == 422) {
+        this.error = res.data.message;
+      } else {
+        this.$router.push("/");
+      }
     }
   }
 };

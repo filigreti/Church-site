@@ -15,7 +15,7 @@
       <h1
         class="text-2xl font-bold leading-6 tracking-wider text-center pt-3 capitalize"
       >choose a stream channel</h1>
-      <div class="max-w-4xl mx-auto grid grid-cols-3 gap-10 mt-16">
+      <div class="max-w-4xl lg:mx-auto grid lg:grid-cols-3 gap-10 mt-16 mx-3">
         <div class="h-40 rounded-lg shadow-xl bg-blue-600 flex justify-center items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
