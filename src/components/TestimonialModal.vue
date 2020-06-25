@@ -4,7 +4,10 @@
       class="fixed inset-0 w-full lg:px-0 px-3 z-20 bg-black bg-opacity-75 overflow-y-auto flex justify-center pt-8"
     >
       <div class="lg:max-w-3xl w-full">
-        <div class="bg-white w-full py-6 lg:px-20 rounded-lg relative h-auto">
+        <form
+          @submit.prevent="post"
+          class="bg-white w-full py-6 lg:px-20 rounded-lg relative h-auto"
+        >
           <div class="flex w-full items-center justify-center flex-col">
             <h1
               class="uppercase text-2xl font-black tracking-wide text-blue-700 text-center leading-5 lg:mt-0 mt-2"
@@ -57,13 +60,15 @@
               class="bg-gray-200 mt-8 text-xs pl-6 rounded-full focus:outline-none font-light focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Full Name"
+              v-model="details.full_name"
             />
           </div>
           <div class="max-w-xl mx-auto lg:px-0 px-6">
             <input
               class="bg-gray-200 mt-4 pl-6 text-xs rounded-full focus:outline-none font-light focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
-              type="email"
+              type="string"
               placeholder="State"
+              v-model="details.state"
             />
           </div>
           <div class="max-w-xl mx-auto lg:px-0 px-6">
@@ -71,6 +76,7 @@
               class="bg-gray-200 mt-4 pl-6 text-xs rounded-full focus:outline-none font-light focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Country"
+              v-model="details.country"
             />
           </div>
           <div class="max-w-xl mx-auto lg:px-0 px-6">
@@ -79,6 +85,8 @@
               class="bg-gray-200 mt-4 pl62 text-xs rounded-lg focus:outline-none font-light focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Your Testimonial"
+              v-model="details.testimony"
+              required
             />
           </div>
           <div
@@ -92,7 +100,7 @@
               class="text-sm rounded-full bg-blue-500 text-white font-light hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-white hover:border-transparent rounded"
             >Submit</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </main>
@@ -100,9 +108,26 @@
 
 <script>
 export default {
+  data() {
+    return {
+      details: {
+        full_name: "",
+        state: "",
+        country: "",
+        testimony: ""
+      }
+    };
+  },
   methods: {
     close() {
       this.$emit("close");
+    },
+    async post() {
+      let res = this.$store.dispatch("postTestimony", this.details);
+      if (res.status == 201) {
+        await this.dispatch("getTestimonies");
+        this.close();
+      }
     }
   }
 };

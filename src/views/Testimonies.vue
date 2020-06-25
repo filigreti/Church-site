@@ -38,15 +38,15 @@
                 <div v-if="testimony.full_name !== null">
                   <h1
                     class="text-blue-800 font-light leading-none lg:text-2xl tracking-wide"
-                  >Melody Sandra</h1>
+                  >{{testimony.full_name}}</h1>
                   <p
                     class="text-gray-600 text-xs items-start leading-5 font-normal"
-                  >Olamaboro, Kogi State</p>
+                  >{{testimony.state}}, {{testimony.country}}</p>
                 </div>
                 <div v-else>
                   <h1
                     class="text-blue-800 font-light leading-none lg:text-2xl tracking-wide"
-                  >Ananymous</h1>
+                  >Anonymous</h1>
                 </div>
               </div>
               <div>

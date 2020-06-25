@@ -16,6 +16,7 @@
       />
       <div class="flex justify-center lg:flex-row flex-col items-center w-full mt-40 lg:mx-0 px-3">
         <div
+          @click="local"
           class="shadow-xl bg-white lg:w-56 w-full px-3 lg:mb-0 mb-3 text-center rounded py-4 flex flex-col justify-center items-center"
         >
           <h1 class="text-sm font-black text-gray-900">Local Donations</h1>
@@ -43,6 +44,7 @@
         </div>
 
         <div
+          @click="international"
           class="shadow-xl bg-white lg:w-56 w-full px-3 text-center py-4 rounded lg:ml-12 flex flex-col justify-center items-center"
         >
           <h1 class="text-sm font-black text-gray-900">International Donations</h1>
@@ -157,6 +159,19 @@ export default {
     Hero,
     Slide,
     DonationsModal
+  },
+  methods: {
+    local() {
+      window.open("https://paystack.com/pay/godscaremissionsinc", "_blank");
+      this.close();
+    },
+    international() {
+      window.open(
+        "https://paystack.com/pay/dollargodscaremissionsinc",
+        "_blank"
+      );
+      this.close();
+    }
   }
 };
 </script>

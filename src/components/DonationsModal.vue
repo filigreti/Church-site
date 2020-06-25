@@ -51,6 +51,7 @@
             class="flex justify-center lg:flex-row flex-col items-center w-full lg:mt-10 lg:mx-0 px-3"
           >
             <div
+              @click="local"
               class="shadow-xl bg-white lg:w-56 w-full px-3 lg:mb-0 mb-3 text-center rounded py-4 flex flex-col justify-center items-center"
             >
               <h1 class="text-sm font-black text-gray-900">Local Donations</h1>
@@ -78,32 +79,11 @@
             </div>
 
             <div
+              @click="international"
               class="shadow-xl bg-white lg:w-56 w-full px-3 text-center py-4 rounded lg:ml-12 flex flex-col justify-center items-center"
             >
-              <h1 class="text-sm font-black text-gray-900">Amount</h1>
-              <div>
-                <input
-                  v-model="amount"
-                  class="bg-gray-200 mt-3 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
-                  type="string"
-                  placeholder="Enter Amount"
-                />
-              </div>
-
-              <paystack
-                :amount="+amount * 100"
-                :email="email"
-                :paystackkey="paystackkey"
-                :reference="reference"
-                :callback="callback"
-                :close="close"
-                :embed="false"
-              >
-                <button
-                  class="font-normal mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
-                >Donate</button>
-              </paystack>
-              <!-- <div class="my-5">
+              <h1 class="text-sm font-black text-gray-900">International Donations</h1>
+              <div class="my-5">
                 <svg
                   class="w-10 h-10"
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,9 +101,9 @@
                     />
                   </g>
                 </svg>
-              </div>-->
-              <!-- <h1 class="text-xl font-black text-blue-600">Donate Now</h1>
-              <p class="text-sm text-black font-light tracking-wide">Pay In Dollars</p>-->
+              </div>
+              <h1 class="text-xl font-black text-blue-600">Donate Now</h1>
+              <p class="text-sm text-black font-light tracking-wide">Pay In Dollars</p>
             </div>
           </div>
           <!-- <div class="flex justify-center items-center w-full mt-12 mb-8">
@@ -188,40 +168,22 @@
 </template>
 
 <script>
-import paystack from "vue-paystack";
 export default {
-  data() {
-    return {
-      paystackkey: "pk_test_b716c04aec117c88a2244edf48f5cdb9b01ae408",
-      email: "evangelistsundayoguche@gmail.com",
-      amount: 0
-    };
-  },
-
-  computed: {
-    reference() {
-      let text = "";
-      let possible =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-      for (let i = 0; i < 10; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-      return text;
-    }
-  },
   methods: {
-    callback: function(response) {
-      console.log(response);
-    },
-
     close() {
-      this.amount = 0;
       this.$emit("close");
+    },
+    local() {
+      this.close();
+      window.open("https://paystack.com/pay/godscaremissionsinc", "_blank");
+    },
+    international() {
+      window.open(
+        "https://paystack.com/pay/dollargodscaremissionsinc",
+        "_blank"
+      );
+      this.close();
     }
-  },
-  components: {
-    paystack
   }
 };
 </script>

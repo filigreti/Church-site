@@ -20,6 +20,7 @@ export default new Vuex.Store({
       previous: '',
       results:''
     },
+    youtube:'',
     workShop:[],
     isAuthenticated: false,
     loading:false,
@@ -82,8 +83,13 @@ export default new Vuex.Store({
       state.assets.previous = data.previous
       state.assets.results = [...state.assets.results, ...data.results]
     },
+
     setLoading(state,payload) {
       state.loading = payload
+    },
+
+    setYoutubelink(state, payload) {
+      state.youtube = payload
     },
 
     setToken(state,payload) {
@@ -93,6 +99,11 @@ export default new Vuex.Store({
   },
 
   actions: {
+    async youtubelife({ commit }) {
+      let res = await Api.get('/live/youtube/')
+      commit('setYoutubelink', res.link)
+      return res
+    },
     async onlineStores({ commit,state }, payload) {
       commit('setLoading', true)
 
@@ -108,7 +119,7 @@ export default new Vuex.Store({
 
     async postTestimony({}, payload) {
 
-      let res = await Api.get(`/testimony/`, payload)
+      let res = await Api.post(`/testimony/`, payload)
 
       console.log(res);
 

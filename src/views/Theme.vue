@@ -10,18 +10,18 @@
       <div>
         <img
           style="filter:brightness(90%)"
-          src="https://godscaremissionsinc.org/wp-content/uploads/2020/02/BONGOR-002.jpg"
-          class="h-56 lg:w-56 w-full lg:mb-0 mb-3 object-cover object-top rounded"
+          src="@/assets/youth.jpeg"
+          class="h-56 lg:w-64 w-full lg:mb-0 mb-3 object-cover object-top rounded"
           alt
         />
       </div>
       <div class="lg:ml-10 h-full flex-1">
         <h1 class="uppercase text-2xl font-light tracking-wider">Youth Blaze 2020</h1>
         <h1 class="uppercase text-2xl font-light tracking-wider leading-6">Theme: Blazed to Blaze</h1>
-        <div class="flex mt-4 w-full lg:flex-row flex-col">
-          <div class="flex items-center">
+        <div class="flex mt-4 w-full lg:flex flex-col">
+          <div class="flex items-center mb-4">
             <svg
-              class="lg:h-10 lg:w-10 h-8 w-8"
+              class="lg:h-8 lg:w-8 h-8 w-8"
               xmlns="http://www.w3.org/2000/svg"
               id="Capa_1"
               enable-background="new 0 0 443.294 443.294"
@@ -47,14 +47,14 @@
               </g>
             </svg>
             <div class="ml-2 lg:block flex">
-              <p class="text-sm font-light">Arrival time,</p>
-              <p class="font-light text-sm">Thursday, 3.00 PM</p>
+              <p class="text-sm font-light">Arrival time,Thursday, 3.00 PM</p>
+              <!-- <p class="font-light text-sm">/p> -->
             </div>
           </div>
-          <div class="flex items-center lg:ml-16 lg:mt-0 mt-3">
+          <div class="flex items-center lg:mt-0 mt-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="lg:h-10 lg:w-10 h-8 w-8"
+              class="h-8 w-8"
               id="Capa_1"
               enable-background="new 0 0 512 512"
               height="512px"
@@ -88,15 +88,15 @@
               </g>
             </svg>
             <div class="ml-2 lg:flex lg:flex-col flex-row leading-4 lg:leading-5">
-              <span class="text-sm font-light">Gods Care Mission Tenth</span>
-              <span class="font-light text-sm">Okpo, Kogi State</span>
+              <span class="text-sm font-light">Gods Care Mission Tenth, Okpo, Kogi State</span>
+              <span class="font-light text-sm"></span>
             </div>
           </div>
         </div>
         <div>
-          <p
+          <!-- <p
             class="text-sm text-gray-700 mt-4 leading-5 font-light"
-          >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio nam distinctio optio impedit laudantium voluptas enim eligendi, perferendis molestias, reprehenderit iusto vel animi tenetur aperiam aut quaerat! Beatae, deleniti aperiam.</p>
+          >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio nam distinctio optio impedit laudantium voluptas enim eligendi, perferendis molestias, reprehenderit iusto vel animi tenetur aperiam aut quaerat! Beatae, deleniti aperiam.</p>-->
         </div>
       </div>
     </div>

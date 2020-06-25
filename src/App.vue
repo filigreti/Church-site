@@ -22,6 +22,7 @@ export default {
   async created() {
     await this.$store.dispatch("getTestimonies");
     await this.$store.dispatch("getWorkshop");
+    await this.$store.dispatch("youtubelife");
   }
 };
 </script>

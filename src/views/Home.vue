@@ -15,7 +15,10 @@
       >We Care, Because God Cares</h1>
       <p
         class="lg:max-w-lg mt-4 leading-6 font-light tracking-tight text-gray-600 text-sm mx-auto px-10 lg:px-0"
-      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti at animi ex aut rerum soluta deserunt voluptate eum</p>
+      >
+        “As a father loves and pities his children, so the Lord loves and pities those who fear Him [with reverence, worship, and awe].”
+        ‭‭Psalm‬ ‭103:13‬ ‭AMPC
+      </p>
     </div>
     <div>
       <div

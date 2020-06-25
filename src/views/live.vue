@@ -16,7 +16,10 @@
         class="text-2xl font-bold leading-6 tracking-wider text-center pt-3 capitalize"
       >choose a stream channel</h1>
       <div class="max-w-4xl lg:mx-auto grid lg:grid-cols-3 gap-10 mt-16 mx-3">
-        <div class="h-40 rounded-lg shadow-xl bg-blue-600 flex justify-center items-center">
+        <div
+          @click="send"
+          class="h-40 rounded-lg shadow-xl bg-blue-600 flex justify-center items-center"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="w-12 h-12"
@@ -248,6 +251,11 @@ export default {
     Carousel,
     Hero,
     Slide
+  },
+  methods: {
+    send() {
+      window.open(this.$store.state.youtube, "_blank");
+    }
   }
 };
 </script>
