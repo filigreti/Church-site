@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main v-if="getBooks.results.length">
     <div class="flex items-center lg:px-0 px-3">
       <div class="flex items-center">
         <p class="text-sm font-medium">Filter</p>
@@ -62,9 +62,9 @@
         />
       </div>
     </div>
-    <div class="grid lg:grid-cols-5 grid-cols-2 lg:px-0 px-3  col-gap-8 row-gap-24 mt-10">
+    <div class="grid lg:grid-cols-5 grid-cols-2 lg:px-0 px-3 col-gap-8 row-gap-24 mt-10">
       <div
-        v-for=" i in 15"
+        v-for=" (books,i) in getBooks.results"
         @click="viewBook(i)"
         :key="i"
         class="bg-white shadow-lg h-32 flex items-center rounded-md flex-col cursor-pointer"
@@ -182,15 +182,26 @@
       >Load More</button>
     </div>
   </main>
+  <div class="flex justify-center items-center py-32" v-else>
+    <div class="text-gray-700">No Book Files for now, work in progress</div>
+  </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   methods: {
     viewBook() {
       this.$router.push({
         name: "ViewBook"
       });
+    }
+  },
+  computed: {
+    ...mapGetters(["getAssets"]),
+    getBooks() {
+      return this.getAssets;
     }
   }
 };

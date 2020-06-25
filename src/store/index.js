@@ -8,15 +8,42 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     userDetails: {},
-    testimonies:[],
-    isAuthenticated: false
+    testimonies: {
+      count: '',
+      next: '',
+      previous: '',
+      results:''
+    },
+    assets: {
+      count: '',
+      next: '',
+      previous: '',
+      results:''
+    },
+    workShop:[],
+    isAuthenticated: false,
+    loading:false,
+    currentPage:1
   },
   getters: {
     getUserDetails(state) {
       return state.userDetails
     },
+
     checkAuth(state) {
       return state.isAuthenticated
+    },
+
+    getAllTestimonies(state) {
+      return state.testimonies
+    },
+
+    getAssets(state) {
+      return state.assets
+    },
+
+    getAllWorkshops(state) {
+      return state.workShop
     }
   },
   mutations: {
@@ -24,18 +51,92 @@ export default new Vuex.Store({
       state.isAuthenticated = payload
     },
 
+    restorePage(state) {
+      state.currentPage = 1
+    },
+
+    setcurrentPage(state) {
+      state.currentPage += 1
+    },
+
     setUserDetails(state, payload) {
       state.userDetails = payload
     },
 
+    setWorkShop(state,payload) {
+      state.workShop = payload
+    },
+
+    setTestimonials(state, payload) {
+      let data = { ...state.testimonies, ...payload };
+      state.testimonies.count = data.count;
+      state.testimonies.next = data.next;
+      state.testimonies.previous = data.previous
+      state.testimonies.results = [...state.testimonies.results, ...data.results]
+    },
+
+    setAssets(state, payload) {
+      let data = { ...state.assets, ...payload };
+      state.assets.count = data.count;
+      state.assets.next = data.next;
+      state.assets.previous = data.previous
+      state.assets.results = [...state.assets.results, ...data.results]
+    },
+    setLoading(state,payload) {
+      state.loading = payload
+    },
+
     setToken(state,payload) {
-      console.log('wetin dey here',payload);
        localStorage.setItem('access_token', payload.access);
        localStorage.setItem('refresh_token', payload.refresh);
     }
   },
 
   actions: {
+    async onlineStores({ commit,state }, payload) {
+      commit('setLoading', true)
+
+      let res = await Api.get(`/online-store/${payload}/?page=${state.currentPage}`)
+      
+      commit('setLoading', false)
+
+      commit('setTestimonials', res)
+
+      return res
+
+    },
+
+    async postTestimony({}, payload) {
+
+      let res = await Api.get(`/testimony/`, payload)
+
+      console.log(res);
+
+      return res
+      
+    },
+
+    async getTestimonies({ commit, state }) {
+
+      commit('setLoading', true)
+      
+      let res = await Api.get(`/testimony/?page=${state.currentPage}`)
+
+      commit('setTestimonials', res)
+
+      commit('setLoading', false)
+      
+      return res
+    },
+
+    async getWorkshop({ commit }) {
+      
+      let res = await Api.get('/event/workshop/')
+      let merged = [].concat.apply([], res);
+      commit('setWorkShop', merged)
+      return res
+    },
+
     async registerUser({ commit }, payload) {
 
       let res = await Api.post('/user/register/', payload)
@@ -58,6 +159,7 @@ export default new Vuex.Store({
     },
 
     async loginUser({ commit }, payload) {
+      
       let res = await Api.post('/user/login/', payload)
 
       if (res.status == 200) {
@@ -75,10 +177,20 @@ export default new Vuex.Store({
         commit('setAuthentication', false)
       }
       return res
+    },
+
+    async subscribeNewsletter({ }, payload) {
+      let res = await Api.post('/contact-us/subscribe-newsletter/', payload)
+      return res
     }
   },
 
   plugins: [
-    createPersistedState(),
+    createPersistedState({
+      paths:[
+      'userDetails',
+      'isAuthenticated'
+    ]
+    }),
   ],
 });

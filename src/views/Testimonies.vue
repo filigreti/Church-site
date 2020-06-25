@@ -12,10 +12,11 @@
         :subText="`God has always been faithful to his children, take your time to read Through our faith strengthing testimonies and the wonderful miracles that God is doing. Do you have a testimony, use the submit button and submit to us your testimony`"
         :bgImage="'https://images.pexels.com/photos/2351721/pexels-photo-2351721.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
       />
+
       <div
-        v-for=" i in 4"
+        v-for="(testimony,i) in allTestimonies.results"
         :key="i"
-        :class="i == 1 ? 'lg:mt-40 mt-24' : 'lg:mt-6 '"
+        :class="i == 0 ? 'lg:mt-40 mt-24' : 'lg:mt-6 '"
         class="lg:max-w-4xl lg:mx-auto mx-3 py-4"
       >
         <div :class="(i % 2 == 0) ? 'lg:flex flex-row lg:flex-row-reverse ' : 'lg:flex'">
@@ -34,26 +35,35 @@
               <div
                 :class="(i % 2 == 0) ? ' flex flex-row justify-between lg:items-end lg:flex-col':'flex lg:block justify-between'"
               >
-                <h1
-                  class="text-blue-800 font-light leading-none lg:text-2xl tracking-wide"
-                >Melody Sandra</h1>
-                <p
-                  class="text-gray-600 text-xs items-start leading-5 font-normal"
-                >Olamaboro, Kogi State</p>
+                <div v-if="testimony.full_name !== null">
+                  <h1
+                    class="text-blue-800 font-light leading-none lg:text-2xl tracking-wide"
+                  >Melody Sandra</h1>
+                  <p
+                    class="text-gray-600 text-xs items-start leading-5 font-normal"
+                  >Olamaboro, Kogi State</p>
+                </div>
+                <div v-else>
+                  <h1
+                    class="text-blue-800 font-light leading-none lg:text-2xl tracking-wide"
+                  >Ananymous</h1>
+                </div>
               </div>
               <div>
-                <p class="text-gray-500 text-xs">January 20th, 2020</p>
+                <p v-if="testimony.date" class="text-gray-500 text-xs">January 20th, 2020</p>
               </div>
             </div>
             <div
               :class="(i % 2 == 0) ? ' lg:text-right':''"
               class="text-xs text-gray-600 w-full mt-3 leading-6 font-light"
-            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi fugit exercitationem rerum dolor vero tenetur voluptas eum. Minima, accusantium quibusdam architecto recusandae voluptate quod impedit expedita possimus rem est, nemo ipsam? Vel, tempora! Excepturi molestiae id debitis quod accusamus sit.</div>
+            >{{testimony.testimony}}</div>
           </div>
         </div>
       </div>
       <div class="flex items-center justify-center mt-10 mb-20">
         <button
+          v-if="allTestimonies.next !== null"
+          @click="loadMore"
           class="text-sm rounded-full bg-transparent hover:bg-blue-500 text-blue-500 font-light hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
         >Load More</button>
       </div>
@@ -65,19 +75,12 @@
 
 <script>
 import TestimonialModal from "@/components/TestimonialModal";
-import { Carousel, Slide } from "vue-carousel";
+import { mapGetters } from "vuex";
 import Hero from "@/components/Hero";
 export default {
   data() {
     return {
-      modal: false,
-      images: [
-        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/BONGOR-002.jpg",
-        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/PST-DJIMAS-1.jpg",
-        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/MAROUA-003.jpg",
-        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/NGOUNDERE.jpg",
-        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/GAROUA-FLYER-2020-768x1038.png"
-      ]
+      modal: false
     };
   },
   watch: {
@@ -90,17 +93,19 @@ export default {
     }
   },
   computed: {
-    width() {
-      return window.innerWidth > 650 ? true : false;
-    },
-    page() {
-      return window.innerWidth > 650 ? 3 : 1;
+    ...mapGetters(["getAllTestimonies"]),
+    allTestimonies() {
+      return this.getAllTestimonies;
+    }
+  },
+  methods: {
+    async loadMore(x) {
+      this.$store.commit("setcurrentPage");
+      await this.$store.dispatch("getTestimonies");
     }
   },
   components: {
-    Carousel,
     Hero,
-    Slide,
     TestimonialModal
   }
 };

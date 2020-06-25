@@ -74,7 +74,7 @@
           <div class="lg:max-w-xs">
             <img
               class="w-full object-cover h-full"
-              src="https://images.unsplash.com/photo-1580152343511-80ef2e53f1c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1614&q=80"
+              src="https://images.unsplash.com/photo-1497375638960-ca368c7231e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1450&q=80"
               alt
             />
           </div>
@@ -87,12 +87,13 @@
               </h2>
             </div>
             <div class="grid lg:grid-cols-2 gap-5 mt-5">
+              <div class="text-xs text-gray-500 leading-6 font-light">
+                The ministry of the word has also provoked revivals in churches and communities, restoration to paths of righteousness and drawn many closer to God.
+                He has a ceaseless passion for lost souls. His joyous moments is when he sees souls saved, the sick healed and the oppressed delivered. His motto is “Reach the lost souls, wherever they may be found”. He runs conferences for Youths and evangelistic campus crusade. These crusades have brought massive harvest of souls from the campuses around Africa to the glory of God.The evangelist has also written more than 25 books that are blessing lives all around the world.
+              </div>
               <div
                 class="text-xs text-gray-500 leading-6 font-light"
-              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quaerat accusantium quod autem vitae est? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsa labore quaerat sit fugit, a culpa alias? Voluptate, sequi aliquid accusamus, dicta iste expedita voluptas rerum ullam cupiditate vel, debitis asperiores ipsam! Ipsum dignissimos porro necessitatibus quisquam id, consequuntur ea! Accusantium ducimus atque corrupti nesciunt animi sunt alias ad dignissimos.</div>
-              <div
-                class="text-xs text-gray-500 leading-6 font-light"
-              >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim dolor dolores omnis perspiciatis laboriosam cumque magni temporibus aliquam adipisci iste excepturi ullam molestiae nisi sit illum maiores, libero illo vitae voluptatibus quis ipsam perferendis esse dolorem aliquid. Error similique quod officia, distinctio placeat deleniti voluptates eius nihil quam ut odit.</div>
+              >He has strong passion to demonstrate God’s love to the widows, orphans and the Fatherless. His ministry has brought tremendous hope to the hopeless. He feeds and cloths them in their thousands in different parts of Africa and offers educational scholarship to them.</div>
             </div>
           </div>
         </div>

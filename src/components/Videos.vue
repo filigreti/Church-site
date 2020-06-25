@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main v-if="getVideos.results.length">
     <div class="flex items-center lg:px-0 px-3">
       <div class="flex items-center">
         <p class="text-sm font-medium">Filter</p>
@@ -64,7 +64,7 @@
     </div>
     <div class="grid lg:grid-cols-5 grid-cols-2 lg:px-0 px-3 gap-8 mt-10">
       <div
-        v-for=" i in 15"
+        v-for=" (video,i) in getVideos.results"
         :key="i"
         class="bg-black shadow-lg relative h-32 flex items-center rounded-md justify-center flex-col cursor-pointer z-10"
       >
@@ -131,11 +131,24 @@
       >Load More</button>
     </div>
   </main>
+  <div class="flex justify-center items-center py-32" v-else>
+    <div class="text-gray-700">No Video Files for now, work in progress</div>
+  </div>
 </template>
 
+
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["getAssets"]),
+    getVideos() {
+      return this.getAssets;
+    }
+  }
+};
 </script>
+
 
 <style>
 </style>

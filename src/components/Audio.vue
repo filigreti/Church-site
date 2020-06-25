@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main v-if="getAudios.results.length">
     <div class="flex items-center lg:px-0 px-3">
       <div class="flex items-center">
         <p class="text-sm font-medium">Filter</p>
@@ -62,67 +62,81 @@
         />
       </div>
     </div>
-    <div class="grid lg:grid-cols-5 grid-cols-2 lg:px-0 px-3 gap-8 mt-10">
-      <div
-        v-for=" i in 15"
-        :key="i"
-        class="bg-white shadow-lg h-32 flex items-center rounded-md justify-center flex-col cursor-pointer"
-      >
-        <p class="text-xs text-gray-700 font-medium tracking-wide">Divine Agenda</p>
-        <p
-          style="font-size:.59rem"
-          class="text-gray-500 font-normal tracking-tighter"
-        >Evg. Sunday Oguche</p>
-        <div>
-          <svg
-            class="w-8 h-8 my-3"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            version="1.1"
-            id="Capa_1"
-            x="0px"
-            y="0px"
-            viewBox="0 0 477.867 477.867"
-            style="enable-background:new 0 0 477.867 477.867;"
-            xml:space="preserve"
-          >
-            <g>
+    <div>
+      <div class="grid lg:grid-cols-5 grid-cols-2 lg:px-0 px-3 gap-8 mt-10">
+        <div
+          v-for=" (audio,i) in getAudios.results"
+          :key="i"
+          class="bg-white shadow-lg h-32 flex items-center rounded-md justify-center flex-col cursor-pointer"
+        >
+          <p class="text-xs text-gray-700 font-medium tracking-wide">Divine Agenda</p>
+          <p
+            style="font-size:.59rem"
+            class="text-gray-500 font-normal tracking-tighter"
+          >Evg. Sunday Oguche</p>
+          <div>
+            <svg
+              class="w-8 h-8 my-3"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1"
+              id="Capa_1"
+              x="0px"
+              y="0px"
+              viewBox="0 0 477.867 477.867"
+              style="enable-background:new 0 0 477.867 477.867;"
+              xml:space="preserve"
+            >
               <g>
-                <path
-                  d="M472.184,4.347c-3.631-3.209-8.441-4.75-13.261-4.25l-307.2,34.133c-8.647,0.957-15.19,8.265-15.189,16.964V355.34    c-15.468-9.256-33.174-14.102-51.2-14.012C38.281,341.329,0,371.946,0,409.595s38.281,68.267,85.333,68.267    s85.333-30.601,85.333-68.267V151.889l273.067-30.413v199.68c-15.473-9.238-33.179-14.066-51.2-13.961    c-47.053,0-85.333,30.618-85.333,68.267c0,37.649,38.281,68.267,85.333,68.267s85.333-30.601,85.333-68.267v-358.4    C477.866,12.208,475.8,7.584,472.184,4.347z"
-                />
+                <g>
+                  <path
+                    d="M472.184,4.347c-3.631-3.209-8.441-4.75-13.261-4.25l-307.2,34.133c-8.647,0.957-15.19,8.265-15.189,16.964V355.34    c-15.468-9.256-33.174-14.102-51.2-14.012C38.281,341.329,0,371.946,0,409.595s38.281,68.267,85.333,68.267    s85.333-30.601,85.333-68.267V151.889l273.067-30.413v199.68c-15.473-9.238-33.179-14.066-51.2-13.961    c-47.053,0-85.333,30.618-85.333,68.267c0,37.649,38.281,68.267,85.333,68.267s85.333-30.601,85.333-68.267v-358.4    C477.866,12.208,475.8,7.584,472.184,4.347z"
+                  />
+                </g>
               </g>
-            </g>
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-            <g />
-          </svg>
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+              <g />
+            </svg>
+          </div>
+          <p style="font-size:.59rem" class="text-blue-600 font-normal tracking-tight">Download</p>
         </div>
-        <p style="font-size:.59rem" class="text-blue-600 font-normal tracking-tight">Download</p>
+      </div>
+      <div class="flex items-center justify-center mt-10 mb-20">
+        <button
+          v-if="getAudios.results.length"
+          class="text-sm rounded-full bg-transparent hover:bg-blue-500 text-blue-500 font-light hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
+        >Load More</button>
       </div>
     </div>
-    <div class="flex items-center justify-center mt-10 mb-20">
-      <button
-        class="text-sm rounded-full bg-transparent hover:bg-blue-500 text-blue-500 font-light hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
-      >Load More</button>
-    </div>
   </main>
+  <div class="flex justify-center items-center py-32" v-else>
+    <div class="text-gray-700">No Audio Files for now, work in progress</div>
+  </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["getAssets"]),
+    getAudios() {
+      return this.getAssets;
+    }
+  }
+};
 </script>
 
 <style>

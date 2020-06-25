@@ -29,7 +29,7 @@
           </div>
           <p
             class="mt-4 leading-6 tracking-normal font-light text-gray-600 text-xs"
-          >At God's Insurance and clear direction, 25 years ago i came into Okpo with my late wife. Evang. Esther Omojo Oguche and son, Joshua! To the glory of God, today i have five biological children and other adopted children living with me, and a great number of spiritual children world over unto God's glory, and also a lovely wife, co-partner,heler,encourager,adviser and supporter. Pastor (Mrs) Rose Ojone Oguche</p>
+          >At God's instruction and clear direction, 25 years ago i came into Okpo with my late wife. Evang. Esther Omojo Oguche and son, Joshua! To the glory of God, today i have five biological children and other adopted children living with me, and a great number of spiritual children world over unto God's glory, and also a lovely wife, co-partner,heler,encourager,adviser and supporter. Pastor (Mrs) Rose Ojone Oguche</p>
         </div>
         <div
           class="shadow-xl rounded-lg py-4 flex-grow lg:h-auto px-8 bg-white lg:mx-0 mx-4 lg:max-w-xs h-full"
@@ -50,10 +50,12 @@
     </div>
     <div class="bg-blue-100 bg-opacity-25 py-4">
       <div class="mt-16 text-center">
-        <h1 class="text-xl font-normal leading-5 tracking-wider text-blue-500 text-center">Events</h1>
-        <p
+        <h1
+          class="text-xl font-normal leading-5 tracking-wider text-blue-500 text-center"
+        >Previous Events</h1>
+        <!-- <p
           class="lg:max-w-lg mt-4 leading-6 tracking-tight text-gray-600 text-sm mx-auto lg:px-0 px-10 font-light"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti at animi ex aut rerum soluta deserunt voluptate eum</p>
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti at animi ex aut rerum soluta deserunt voluptate eum</p>-->
       </div>
       <div class="lg:max-w-4xl mx-auto mt-12">
         <carousel
@@ -106,7 +108,7 @@
     </div>
     <div class="bg-blue-100 bg-opacity-25 py-16">
       <div class="lg:max-w-4xl lg:mx-auto bg-white rounded-lg shadow-xl lg:mx-0 mx-4">
-        <div class="py-8">
+        <form @submit.prevent="newsletterSubscription" class="py-8">
           <h1
             class="lg:text-xl text-sm font-normal leading-6 tracking-wider text-blue-500 text-center"
           >Subscribe to Our Newsletter</h1>
@@ -116,9 +118,20 @@
           </p>
           <div class="max-w-xl mx-auto lg:px-0 px-6">
             <input
+              v-if="showSuccess"
+              class="bg-gray-200 mt-6 text-xs rounded-full focus:outline-none focus:shadow-outline border border-blue-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6 placeholder-blue-500"
+              type="email"
+              placeholder="Subscribed to news letter successfully"
+              disabled
+              required
+            />
+            <input
+              v-else
               class="bg-gray-200 mt-6 text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="email"
               placeholder="Your Email"
+              v-model="email"
+              required
             />
           </div>
 
@@ -127,7 +140,7 @@
               class="font-normal mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
             >Subscribe</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </main>
@@ -145,7 +158,9 @@ export default {
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/MAROUA-003.jpg",
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/NGOUNDERE.jpg",
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/GAROUA-FLYER-2020-768x1038.png"
-      ]
+      ],
+      email: "",
+      showSuccess: false
     };
   },
   computed: {
@@ -154,6 +169,21 @@ export default {
     },
     page() {
       return window.innerWidth > 650 ? 3 : 1;
+    }
+  },
+  methods: {
+    async newsletterSubscription() {
+      let res = await this.$store.dispatch("subscribeNewsletter", {
+        email: this.email
+      });
+
+      if (res.status == 200) {
+        this.email = "";
+        this.showSuccess = true;
+        setTimeout(() => {
+          this.showSuccess = false;
+        }, 5000);
+      }
     }
   },
   components: {

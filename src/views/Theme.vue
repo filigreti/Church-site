@@ -103,30 +103,139 @@
     <div class="bg-blue-100 bg-opacity-25 py-16">
       <div class="lg:max-w-4xl lg:mx-auto bg-white rounded-lg shadow-xl mx-3 lg:px-0 px-8">
         <div class="py-8">
-          <h1 class="text-xl font-light leading-6 tracking-wider text-blue-500 text-center">Register</h1>
+          <h1
+            class="text-xl font-light leading-6 tracking-wider font-normal text-blue-500 text-center"
+          >Register to Attend</h1>
           <p
-            class="mt-2 text-gray-600 text-xs text-center font-light"
+            class="mt-3 text-gray-600 text-xs text-center font-light"
           >Fill in your Detail so we can welcome you properly</p>
-          <div class="max-w-xl mx-auto">
+          <div class="max-w-xl mt-5 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2">
             <input
-              class="bg-gray-200 mt-6 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
-              placeholder="Full name"
+              placeholder="First name"
+            />
+            <input
+              class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              type="string"
+              placeholder="Last name"
             />
           </div>
           <div class="max-w-xl mx-auto">
             <input
-              class="bg-gray-200 mt-2 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              class="bg-gray-200 mt-3 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              type="email"
+              placeholder="Email Address"
+            />
+          </div>
+          <div class="max-w-xl mx-auto">
+            <input
+              class="bg-gray-200 mt-3 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Mobile Number"
             />
           </div>
+
+          <div class="max-w-xl mt-3 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2">
+            <input
+              class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              type="string"
+              placeholder="Country"
+            />
+            <input
+              class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              type="string"
+              placeholder="State"
+            />
+          </div>
           <div class="max-w-xl mx-auto">
             <input
-              class="bg-gray-200 mt-2 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
-              type="email"
-              placeholder="Email Address"
+              class="bg-gray-200 mt-3 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              type="string"
+              placeholder="Church Name"
             />
+          </div>
+          <div
+            class="max-w-xl mt-3 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2 lg:items-center"
+          >
+            <div
+              class="text-xs font-light text-gray-800 lg:mr-24"
+            >Is this your first time attending youth blaze ?</div>
+            <div class="relative flex items-center">
+              <select
+                class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+                type="string"
+              >
+                <option value>Yes</option>
+                <option value selected>No</option>
+              </select>
+              <svg
+                class="absolute w-4 h-4 right-0 mr-5 text-gray-500 pointer-events-none"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="max-w-xl mt-3 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2 lg:items-center"
+          >
+            <div
+              class="text-xs font-light text-gray-800 lg:mr-24"
+            >How many times have you attended youth blaze ?</div>
+            <div class="relative flex items-center">
+              <select
+                class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+                type="string"
+              >
+                <option value selected>None</option>
+                <option value>Less than 5</option>
+                <option value>More than 10</option>
+              </select>
+              <svg
+                class="absolute w-4 h-4 right-0 mr-5 text-gray-500 pointer-events-none"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="max-w-xl mt-3 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2 lg:items-center"
+          >
+            <div
+              class="text-xs font-light text-gray-800 lg:mr-24"
+            >Choose a workshop class you like to join ?</div>
+            <div class="relative flex items-center">
+              <select
+                class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+                type="string"
+              >
+                <option value selected>Select Workshop</option>
+                <option v-for="(workshop,i) in allWorkshops" :key="i">{{workshop}}</option>
+              </select>
+              <svg
+                class="absolute w-4 h-4 right-0 mr-5 text-gray-500 pointer-events-none"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
           </div>
 
           <div class="w-full flex items-center mt-4">
@@ -142,9 +251,18 @@
 
 <script>
 import Hero from "@/components/Hero";
+import { mapGetters } from "vuex";
 export default {
   components: {
     Hero
+  },
+
+  computed: {
+    ...mapGetters(["getAllWorkshops"]),
+    allWorkshops() {
+      console.log(this.getAllWorkshops, "lllol");
+      return this.getAllWorkshops;
+    }
   }
 };
 </script>

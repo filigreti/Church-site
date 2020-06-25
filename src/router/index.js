@@ -50,12 +50,12 @@ const routes = [
     path: "/media",
     component: () => import("../views/AllMedia.vue"),
     redirect: {
-      name: "Audio",
+      name: "Audios",
     },
     children: [
       {
         path: "audio",
-        name: "Audio",
+        name: "Audios",
         component: () => import("../components/Audio.vue"),
       },
       {

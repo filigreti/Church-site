@@ -13,6 +13,15 @@ export default {
   components: {
     HeaderTop,
     FooterBottom
+  },
+  watch: {
+    $route(x) {
+      this.$store.commit("restorePage");
+    }
+  },
+  async created() {
+    await this.$store.dispatch("getTestimonies");
+    await this.$store.dispatch("getWorkshop");
   }
 };
 </script>
