@@ -7,17 +7,19 @@
     <div
       class="lg:max-w-4xl lg:mx-auto bg-white shadow-xl p-10 rounded-lg flex lg:flex-row flex-col lg:mx-0 mx-3 lg:mt-0 mt-16"
     >
-      <div>
+      <div class="bg-gray-300">
         <img
           style="filter:brightness(90%)"
-          src="@/assets/youth.jpeg"
+          :src="getCurrentEvent.event_flyer"
           class="h-56 lg:w-64 w-full lg:mb-0 mb-3 object-cover object-top rounded"
           alt
         />
       </div>
       <div class="lg:ml-10 h-full flex-1">
-        <h1 class="uppercase text-2xl font-light tracking-wider">Youth Blaze 2020</h1>
-        <h1 class="uppercase text-2xl font-light tracking-wider leading-6">Theme: Blazed to Blaze</h1>
+        <h1 class="uppercase text-2xl font-light tracking-wider">{{getCurrentEvent.event_title}}</h1>
+        <h1
+          class="uppercase text-2xl font-light tracking-wider leading-6"
+        >Theme: {{getCurrentEvent.event_theme}}</h1>
         <div class="flex mt-4 w-full lg:flex flex-col">
           <div class="flex items-center mb-4">
             <svg
@@ -47,7 +49,10 @@
               </g>
             </svg>
             <div class="ml-2 lg:block flex">
-              <p class="text-sm font-light">Arrival time,Thursday, 3.00 PM</p>
+              <p
+                class="text-sm font-light"
+              >Arrival time, {{getCurrentEvent.event_start_date | convertWeekend}}, {{getCurrentEvent.event_time | convertHour}}</p>
+
               <!-- <p class="font-light text-sm">/p> -->
             </div>
           </div>
@@ -88,8 +93,36 @@
               </g>
             </svg>
             <div class="ml-2 lg:flex lg:flex-col flex-row leading-4 lg:leading-5">
-              <span class="text-sm font-light">Gods Care Mission Tenth, Okpo, Kogi State</span>
+              <span class="text-sm font-light">{{getCurrentEvent.address}}</span>
               <span class="font-light text-sm"></span>
+            </div>
+          </div>
+        </div>
+        <div class="flex">
+          <div
+            class="rounded-full w-16 h-16 mt-3 bg-white shadow-2xl flex items-center justify-center"
+          >
+            <div class="inline-flex flex-col items-center">
+              <h1
+                style="color:red"
+                class="text-2xl font-black leading-none tracking-wider"
+              >{{getCurrentEvent.event_start_date | convertDate}}</h1>
+              <h2
+                class="text-blue-500 font-normal tracking-wide leading-none"
+              >{{getCurrentEvent.event_start_date | convertMonth}}</h2>
+            </div>
+          </div>
+          <div
+            class="ml-5 rounded-full w-16 h-16 mt-3 bg-white shadow-2xl flex items-center justify-center"
+          >
+            <div class="inline-flex flex-col items-center">
+              <h1
+                style="color:red"
+                class="text-2xl font-black leading-none tracking-wider"
+              >{{getCurrentEvent.event_end_date | convertDate}}</h1>
+              <h2
+                class="text-blue-500 font-normal tracking-wide leading-none"
+              >{{getCurrentEvent.event_end_date | convertMonth}}</h2>
             </div>
           </div>
         </div>
@@ -102,7 +135,7 @@
     </div>
     <div class="bg-blue-100 bg-opacity-25 py-16">
       <div class="lg:max-w-4xl lg:mx-auto bg-white rounded-lg shadow-xl mx-3 lg:px-0 px-8">
-        <div class="py-8">
+        <form @submit.prevent="send" class="py-8">
           <h1
             class="text-xl font-light leading-6 tracking-wider font-normal text-blue-500 text-center"
           >Register to Attend</h1>
@@ -114,11 +147,15 @@
               class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="First name"
+              v-model="info.attendee_first_name"
+              required
             />
             <input
               class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Last name"
+              v-model="info.attendee_last_name"
+              required
             />
           </div>
           <div class="max-w-xl mx-auto">
@@ -126,6 +163,8 @@
               class="bg-gray-200 mt-3 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="email"
               placeholder="Email Address"
+              v-model="info.attendee_email_address"
+              required
             />
           </div>
           <div class="max-w-xl mx-auto">
@@ -133,6 +172,8 @@
               class="bg-gray-200 mt-3 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Mobile Number"
+              v-model="info.attendee_mobile_number"
+              required
             />
           </div>
 
@@ -141,11 +182,14 @@
               class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Country"
+              v-model="info.attendee_country"
+              required
             />
             <input
               class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="State"
+              v-model="info.attendee_state"
             />
           </div>
           <div class="max-w-xl mx-auto">
@@ -153,6 +197,7 @@
               class="bg-gray-200 mt-3 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Church Name"
+              v-model="info.attendee_church_name"
             />
           </div>
           <div
@@ -163,11 +208,12 @@
             >Is this your first time attending youth blaze ?</div>
             <div class="relative flex items-center">
               <select
+                v-model="info.attendee_first_time_attending"
                 class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
                 type="string"
               >
-                <option value>Yes</option>
-                <option value selected>No</option>
+                <option :value="Boolean(true)">Yes</option>
+                <option :value="Boolean(false)">No</option>
               </select>
               <svg
                 class="absolute w-4 h-4 right-0 mr-5 text-gray-500 pointer-events-none"
@@ -189,25 +235,12 @@
               class="text-xs font-light text-gray-800 lg:mr-24"
             >How many times have you attended youth blaze ?</div>
             <div class="relative flex items-center">
-              <select
-                class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+              <input
+                v-model="info.no_of_times_attended"
+                class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
                 type="string"
-              >
-                <option value selected>None</option>
-                <option value>Less than 5</option>
-                <option value>More than 10</option>
-              </select>
-              <svg
-                class="absolute w-4 h-4 right-0 mr-5 text-gray-500 pointer-events-none"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M19 9l-7 7-7-7" />
-              </svg>
+                placeholder="No of Times"
+              />
             </div>
           </div>
           <div
@@ -218,6 +251,7 @@
             >Choose a workshop class you like to join ?</div>
             <div class="relative flex items-center">
               <select
+                v-model="info.workshop_class"
                 class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
                 type="string"
               >
@@ -238,12 +272,28 @@
             </div>
           </div>
 
+          <div v-show="show">
+            <div class="bg-gray-900 max-w-xl mt-4 rounded mx-auto text-center">
+              <p class="py-3 text-white text-sm">Your registeration number is {{bibleStudy}}</p>
+            </div>
+            <div class="bg-gray-900 max-w-xl mt-4 rounded mx-auto text-center">
+              <p class="py-3 text-white text-sm">Your Bible Group number is {{reg}}</p>
+            </div>
+            <div class="mx-auto max-w-xl mt-4">
+              <p class="text-xs text-gray-600">*Please keep this information with you</p>
+            </div>
+          </div>
+
           <div class="w-full flex items-center mt-4">
             <button
+              type="submit"
+              :class="{'cursor-not-allowed pointer-events-none':show}"
               class="font-light mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
-            >Register</button>
+            >
+              <p>{{!show ? 'Register' : 'Applied'}}</p>
+            </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </main>
@@ -256,13 +306,55 @@ export default {
   components: {
     Hero
   },
+  data() {
+    return {
+      getCurrentEvent: "",
+      info: {
+        attendee_first_name: "",
+        attendee_last_name: "",
+        event_name: "",
+        event_start_date: "",
+        attendee_email_address: "",
+        attendee_mobile_number: "",
+        attendee_state: "",
+        attendee_country: "",
+        workshop_class: "",
+        attendee_church_name: "",
+        attendee_first_time_attending: "",
+        no_of_times_attended: ""
+      },
+      show: false,
+      bibleStudy: "",
+      reg: ""
+    };
+  },
 
   computed: {
-    ...mapGetters(["getAllWorkshops"]),
+    ...mapGetters(["getAllWorkshops", "getAllEvents"]),
     allWorkshops() {
-      console.log(this.getAllWorkshops, "lllol");
       return this.getAllWorkshops;
     }
+  },
+  methods: {
+    async send() {
+      let res = await this.$store.dispatch("postEventRegistration", this.info);
+      if (res.status == 201) {
+        let { bible_study_group_no, reg_no } = res.data;
+        this.show = true;
+        this.bibleStudy = bible_study_group_no;
+        this.reg = reg_no;
+      }
+    }
+  },
+
+  mounted() {
+    if (this.$store.state.events.results) {
+      this.getCurrentEvent = this.getAllEvents.results.find(
+        x => x.slug == this.$route.params.theme
+      );
+    }
+    this.info.event_name = this.getCurrentEvent.event_title;
+    this.info.event_start_date = this.getCurrentEvent.event_start_date;
   }
 };
 </script>

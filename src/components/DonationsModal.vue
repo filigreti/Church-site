@@ -174,8 +174,8 @@ export default {
       this.$emit("close");
     },
     local() {
-      this.close();
       window.open("https://paystack.com/pay/godscaremissionsinc", "_blank");
+      this.close();
     },
     international() {
       window.open(

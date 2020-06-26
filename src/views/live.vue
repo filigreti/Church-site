@@ -18,7 +18,7 @@
       <div class="max-w-4xl lg:mx-auto grid lg:grid-cols-3 gap-10 mt-16 mx-3">
         <div
           @click="send"
-          class="h-40 rounded-lg shadow-xl bg-blue-600 flex justify-center items-center"
+          class="h-40 rounded-lg cursor-pointer shadow-xl bg-blue-600 flex justify-center items-center"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,9 @@
             <p class="text-white text-xl font-medium leading-7 tracking-wider">Live</p>
           </div>
         </div>
-        <div class="h-40 rounded-lg shadow-xl bg-white flex justify-center items-center">
+        <div
+          class="h-40 rounded-lg cursor-pointer shadow-xl bg-white flex justify-center items-center"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             id="Capa_1"
@@ -166,7 +168,10 @@
             <p class="text-black text-xl font-medium leading-7 tracking-wider">Radio</p>
           </div>
         </div>
-        <div class="h-40 rounded-lg shadow-xl yt-red flex items-center justify-center">
+        <div
+          @click="open"
+          class="h-40 rounded-lg cursor-pointer shadow-xl yt-red flex items-center justify-center"
+        >
           <svg
             class="h-12 w-12"
             mlns="http://www.w3.org/2000/svg"
@@ -220,6 +225,16 @@
           </div>
         </div>
       </div>
+      <div v-if="show" class="mt-8 max-w-4xl mx-auto">
+        <iframe
+          class="w-full"
+          height="500px"
+          src="https://www.youtube.com/embed/ZMtwLvVOUFw"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
   </main>
 </template>
@@ -236,7 +251,9 @@ export default {
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/MAROUA-003.jpg",
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/NGOUNDERE.jpg",
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/GAROUA-FLYER-2020-768x1038.png"
-      ]
+      ],
+      show: false,
+      link: false
     };
   },
   computed: {
@@ -254,7 +271,14 @@ export default {
   },
   methods: {
     send() {
-      window.open(this.$store.state.youtube, "_blank");
+      this.link = "https://www.youtube.com/embed/ZMtwLvVOUFw";
+      this.show = true;
+    },
+    open() {
+      window.open(
+        "https://www.youtube.com/channel/UCPe9rUAnO_P7AFsswV7E2Qw",
+        "_blank"
+      );
     }
   }
 };

@@ -588,21 +588,26 @@
     </div>
     <div v-if="screen == 'Views'">
       <div
-        v-for="i in 3"
+        v-for="(events,i) in allEvents.results"
         :key="i"
-        @click="next"
+        @click="next(events.slug)"
         class="lg:max-w-4xl px-8 mb-20 relative py-4 shadow-xl rounded-lg mt-12 bg-white mx-auto lg:flex hidden items-center justify-between h-38"
       >
         <div
           class="absolute rounded-full w-20 h-20 bg-white shadow-2xl flex items-center justify-center -mt-20"
         >
           <div class="inline-flex flex-col items-center">
-            <h1 style="color:red" class="text-2xl font-black leading-none tracking-wider">25</h1>
-            <h2 class="text-blue-500 font-normal tracking-wide leading-none">June</h2>
+            <h1
+              style="color:red"
+              class="text-2xl font-black leading-none tracking-wider"
+            >{{events.event_start_date | convertDate}}</h1>
+            <h2
+              class="text-blue-500 font-normal tracking-wide leading-none"
+            >{{events.event_start_date | convertMonth}}</h2>
           </div>
         </div>
-        <div class="pl-2 w-32">
-          <h1 class="text-2xl leading-7 font-normal text-gray-700">Youth Ablaze</h1>
+        <div class="pl-2 w-48">
+          <h1 class="text-2xl leading-7 font-normal text-gray-700">{{events.event_title}}</h1>
         </div>
         <div class="flex items-center">
           <!-- prettier-ignore -->
@@ -633,8 +638,10 @@
             </g>
           </svg>
           <div class="ml-2">
-            <p class="text-sm font-light text-gray-600">Arrival time,</p>
-            <p class="font-light text-sm text-gray-600">Thursday, 3.00 PM</p>
+            <p class="text-sm font-light text-gray-600">Arrival time</p>
+            <p
+              class="font-light text-sm text-gray-600"
+            >{{events.event_start_date | convertWeekend}}, {{events.event_time | convertHour}}</p>
           </div>
         </div>
         <div class="flex items-center">
@@ -673,16 +680,20 @@
               </g>
             </g>
           </svg>
-          <div class="ml-2">
-            <p class="text-sm font-light text-gray-600">Gods Care Mission Tenth</p>
-            <p class="font-light text-xs text-gray-600">Okpo, Kogi State</p>
+          <div class="ml-2 w-40">
+            <p class="text-sm font-light text-gray-600">{{events.address}}</p>
           </div>
         </div>
         <div class="h-24 w-24 rounded-full flex items-center justify-center border border-red-500">
           <p class="text-red-500 uppercase font-light cursor-pointer">Register</p>
         </div>
       </div>
-      <div v-for="i in 3" :key="i" @click="next" class="lg:hidden mt-10">
+      <div
+        v-for="(events,i) in allEvents.results"
+        :key="`mobile${i}`"
+        @click="next(events.slug)"
+        class="lg:hidden mt-10"
+      >
         <div class="relative shadow-sm rounded-lg bg-white flex h-auto mb-16 mx-3">
           <div class="absolute flex justify-center w-full">
             <div
@@ -695,7 +706,7 @@
             </div>
           </div>
           <div class="flex flex-col px-5 pt-10 pb-8 w-full items-center">
-            <h1 class="text-xl text-center text-gray-800 leading-none">Youth Ablaze</h1>
+            <h1 class="text-xl text-center text-gray-800 leading-none">{{events.event_title}}</h1>
             <div class="flex items-center mt-2">
               <!-- prettier-ignore -->
               <svg
@@ -725,8 +736,12 @@
                 </g>
               </svg>
               <div class="ml-2 flex items-center">
-                <p class="text-sm font-light text-gray-600">Arrival time,</p>
-                <p class="font-light text-sm ml-1 text-gray-600">Thursday, 3.00 PM</p>
+                <p
+                  class="text-sm font-light text-gray-600"
+                >Arrival time,{{events.event_time | convertHour}}</p>
+                <p
+                  class="font-light text-sm ml-1 text-gray-600"
+                >{{events.event_start_date | convertWeekend}}</p>
               </div>
             </div>
             <div class="flex items-center mt-2">
@@ -1474,6 +1489,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   props: [
     "bgImage",
@@ -1495,12 +1511,19 @@ export default {
       }
     };
   },
+  computed: {
+    ...mapGetters(["getAllEvents"]),
+    allEvents() {
+      return this.getAllEvents;
+    }
+  },
+
   methods: {
-    next() {
+    next(x) {
       this.$router.push({
         name: "MainTheme",
         params: {
-          theme: "youth-blaze"
+          theme: x
         }
       });
     },

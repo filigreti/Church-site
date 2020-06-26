@@ -23,6 +23,7 @@ export default {
     await this.$store.dispatch("getTestimonies");
     await this.$store.dispatch("getWorkshop");
     await this.$store.dispatch("youtubelife");
+    await this.$store.dispatch("getUpcomingEvents");
   }
 };
 </script>

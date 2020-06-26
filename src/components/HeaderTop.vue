@@ -5,7 +5,7 @@
     <div class="cursor-pointer" @click="$router.push('/')">
       <h2
         class="lg:uppercase lg:tracking-wide text-gray-200 lg:leading-3 play lg:text-2xl text-xl leading-3 font-light"
-      >Gods care missions</h2>
+      >God's care missions</h2>
       <p
         class="text-xs capitalize text-gray-200 lg:mt-2 lg:pt-1 pt-2 font-light"
       >We care, because God Cares</p>
@@ -95,7 +95,7 @@
           <div class="z-20 cursor-pointer" @click="$router.push('/')">
             <h2
               class="lg:uppercase lg:tracking-wide text-white lg:leading-3 play lg:text-2xl text-xl leading-3"
-            >Gods care missions</h2>
+            >God's care missions</h2>
             <p class="text-xs capitalize text-white lg:mt-2 lg:pt-1 pt-2">We care, because God Cares</p>
           </div>
           <div class="z-20">

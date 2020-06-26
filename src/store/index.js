@@ -14,6 +14,12 @@ export default new Vuex.Store({
       previous: '',
       results:''
     },
+    events: {
+      count: '',
+      next: '',
+      previous: '',
+      results:''
+    },
     assets: {
       count: '',
       next: '',
@@ -45,6 +51,10 @@ export default new Vuex.Store({
 
     getAllWorkshops(state) {
       return state.workShop
+    },
+
+    getAllEvents(state) {
+      return state.events
     }
   },
   mutations: {
@@ -84,6 +94,16 @@ export default new Vuex.Store({
       state.assets.results = [...state.assets.results, ...data.results]
     },
 
+    setEvents(state, payload) {
+      let data = { ...state.events, ...payload };
+      state.events.count = data.count;
+      state.events.next = data.next;
+      state.events.previous = data.previous
+      state.events.results = data.results
+
+      // state.events.results = [...state.events.results, ...data.results]
+    },
+
     setLoading(state,payload) {
       state.loading = payload
     },
@@ -121,8 +141,6 @@ export default new Vuex.Store({
 
       let res = await Api.post(`/testimony/`, payload)
 
-      console.log(res);
-
       return res
       
     },
@@ -145,6 +163,11 @@ export default new Vuex.Store({
       let res = await Api.get('/event/workshop/')
       let merged = [].concat.apply([], res);
       commit('setWorkShop', merged)
+      return res
+    },
+
+    async postEventRegistration({ commit }, payload) {
+      let res = await Api.post('/event/registration/', payload)
       return res
     },
 
@@ -193,6 +216,15 @@ export default new Vuex.Store({
     async subscribeNewsletter({ }, payload) {
       let res = await Api.post('/contact-us/subscribe-newsletter/', payload)
       return res
+    },
+
+    async getUpcomingEvents({ commit, state }) {
+      
+      let res = await Api.get(`/event/upcoming/?page=${state.currentPage}`)
+
+      commit('setEvents', res)
+
+      return res
     }
   },
 
@@ -200,7 +232,9 @@ export default new Vuex.Store({
     createPersistedState({
       paths:[
       'userDetails',
-      'isAuthenticated'
+      'isAuthenticated',
+      'events'
+   
     ]
     }),
   ],
