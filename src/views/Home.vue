@@ -42,12 +42,9 @@
               class="text-lg font-normal uppercase text-blue-500 tracking-wider text-center"
             >Our Commission</h2>
           </div>
-          <p class="leading-6 tracking-wider font-light mt-4 leading-6 text-gray-600 text-xs">
-            Our Commission is to bring God's loving
-            care and intervention
-            <br />to the human race at no charge through various outlets,
-            <br />saving the lost at all cost as grace enables us. he has helped us over these years to bring his love and care to the needy world. We care because God cares
-          </p>
+          <p
+            class="leading-6 tracking-wider font-light mt-4 leading-6 text-gray-600 text-xs"
+          >Our commission is to bring God’s loving care and intervention to the human race at no charge through various outlets, saving the lost at all cost as grace enables us over these years to bring his love and care to the needy world. We care because God cares.</p>
         </div>
       </div>
     </div>
