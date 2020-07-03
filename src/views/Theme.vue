@@ -21,7 +21,7 @@
           class="uppercase text-2xl font-light tracking-wider leading-6"
         >Theme: {{getCurrentEvent.event_theme}}</h1>
         <div class="flex mt-4 w-full lg:flex flex-col">
-          <div class="flex items-center mb-4">
+          <div  v-if="getCurrentEvent.event_time !== null"  class="flex items-center mb-4">
             <svg
               class="lg:h-8 lg:w-8 h-8 w-8"
               xmlns="http://www.w3.org/2000/svg"
@@ -50,8 +50,9 @@
             </svg>
             <div class="ml-2 lg:block flex">
               <p
+             
                 class="text-sm font-light"
-              >Arrival time, {{getCurrentEvent.event_start_date | convertWeekend}}, {{getCurrentEvent.event_time | convertHour}}</p>
+              >Arrival time, {{getCurrentEvent.event_start_date }}, {{getCurrentEvent.event_time }}</p>
 
               <!-- <p class="font-light text-sm">/p> -->
             </div>
@@ -204,8 +205,8 @@
             class="max-w-xl mt-3 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2 lg:items-center"
           >
             <div
-              class="text-xs font-light text-gray-800 lg:mr-24"
-            >Is this your first time attending youth blaze ?</div>
+              class="text-xs font-light text-gray-800 lg:mr-24 lowercase"
+            >Is this your first time attending {{getCurrentEvent.event_title}}</div>
             <div class="relative flex items-center">
               <select
                 v-model="info.attendee_first_time_attending"
@@ -232,13 +233,13 @@
             class="max-w-xl mt-3 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2 lg:items-center"
           >
             <div
-              class="text-xs font-light text-gray-800 lg:mr-24"
-            >How many times have you attended youth blaze ?</div>
+              class="text-xs font-light text-gray-800 lg:mr-24 lowercase"
+            >How many times have you attended {{getCurrentEvent.event_title}} ?</div>
             <div class="relative flex items-center">
               <input
                 v-model="info.no_of_times_attended"
                 class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
-                type="string"
+                type="number"
                 placeholder="No of Times"
               />
             </div>
@@ -278,6 +279,9 @@
             </div>
             <div class="bg-gray-900 max-w-xl mt-4 rounded mx-auto text-center">
               <p class="py-3 text-white text-sm">Your Bible Group number is {{reg}}</p>
+            </div>
+            <div class="mx-auto max-w-xl mt-4">
+              <a target="_blank" class="text-xs text-red-600" :href="pdf">Pdf Download</a>
             </div>
             <div class="mx-auto max-w-xl mt-4">
               <p class="text-xs text-gray-600">*Please keep this information with you</p>
@@ -325,7 +329,8 @@ export default {
       },
       show: false,
       bibleStudy: "",
-      reg: ""
+      reg: "",
+      pdf:''
     };
   },
 
@@ -339,10 +344,12 @@ export default {
     async send() {
       let res = await this.$store.dispatch("postEventRegistration", this.info);
       if (res.status == 201) {
-        let { bible_study_group_no, reg_no } = res.data;
+        console.log(res.data);
+        let { bible_study_group_no, reg_no,event_pdf_file } = res.data;
         this.show = true;
         this.bibleStudy = bible_study_group_no;
         this.reg = reg_no;
+        this.pdf = event_pdf_file
       }
     }
   },
