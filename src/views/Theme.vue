@@ -319,18 +319,18 @@ export default {
     return {
       getCurrentEvent: "",
       info: {
-        attendee_first_name: "charles",
-        attendee_last_name: "osuya",
+        attendee_first_name: "",
+        attendee_last_name: "",
         event_name: "",
         event_start_date: "",
-        attendee_email_address: "aolfiligre@gmail.com",
-        attendee_mobile_number: "08149592750",
-        attendee_state: "lagos",
-        attendee_country: "nigeria",
+        attendee_email_address: "",
+        attendee_mobile_number: "",
+        attendee_state: "",
+        attendee_country: "",
         workshop_class: "",
-        attendee_church_name: "none",
-        attendee_first_time_attending: "yes",
-        no_of_times_attended: "1"
+        attendee_church_name: "",
+        attendee_first_time_attending: "",
+        no_of_times_attended: ""
       },
       show: false,
       error:false,
