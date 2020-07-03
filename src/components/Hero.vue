@@ -610,7 +610,7 @@
         <div class="pl-2 w-56">
           <h1 class="text-2xl leading-7 font-normal text-gray-700">{{events.event_title}}</h1>
         </div>
-        <div class="flex items-center">
+        <div v-if="events.event_time !== null" class="flex items-center">
           <!-- prettier-ignore -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -638,7 +638,7 @@
               />
             </g>
           </svg>
-          <div class="ml-2">
+          <div   class="ml-2">
             <p class="text-sm font-light text-gray-600">Arrival time</p>
             <p
               class="font-light text-sm text-gray-600"
@@ -736,7 +736,7 @@
                   />
                 </g>
               </svg>
-              <div class="ml-2 flex items-center">
+              <div  class="ml-2 flex items-center">
                 <p
                   class="text-sm font-light text-gray-600"
                 >Arrival time,{{events.event_time }}</p>

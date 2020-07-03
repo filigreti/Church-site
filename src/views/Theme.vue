@@ -20,8 +20,8 @@
         <h1
           class="uppercase text-2xl font-light tracking-wider leading-6"
         >Theme: {{getCurrentEvent.event_theme}}</h1>
-        <div class="flex mt-4 w-full lg:flex flex-col">
-          <div  v-if="getCurrentEvent.event_time !== null"  class="flex items-center mb-4">
+        <div v-if="getCurrentEvent.event_time !== null"   class="flex mt-4 w-full lg:flex flex-col">
+          <div  class="flex items-center mb-4">
             <svg
               class="lg:h-8 lg:w-8 h-8 w-8"
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,6 @@
             </svg>
             <div class="ml-2 lg:block flex">
               <p
-             
                 class="text-sm font-light"
               >Arrival time, {{getCurrentEvent.event_start_date }}, {{getCurrentEvent.event_time }}</p>
 
@@ -255,6 +254,7 @@
                 v-model="info.workshop_class"
                 class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
                 type="string"
+                required
               >
                 <option value selected>Select Workshop</option>
                 <option v-for="(workshop,i) in allWorkshops" :key="i">{{workshop}}</option>
@@ -272,7 +272,11 @@
               </svg>
             </div>
           </div>
-
+          <div v-if="error">
+              <div class="bg-red-900 max-w-xl mt-6 rounded mx-auto text-center">
+              <p class="py-3 text-white text-sm">{{errorValue}}</p>
+            </div>
+          </div>
           <div v-show="show">
             <div class="bg-gray-900 max-w-xl mt-4 rounded mx-auto text-center">
               <p class="py-3 text-white text-sm">Your registeration number is {{bibleStudy}}</p>
@@ -280,8 +284,8 @@
             <div class="bg-gray-900 max-w-xl mt-4 rounded mx-auto text-center">
               <p class="py-3 text-white text-sm">Your Bible Group number is {{reg}}</p>
             </div>
-            <div class="mx-auto max-w-xl mt-4">
-              <a target="_blank" class="text-xs text-red-600" :href="pdf">Pdf Download</a>
+            <div class="mx-auto max-w-xl mt-4 ">
+              <div @click="download" class=" cursor-pointer text-xs text-red-600" :href="pdf">Pdf Download</div>
             </div>
             <div class="mx-auto max-w-xl mt-4">
               <p class="text-xs text-gray-600">*Please keep this information with you</p>
@@ -306,6 +310,7 @@
 <script>
 import Hero from "@/components/Hero";
 import { mapGetters } from "vuex";
+import axios from 'axios'
 export default {
   components: {
     Hero
@@ -314,20 +319,22 @@ export default {
     return {
       getCurrentEvent: "",
       info: {
-        attendee_first_name: "",
-        attendee_last_name: "",
+        attendee_first_name: "charles",
+        attendee_last_name: "osuya",
         event_name: "",
         event_start_date: "",
-        attendee_email_address: "",
-        attendee_mobile_number: "",
-        attendee_state: "",
-        attendee_country: "",
+        attendee_email_address: "aolfiligre@gmail.com",
+        attendee_mobile_number: "08149592750",
+        attendee_state: "lagos",
+        attendee_country: "nigeria",
         workshop_class: "",
-        attendee_church_name: "",
-        attendee_first_time_attending: "",
-        no_of_times_attended: ""
+        attendee_church_name: "none",
+        attendee_first_time_attending: "yes",
+        no_of_times_attended: "1"
       },
       show: false,
+      error:false,
+      errorValue:'',
       bibleStudy: "",
       reg: "",
       pdf:''
@@ -342,6 +349,7 @@ export default {
   },
   methods: {
     async send() {
+      try {
       let res = await this.$store.dispatch("postEventRegistration", this.info);
       if (res.status == 201) {
         console.log(res.data);
@@ -351,6 +359,40 @@ export default {
         this.reg = reg_no;
         this.pdf = event_pdf_file
       }
+       if(res.status == 400){
+       this.error = true 
+       this.errorValue = res.data.non_field_errors[0]
+       setTimeout(() =>{
+         this.error = false;
+         this.errorValue = ''
+       }, 5000)
+      }
+      } catch(e){
+        console.log(e);
+      }
+     
+      
+    },
+      forceFileDownload(response){
+      const url = window.URL.createObjectURL(new Blob([response.data]))
+      const link = document.createElement('a')
+      link.href = url
+      link.setAttribute('download', `GodsCareMission.pdf`) //or any other extension
+      document.body.appendChild(link)
+      link.click()
+    },
+    download(){
+      axios({
+        method: 'get',
+        url: this.pdf,
+        responseType: 'arraybuffer'
+      })
+      .then(response => {
+        
+        this.forceFileDownload(response)
+        
+      })
+      .catch((e) => console.log(e,'error occured'))
     }
   },
 

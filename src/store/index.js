@@ -167,8 +167,12 @@ export default new Vuex.Store({
     },
 
     async postEventRegistration({ commit }, payload) {
+    try {
       let res = await Api.post('/event/registration/', payload)
       return res
+    } catch (error) {
+      
+    }
     },
 
     async registerUser({ commit }, payload) {
