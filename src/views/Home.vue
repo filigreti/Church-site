@@ -81,19 +81,19 @@
     <div
       class="flex lg:flex-row flex-col lg:max-w-4xl justify-between lg:mx-auto lg:mx-0 mx-3 my-8"
     >
-      <div class="lg:w-1/2 flex items-center lg:border-r lg:ml-0 ml-3 lg:mb-0 mb-8">
+      <div v-for="(events,i) in allEvents.results" :key="i"  class="lg:w-1/2 flex items-center lg:border-r lg:ml-0 ml-3 lg:mb-0 mb-8">
         <div class="flex flex-col items-center">
-          <h1 style="color:red" class="text-4xl leading-6 tracking-wider font-black">25</h1>
-          <h2 class="text-xl font-black text-blue-700">JUNE</h2>
+          <h1 style="color:red" class="text-4xl leading-6 tracking-wider font-black">{{events.event_start_date | convertDate}}</h1>
+          <h2 class="text-xl font-black text-blue-700">{{events.event_start_date | convertMonth}}</h2>
         </div>
         <div class="ml-4">
           <h1 class="text-blue-700 font-normal text-xl tracking-wide">Upcoming Event</h1>
           <p
-            class="text-xs text-gray-600 max-w-xs lg:pr-0 pr-16 font-light"
-          >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit quam excepturi quisquam natus officiis perferendis</p>
+            class="  text-xl text-gray-600 max-w-xs lg:pr-0 pr-16 font-light"
+          >{{events.event_title}}</p>
         </div>
       </div>
-      <div class="lg:w-1/2 flex items-center justify-end lg:ml-0 ml-3">
+      <!-- <div class="lg:w-1/2 flex items-center justify-end lg:ml-0 ml-3">
         <div class="flex flex-col items-center">
           <h1 style="color:red" class="text-4xl leading-6 tracking-wider font-black">25</h1>
           <h2 class="text-xl font-black text-blue-700">JUNE</h2>
@@ -104,7 +104,7 @@
             class="text-xs text-gray-600 max-w-xs lg:pr-0 pr-16 font-light"
           >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit quam excepturi quisquam natus officiis perferendis</p>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="bg-blue-100 bg-opacity-25 py-16">
       <div class="lg:max-w-4xl lg:mx-auto bg-white rounded-lg shadow-xl lg:mx-0 mx-4">
@@ -147,7 +147,8 @@
 </template>
 
 <script>
-import { Carousel, Slide } from "vue-carousel";
+import { mapGetters } from "vuex";
+import { Carousel, Slide } from "vue-carousel"
 import Hero from "@/components/Hero";
 export default {
   data() {
@@ -164,6 +165,10 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(["getAllEvents"]),
+    allEvents() {
+      return this.getAllEvents;
+    },
     width() {
       return window.innerWidth > 650 ? true : false;
     },

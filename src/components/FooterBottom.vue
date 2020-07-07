@@ -104,7 +104,7 @@
       class="lg:max-w-4xl lg:mx-auto lg:grid-flow-col grid grid-cols-2 ml-3 gap-4 lg:grid mt-6 lg:justify-between lg:grid-cols-6"
     >
       <div>
-        <h1 class="font-black text-lg">Events</h1>
+        <h1 @click="$router.push('/events')" class="cursor-pointer font-black text-lg">Events</h1>
         <p class="text-xs">Calebites</p>
         <p class="text-xs">Conferences</p>
         <p class="text-xs">Crusades</p>
@@ -112,32 +112,32 @@
         <p class="text-xs">Retreats</p>
       </div>
       <div>
-        <h1 class="font-black text-lg">Donations</h1>
+        <h1 @click="$router.push('/donations')" class="cursor-pointer font-black text-lg">Donations</h1>
         <p class="text-xs">Local Donations</p>
         <p class="text-xs">International Donations</p>
       </div>
       <div>
-        <h1 class="font-black text-lg">Media</h1>
+        <h1 @click="$router.push('/media')" class="font-black cursor-pointer text-lg">Media</h1>
         <p class="text-xs">Books</p>
         <p class="text-xs">Audios</p>
         <p class="text-xs">Videos</p>
         <p class="text-xs">Online Radios</p>
       </div>
       <div>
-        <h1 class="font-black text-lg">Social Links</h1>
+        <h1 @click="$router.push('/contact-us')" class="font-black cursor-pointer text-lg">Social Links</h1>
         <p class="text-xs">Conferences</p>
         <p class="text-xs">Youtube</p>
         <p class="text-xs">Instagram</p>
         <p class="text-xs">Mixr</p>
       </div>
       <div>
-        <h1 class="font-black text-lg">Live</h1>
+        <h1  @click="$router.push('/live')" class="font-black cursor-pointer text-lg">Live</h1>
         <p class="text-xs">Youtube redirect Link</p>
         <p class="text-xs">Facebook redirect Link</p>
         <p class="text-xs">Live Radio</p>
       </div>
       <div>
-        <h1 class="font-black text-lg">Bible School</h1>
+        <h1 @click="$router.push('/bible-school')" class="font-black cursor-pointer text-lg">Bible School</h1>
         <p class="text-xs">Enroll</p>
         <p class="text-xs">One-Month Intensive</p>
         <p class="text-xs">One Year Certificate</p>
@@ -146,10 +146,10 @@
     </div>
     <div class="flex items-center justify-center mt-4 mb-8 w-full">
       <div class="border-r-2 border-black">
-        <h1 class="font-black text-sm mr-4">Bible School</h1>
+        <h1 class="font-black cursor-pointer text-sm mr-4">Bible School</h1>
       </div>
       <div>
-        <h1 class="font-black text-sm ml-4">+234 080 080 5674</h1>
+        <h1 class="font-black cursor-pointer text-sm ml-4">+234 080 080 5674</h1>
       </div>
     </div>
   </main>

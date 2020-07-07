@@ -239,6 +239,7 @@
                 v-model="info.no_of_times_attended"
                 class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
                 type="number"
+                min="0"
                 placeholder="No of Times"
               />
             </div>
