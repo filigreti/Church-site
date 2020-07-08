@@ -1535,6 +1535,9 @@ export default {
       if (this.screen === "testimonies") {
         this.$emit("open");
       }
+      if(this.screen === "Home"){
+        this.$router.push('/about-us')
+      }
     }
   }
 };

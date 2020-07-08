@@ -5,7 +5,7 @@
       :color="'bg-blue-900'"
       :buttonText="'About Us'"
       :screen="'Home'"
-      :mainText="'Gods Care Missions'"
+      :mainText="`God's Care Missions`"
       :subText="`God's care mission (GCM) is a rural mission based work, commited to reaching the lost,depopulating hell to populate heaven. It is also commited to encouraging the saints,labouring for restoration in the body of christ and bringing help to the less privileged. It is purely an evangelistic outfit`"
       :bgImage="'https://images.pexels.com/photos/976866/pexels-photo-976866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
     />

@@ -1,4 +1,4 @@
-# church
+# God's care Missions
 
 ## Project setup
 ```
