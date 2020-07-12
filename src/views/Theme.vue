@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main id="theme">
     <Hero
       :color="'bg-indigo-800'"
       :bgImage="'https://images.unsplash.com/photo-1571751888410-0c83afb6f3f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'"
@@ -20,8 +20,8 @@
         <h1
           class="uppercase text-2xl font-light tracking-wider leading-6"
         >Theme: {{getCurrentEvent.event_theme}}</h1>
-        <div v-if="getCurrentEvent.event_time !== null"   class="flex mt-4 w-full lg:flex flex-col">
-          <div  class="flex items-center mb-4">
+        <div v-if="getCurrentEvent.event_time !== null" class="flex mt-4 w-full lg:flex flex-col">
+          <div class="flex items-center mb-4">
             <svg
               class="lg:h-8 lg:w-8 h-8 w-8"
               xmlns="http://www.w3.org/2000/svg"
@@ -168,13 +168,14 @@
             />
           </div>
           <div class="max-w-xl mx-auto">
-            <input
-              class="bg-gray-200 mt-3 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
-              type="string"
-              placeholder="Mobile Number"
-              v-model="info.attendee_mobile_number"
+            <vue-tel-input
+              :class="phoneError"
               required
-            />
+              autocomplete="off"
+              v-on:country-changed="countryChanged"
+              class="mt-3"
+              v-model.trim="info.attendee_mobile_number"
+            ></vue-tel-input>
           </div>
 
           <div class="max-w-xl mt-3 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2">
@@ -186,6 +187,7 @@
               required
             />
             <input
+              required
               class="bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="State"
@@ -194,6 +196,7 @@
           </div>
           <div class="max-w-xl mx-auto">
             <input
+              required
               class="bg-gray-200 mt-3 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
               type="string"
               placeholder="Church Name"
@@ -211,7 +214,9 @@
                 v-model="info.attendee_first_time_attending"
                 class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
                 type="string"
+                required
               >
+                <option value disabled>First Timer</option>
                 <option :value="Boolean(true)">Yes</option>
                 <option :value="Boolean(false)">No</option>
               </select>
@@ -274,7 +279,7 @@
             </div>
           </div>
           <div v-if="error">
-              <div class="bg-red-900 max-w-xl mt-6 rounded mx-auto text-center">
+            <div class="bg-red-900 max-w-xl mt-6 rounded mx-auto text-center">
               <p class="py-3 text-white text-sm">{{errorValue}}</p>
             </div>
           </div>
@@ -285,8 +290,12 @@
             <div class="bg-gray-900 max-w-xl mt-4 rounded mx-auto text-center">
               <p class="py-3 text-white text-sm">Your Bible Group number is {{reg}}</p>
             </div>
-            <div class="mx-auto max-w-xl mt-4 ">
-              <div @click="download" class=" cursor-pointer text-xs text-red-600" :href="pdf">Pdf Download</div>
+            <div class="mx-auto max-w-xl mt-4">
+              <div
+                @click="download"
+                class="cursor-pointer text-xs text-red-600"
+                :href="pdf"
+              >Pdf Download</div>
             </div>
             <div class="mx-auto max-w-xl mt-4">
               <p class="text-xs text-gray-600">*Please keep this information with you</p>
@@ -309,12 +318,14 @@
 </template>
 
 <script>
+import { VueTelInput } from "vue-tel-input";
 import Hero from "@/components/Hero";
 import { mapGetters } from "vuex";
-import axios from 'axios'
+import axios from "axios";
 export default {
   components: {
-    Hero
+    Hero,
+    VueTelInput
   },
   data() {
     return {
@@ -329,16 +340,16 @@ export default {
         attendee_state: "",
         attendee_country: "",
         workshop_class: "",
-        attendee_church_name: "",
+        attendee_church_name: null,
         attendee_first_time_attending: "",
         no_of_times_attended: ""
       },
       show: false,
-      error:false,
-      errorValue:'',
+      error: false,
+      errorValue: "",
       bibleStudy: "",
       reg: "",
-      pdf:''
+      pdf: ""
     };
   },
 
@@ -349,51 +360,53 @@ export default {
     }
   },
   methods: {
+    countryChanged(country) {
+      this.country = `+${country.dialCode}`;
+    },
     async send() {
       try {
-      let res = await this.$store.dispatch("postEventRegistration", this.info);
-      if (res.status == 201) {
-        console.log(res.data);
-        let { bible_study_group_no, reg_no,event_pdf_file } = res.data;
-        this.show = true;
-        this.bibleStudy = bible_study_group_no;
-        this.reg = reg_no;
-        this.pdf = event_pdf_file
-      }
-       if(res.status == 400){
-       this.error = true 
-       this.errorValue = res.data.non_field_errors[0]
-       setTimeout(() =>{
-         this.error = false;
-         this.errorValue = ''
-       }, 5000)
-      }
-      } catch(e){
+        let res = await this.$store.dispatch(
+          "postEventRegistration",
+          this.info
+        );
+        if (res.status == 201) {
+          console.log(res.data);
+          let { bible_study_group_no, reg_no, event_pdf_file } = res.data;
+          this.show = true;
+          this.bibleStudy = bible_study_group_no;
+          this.reg = reg_no;
+          this.pdf = event_pdf_file;
+        }
+        if (res.status == 400) {
+          this.error = true;
+          this.errorValue = res.data.non_field_errors[0];
+          setTimeout(() => {
+            this.error = false;
+            this.errorValue = "";
+          }, 5000);
+        }
+      } catch (e) {
         console.log(e);
       }
-     
-      
     },
-      forceFileDownload(response){
-      const url = window.URL.createObjectURL(new Blob([response.data]))
-      const link = document.createElement('a')
-      link.href = url
-      link.setAttribute('download', `GodsCareMission.pdf`) //or any other extension
-      document.body.appendChild(link)
-      link.click()
+    forceFileDownload(response) {
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", `GodsCareMission.pdf`); //or any other extension
+      document.body.appendChild(link);
+      link.click();
     },
-    download(){
+    download() {
       axios({
-        method: 'get',
+        method: "get",
         url: this.pdf,
-        responseType: 'arraybuffer'
+        responseType: "arraybuffer"
       })
-      .then(response => {
-        
-        this.forceFileDownload(response)
-        
-      })
-      .catch((e) => console.log(e,'error occured'))
+        .then(response => {
+          this.forceFileDownload(response);
+        })
+        .catch(e => console.log(e, "error occured"));
     }
   },
 
@@ -410,4 +423,55 @@ export default {
 </script>
 
 <style>
+.vue-tel-input {
+  border-radius: 99999px !important;
+  padding: 0.3rem 0;
+  position: relative !important;
+  border: none !important;
+  box-shadow: none !important;
+  background-color: #edf2f7 !important;
+}
+.danger {
+  border: 1px solid red !important;
+}
+#theme .vti__input {
+  border-radius: 99999px !important;
+  position: absolute !important;
+  text-align: left !important;
+  padding-left: 5rem !important;
+  width: 100%;
+  height: 100%;
+  top: 0 !important;
+  font-family: "Poppins" !important;
+  font-size: 0.75rem !important;
+  font-weight: 300 !important;
+  background-color: #edf2f7 !important;
+}
+.vti__dropdown:focus {
+  outline: 0;
+  outline-color: transparent;
+  outline-style: none;
+}
+.focus\:shadow-outline:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+.vti__selection {
+  z-index: 10;
+}
+.vti__dropdown-list {
+  width: 350px !important;
+  position: absolute !important;
+  font-size: 0.75rem !important;
+  font-weight: 300 !important;
+  font-family: "Poppins" !important;
+}
+.vti__dropdown.open {
+  background-color: none !important;
+}
+.vti__dropdown-list.below {
+  top: 42px !important;
+}
+.vti__dropdown {
+  left: 7px !important;
+}
 </style>
