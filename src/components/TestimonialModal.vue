@@ -123,10 +123,11 @@ export default {
       this.$emit("close");
     },
     async post() {
-      let res = this.$store.dispatch("postTestimony", this.details);
+      let res = await this.$store.dispatch("postTestimony", this.details);
       if (res.status == 201) {
-        await this.dispatch("getTestimonies");
+        await this.$store.dispatch("getTestimonies");
         this.close();
+        alert("Testimonial submitted successfully");
       }
     }
   }

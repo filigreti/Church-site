@@ -24,12 +24,12 @@
       </svg>
     </div>
     <ul class="lg:flex lg:text-white lg:items-center hidden">
-      <li class="ml-16">
+      <li class="ml-10">
         <router-link to="/" class="text-gray-500 font-hairline hover:text-white text-xs">Home</router-link>
       </li>
       <router-link
         to="/events"
-        class="ml-16 text-gray-500 font-hairline hover:text-white text-xs events"
+        class="ml-10 text-gray-500 font-hairline hover:text-white text-xs events"
         :class="[$route.name == 'MainTheme' ? 'all-white' :'']"
       >
         <span class="flex items-center hover:text-white">
@@ -48,38 +48,42 @@
           </svg>
         </span>
       </router-link>
-      <li class="ml-16">
+      <li class="ml-10">
         <router-link to="/live" class="text-gray-500 font-hairline hover:text-white text-xs">Live</router-link>
       </li>
-      <li class="ml-16">
+      <li class="ml-10">
         <router-link
           to="/contact-us"
           class="text-gray-500 font-hairline hover:text-white text-xs"
         >Contact Us</router-link>
       </li>
-      <li class="ml-16">
+      <li class="ml-10">
         <router-link
           to="/about-us"
           class="text-gray-500 font-hairline hover:text-white text-xs"
         >About Us</router-link>
       </li>
-      <li v-if="!isSignedIn" class="ml-16">
+      <li v-if="!isSignedIn" class="ml-10">
         <router-link
           to="/auth/login"
           class="text-gray-500 font-hairline hover:text-white text-xs"
         >SignIn</router-link>
       </li>
-      <li v-if="isSignedIn" class="ml-16">
+      <li v-if="isSignedIn" class="ml-10">
         <router-link
           to
           class="text-gray-500 font-hairline hover:text-white text-xs"
         >{{getDetails.full_name}}</router-link>
       </li>
-      <li class="ml-16">
+
+      <li class="ml-10">
         <router-link
           to="/media/books/cart"
           class="text-gray-500 font-hairline hover:text-white text-xs"
         >Cart</router-link>
+      </li>
+      <li v-if="isSignedIn" class="ml-10">
+        <div @click="logout" class="text-gray-500 font-hairline hover:text-white text-xs">Log out</div>
       </li>
     </ul>
     <div v-show="toggle" class="fixed lg:hidden inset-0 bg-black flex h-screen box-border z-50">
@@ -152,6 +156,12 @@
             class="text-gray-100 font-light hover:text-white text-lg mt-6"
           >{{getDetails.full_name}}</router-link>
           <router-link
+            v-if="isSignedIn"
+            @click.native="logoutTwo"
+            to
+            class="text-gray-100 font-light hover:text-white text-lg mt-6"
+          >Logout</router-link>
+          <router-link
             v-if="!isSignedIn"
             @click.native="toggle= false"
             to="/auth/login"
@@ -184,6 +194,16 @@ export default {
     },
     getDetails() {
       return this.getUserDetails;
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logoutUser");
+      this.$router.push("/");
+    },
+    logoutTwo() {
+      this.toggle = false;
+      this.logout();
     }
   },
   watch: {

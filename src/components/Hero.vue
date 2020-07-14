@@ -587,215 +587,218 @@
       </div>
     </div>
     <div>
-    <div v-if="screen == 'Views'">
-      <div
-        v-for="(events,i) in allEvents.results"
-        :key="i"
-        @click="next(events.slug)"
-        class="lg:max-w-4xl px-8 mb-20 relative py-4 shadow-xl rounded-lg mt-12 bg-white mx-auto lg:flex hidden items-center justify-between h-38"
-      >
+      <div v-if="screen == 'Views'">
         <div
-          class="absolute rounded-full w-20 h-20 bg-white shadow-2xl flex items-center justify-center -mt-24 "
+          v-for="(events,i) in allEvents.results"
+          :key="i"
+          @click="next(events.slug)"
+          class="lg:max-w-4xl px-8 mb-20 relative py-4 shadow-xl rounded-lg mt-12 bg-white mx-auto lg:flex hidden items-center justify-between h-38"
         >
-          <div class="inline-flex flex-col items-center">
-            <h1
-              style="color:red"
-              class="text-2xl font-black leading-none tracking-wider"
-            >{{events.event_start_date | convertDate}}</h1>
-            <h2
-              class="text-blue-500 font-normal tracking-wide leading-none"
-            >{{events.event_start_date | convertMonth}}</h2>
-          </div>
-        </div>
-        <div class="pl-2 w-56">
-          <h1 class="text-2xl leading-7 font-normal text-gray-700">{{events.event_title}}</h1>
-        </div>
-        <div v-if="events.event_time !== null" class="flex items-center">
-          <!-- prettier-ignore -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-10 h-10"
-            id="Capa_1"
-            enable-background="new 0 0 443.294 443.294"
-            height="512px"
-            viewBox="0 0 443.294 443.294"
-            width="512px"
+          <div
+            class="absolute rounded-full w-20 h-20 bg-white shadow-2xl flex items-center justify-center -mt-24"
           >
-            <g>
-              <path
-                d="m221.647 0c-122.214 0-221.647 99.433-221.647 221.647s99.433 221.647 221.647 221.647 221.647-99.433 221.647-221.647-99.433-221.647-221.647-221.647zm0 415.588c-106.941 0-193.941-87-193.941-193.941s87-193.941 193.941-193.941 193.941 87 193.941 193.941-87 193.941-193.941 193.941z"
-                data-original="#000000"
-                class="active-path"
-                data-old_color="#000000"
-                fill="#1273EB"
-              />
-              <path
-                d="m235.5 83.118h-27.706v144.265l87.176 87.176 19.589-19.589-79.059-79.059z"
-                data-original="#000000"
-                class="active-path"
-                data-old_color="#000000"
-                fill="#1273EB"
-              />
-            </g>
-          </svg>
-          <div   class="ml-2">
-            <p class="text-sm font-light text-gray-600">Arrival time</p>
-            <p
-              class="font-light text-sm text-gray-600"
-            >{{events.event_start_date | convertWeekend}}, {{events.event_time | convertHour}}</p>
+            <div class="inline-flex flex-col items-center">
+              <h1
+                style="color:red"
+                class="text-2xl font-black leading-none tracking-wider"
+              >{{events.event_start_date | convertDate}}</h1>
+              <h2
+                class="text-blue-500 font-normal tracking-wide leading-none"
+              >{{events.event_start_date | convertMonth}}</h2>
+            </div>
           </div>
-        </div>
-        <div class="flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-10 w-10"
-            id="Capa_1"
-            enable-background="new 0 0 512 512"
-            height="512px"
-            viewBox="0 0 512 512"
-            width="512px"
-          >
-            <g>
+          <div class="pl-2 w-56">
+            <h1 class="text-2xl leading-7 font-normal text-gray-700">{{events.event_title}}</h1>
+          </div>
+          <div v-if="events.event_time !== null" class="flex items-center">
+            <!-- prettier-ignore -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-10 h-10"
+              id="Capa_1"
+              enable-background="new 0 0 443.294 443.294"
+              height="512px"
+              viewBox="0 0 443.294 443.294"
+              width="512px"
+            >
               <g>
                 <path
-                  d="m354.32 152.519c-8.289-5.526-81.705-54.47-90-60-5.039-3.358-11.602-3.358-16.641 0-8.291 5.528-81.713 54.476-90 60-6.894 4.596-8.756 13.909-4.16 20.801 4.596 6.894 13.911 8.756 20.801 4.161l6.68-4.453v82.972c0 8.284 6.716 15 15 15h120c8.284 0 15-6.716 15-15v-82.972l6.68 4.453c6.882 4.586 16.198 2.744 20.801-4.161 4.595-6.892 2.733-16.205-4.161-20.801zm-53.32 88.481h-90v-87.972l45-30 45 30z"
+                  d="m221.647 0c-122.214 0-221.647 99.433-221.647 221.647s99.433 221.647 221.647 221.647 221.647-99.433 221.647-221.647-99.433-221.647-221.647-221.647zm0 415.588c-106.941 0-193.941-87-193.941-193.941s87-193.941 193.941-193.941 193.941 87 193.941 193.941-87 193.941-193.941 193.941z"
                   data-original="#000000"
                   class="active-path"
                   data-old_color="#000000"
                   fill="#1273EB"
                 />
                 <path
-                  d="m256 0c-90.981 0-165 74.019-165 165 0 95.322 91.256 218.623 154.323 282.536 2.819 2.856 6.664 4.464 10.677 4.464s7.858-1.608 10.677-4.464c63.983-64.841 154.323-187.696 154.323-282.536 0-90.981-74.019-165-165-165zm-.004 415.075c-33.626-36.834-134.996-155.721-134.996-250.075 0-74.439 60.561-135 135-135s135 60.561 135 135c0 94.248-101.388 213.223-135.004 250.075z"
-                  data-original="#000000"
-                  class="active-path"
-                  data-old_color="#000000"
-                  fill="#1273EB"
-                />
-                <path
-                  d="m166 482c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15z"
+                  d="m235.5 83.118h-27.706v144.265l87.176 87.176 19.589-19.589-79.059-79.059z"
                   data-original="#000000"
                   class="active-path"
                   data-old_color="#000000"
                   fill="#1273EB"
                 />
               </g>
-            </g>
-          </svg>
-          <div class="ml-2 w-40">
-            <p class="text-sm font-light text-gray-600">{{events.address}}</p>
-          </div>
-        </div>
-        <div class="h-24 w-24 rounded-full flex items-center justify-center border border-red-500">
-          <p class="text-red-500 uppercase font-light cursor-pointer">Register</p>
-        </div>
-      </div>
-      <div
-        v-for="(events,i) in allEvents.results"
-        :key="`mobile${i}`"
-        @click="next(events.slug)"
-        class="lg:hidden mt-10"
-      >
-        <div class="relative shadow-sm rounded-lg bg-white flex h-auto mb-16 mx-3">
-          <div class="absolute flex justify-center w-full">
-            <div
-              class="rounded-full w-20 h-20 bg-white shadow-2xl flex items-center justify-center -mt-12"
-            >
-              <div class="inline-flex flex-col items-center">
-                <h1 style="color:red" class="text-2xl font-black leading-none tracking-wider">{{events.event_start_date | convertDate}}</h1>
-                <h2 class="text-blue-500 font-normal tracking-wide leading-none">{{events.event_start_date | convertMonth}}</h2>
-              </div>
+            </svg>
+            <div class="ml-2">
+              <p class="text-sm font-light text-gray-600">Arrival time</p>
+              <p
+                class="font-light text-sm text-gray-600"
+              >{{events.event_start_date | convertWeekend}}, {{events.event_time | convertHour}}</p>
             </div>
           </div>
-          <div class="flex flex-col px-5 pt-10 pb-8 w-full items-center">
-            <h1 class="text-xl text-center  text-gray-800 leading-none">{{events.event_title}}</h1>
-            <div v-if="events.event_time !== null" class="flex items-center mt-2">
-           
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6"
-                id="Capa_1"
-                enable-background="new 0 0 443.294 443.294"
-                height="512px"
-                viewBox="0 0 443.294 443.294"
-                width="512px"
-              >
+          <div class="flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10"
+              id="Capa_1"
+              enable-background="new 0 0 512 512"
+              height="512px"
+              viewBox="0 0 512 512"
+              width="512px"
+            >
+              <g>
                 <g>
                   <path
-                    d="m221.647 0c-122.214 0-221.647 99.433-221.647 221.647s99.433 221.647 221.647 221.647 221.647-99.433 221.647-221.647-99.433-221.647-221.647-221.647zm0 415.588c-106.941 0-193.941-87-193.941-193.941s87-193.941 193.941-193.941 193.941 87 193.941 193.941-87 193.941-193.941 193.941z"
+                    d="m354.32 152.519c-8.289-5.526-81.705-54.47-90-60-5.039-3.358-11.602-3.358-16.641 0-8.291 5.528-81.713 54.476-90 60-6.894 4.596-8.756 13.909-4.16 20.801 4.596 6.894 13.911 8.756 20.801 4.161l6.68-4.453v82.972c0 8.284 6.716 15 15 15h120c8.284 0 15-6.716 15-15v-82.972l6.68 4.453c6.882 4.586 16.198 2.744 20.801-4.161 4.595-6.892 2.733-16.205-4.161-20.801zm-53.32 88.481h-90v-87.972l45-30 45 30z"
                     data-original="#000000"
                     class="active-path"
                     data-old_color="#000000"
                     fill="#1273EB"
                   />
                   <path
-                    d="m235.5 83.118h-27.706v144.265l87.176 87.176 19.589-19.589-79.059-79.059z"
+                    d="m256 0c-90.981 0-165 74.019-165 165 0 95.322 91.256 218.623 154.323 282.536 2.819 2.856 6.664 4.464 10.677 4.464s7.858-1.608 10.677-4.464c63.983-64.841 154.323-187.696 154.323-282.536 0-90.981-74.019-165-165-165zm-.004 415.075c-33.626-36.834-134.996-155.721-134.996-250.075 0-74.439 60.561-135 135-135s135 60.561 135 135c0 94.248-101.388 213.223-135.004 250.075z"
+                    data-original="#000000"
+                    class="active-path"
+                    data-old_color="#000000"
+                    fill="#1273EB"
+                  />
+                  <path
+                    d="m166 482c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15z"
                     data-original="#000000"
                     class="active-path"
                     data-old_color="#000000"
                     fill="#1273EB"
                   />
                 </g>
-              </svg>
-              <div  class="ml-2 flex items-center">
-                <p
-                  class="text-sm font-light text-gray-600"
-                >Arrival time,{{events.event_time }}</p>
-                <p
-                  class="font-light text-sm ml-1 text-gray-600"
-                >{{events.event_start_date | convertWeekend}}</p>
+              </g>
+            </svg>
+            <div class="ml-2 w-40">
+              <p class="text-sm font-light text-gray-600">{{events.address}}</p>
+            </div>
+          </div>
+          <div
+            class="h-24 w-24 rounded-full flex items-center justify-center border border-red-500"
+          >
+            <p class="text-red-500 uppercase font-light cursor-pointer">Register</p>
+          </div>
+        </div>
+        <div
+          v-for="(events,i) in allEvents.results"
+          :key="`mobile${i}`"
+          @click="next(events.slug)"
+          class="lg:hidden mt-10"
+        >
+          <div class="relative shadow-sm rounded-lg bg-white flex h-auto mb-16 mx-3">
+            <div class="absolute flex justify-center w-full">
+              <div
+                class="rounded-full w-20 h-20 bg-white shadow-2xl flex items-center justify-center -mt-12"
+              >
+                <div class="inline-flex flex-col items-center">
+                  <h1
+                    style="color:red"
+                    class="text-2xl font-black leading-none tracking-wider"
+                  >{{events.event_start_date | convertDate}}</h1>
+                  <h2
+                    class="text-blue-500 font-normal tracking-wide leading-none"
+                  >{{events.event_start_date | convertMonth}}</h2>
+                </div>
               </div>
             </div>
-            <div class="flex items-center mt-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                id="Capa_1"
-                enable-background="new 0 0 512 512"
-                height="512px"
-                viewBox="0 0 512 512"
-                width="512px"
-              >
-                <g>
+            <div class="flex flex-col px-5 pt-10 pb-8 w-full items-center">
+              <h1 class="text-xl text-center text-gray-800 leading-none">{{events.event_title}}</h1>
+              <div v-if="events.event_time !== null" class="flex items-center mt-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  id="Capa_1"
+                  enable-background="new 0 0 443.294 443.294"
+                  height="512px"
+                  viewBox="0 0 443.294 443.294"
+                  width="512px"
+                >
                   <g>
                     <path
-                      d="m354.32 152.519c-8.289-5.526-81.705-54.47-90-60-5.039-3.358-11.602-3.358-16.641 0-8.291 5.528-81.713 54.476-90 60-6.894 4.596-8.756 13.909-4.16 20.801 4.596 6.894 13.911 8.756 20.801 4.161l6.68-4.453v82.972c0 8.284 6.716 15 15 15h120c8.284 0 15-6.716 15-15v-82.972l6.68 4.453c6.882 4.586 16.198 2.744 20.801-4.161 4.595-6.892 2.733-16.205-4.161-20.801zm-53.32 88.481h-90v-87.972l45-30 45 30z"
+                      d="m221.647 0c-122.214 0-221.647 99.433-221.647 221.647s99.433 221.647 221.647 221.647 221.647-99.433 221.647-221.647-99.433-221.647-221.647-221.647zm0 415.588c-106.941 0-193.941-87-193.941-193.941s87-193.941 193.941-193.941 193.941 87 193.941 193.941-87 193.941-193.941 193.941z"
                       data-original="#000000"
                       class="active-path"
                       data-old_color="#000000"
                       fill="#1273EB"
                     />
                     <path
-                      d="m256 0c-90.981 0-165 74.019-165 165 0 95.322 91.256 218.623 154.323 282.536 2.819 2.856 6.664 4.464 10.677 4.464s7.858-1.608 10.677-4.464c63.983-64.841 154.323-187.696 154.323-282.536 0-90.981-74.019-165-165-165zm-.004 415.075c-33.626-36.834-134.996-155.721-134.996-250.075 0-74.439 60.561-135 135-135s135 60.561 135 135c0 94.248-101.388 213.223-135.004 250.075z"
-                      data-original="#000000"
-                      class="active-path"
-                      data-old_color="#000000"
-                      fill="#1273EB"
-                    />
-                    <path
-                      d="m166 482c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15z"
+                      d="m235.5 83.118h-27.706v144.265l87.176 87.176 19.589-19.589-79.059-79.059z"
                       data-original="#000000"
                       class="active-path"
                       data-old_color="#000000"
                       fill="#1273EB"
                     />
                   </g>
-                </g>
-              </svg>
-              <div class="flex items-center">
-                <p class="text-sm font-light text-gray-600">Gods Care Mission Tenth</p>
-                <p class="font-light text-sm ml-1 text-gray-600">Okpo, Kogi State</p>
+                </svg>
+                <div class="ml-2 flex items-center">
+                  <p class="text-sm font-light text-gray-600">Arrival time,{{events.event_time }}</p>
+                  <p
+                    class="font-light text-sm ml-1 text-gray-600"
+                  >{{events.event_start_date | convertWeekend}}</p>
+                </div>
               </div>
-            </div>
-            <div
-              class="py-2 px-4 mt-3 rounded-full flex items-center justify-center border border-red-500"
-            >
-              <p class="text-red-500 uppercase font-light cursor-pointer">Register</p>
+              <div class="flex items-center mt-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  id="Capa_1"
+                  enable-background="new 0 0 512 512"
+                  height="512px"
+                  viewBox="0 0 512 512"
+                  width="512px"
+                >
+                  <g>
+                    <g>
+                      <path
+                        d="m354.32 152.519c-8.289-5.526-81.705-54.47-90-60-5.039-3.358-11.602-3.358-16.641 0-8.291 5.528-81.713 54.476-90 60-6.894 4.596-8.756 13.909-4.16 20.801 4.596 6.894 13.911 8.756 20.801 4.161l6.68-4.453v82.972c0 8.284 6.716 15 15 15h120c8.284 0 15-6.716 15-15v-82.972l6.68 4.453c6.882 4.586 16.198 2.744 20.801-4.161 4.595-6.892 2.733-16.205-4.161-20.801zm-53.32 88.481h-90v-87.972l45-30 45 30z"
+                        data-original="#000000"
+                        class="active-path"
+                        data-old_color="#000000"
+                        fill="#1273EB"
+                      />
+                      <path
+                        d="m256 0c-90.981 0-165 74.019-165 165 0 95.322 91.256 218.623 154.323 282.536 2.819 2.856 6.664 4.464 10.677 4.464s7.858-1.608 10.677-4.464c63.983-64.841 154.323-187.696 154.323-282.536 0-90.981-74.019-165-165-165zm-.004 415.075c-33.626-36.834-134.996-155.721-134.996-250.075 0-74.439 60.561-135 135-135s135 60.561 135 135c0 94.248-101.388 213.223-135.004 250.075z"
+                        data-original="#000000"
+                        class="active-path"
+                        data-old_color="#000000"
+                        fill="#1273EB"
+                      />
+                      <path
+                        d="m166 482c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15z"
+                        data-original="#000000"
+                        class="active-path"
+                        data-old_color="#000000"
+                        fill="#1273EB"
+                      />
+                    </g>
+                  </g>
+                </svg>
+                <div class="flex items-center">
+                  <p class="text-sm font-light text-gray-600">Gods Care Mission Tenth</p>
+                  <p class="font-light text-sm ml-1 text-gray-600">Okpo, Kogi State</p>
+                </div>
+              </div>
+              <div
+                class="py-2 px-4 mt-3 rounded-full flex items-center justify-center border border-red-500"
+              >
+                <p class="text-red-500 uppercase font-light cursor-pointer">Register</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
     </div>
 
     <div v-if="screen == 'Contact'" class>
@@ -885,8 +888,9 @@
           <p class="text-xs text-blue-500 font-normal pb-3 tracking-wider">Social Media Links</p>
           <div class="flex items-center justify-center w-full">
             <svg
+              @click="facebook"
               xmlns="http://www.w3.org/2000/svg"
-              class="h-10 w-10"
+              class="h-10 w-10 cursor-pointer"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               version="1.1"
               id="Capa_1"
@@ -918,7 +922,8 @@
               </g>
             </svg>
             <svg
-              class="h-10 w-10 mx-2"
+              @click="twitter"
+              class="h-10 w-10 mx-2 cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               version="1.1"
@@ -956,7 +961,7 @@
             </svg>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-10 w-10"
+              class="h-10 w-10 cursor-pointer"
               height="512pt"
               viewBox="0 0 512 512"
               width="512pt"
@@ -972,7 +977,8 @@
               />
             </svg>
             <svg
-              class="h-10 w-10 ml-2"
+              @click="youtube"
+              class="h-10 w-10 ml-2 cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               height="512px"
               viewBox="0 0 512 512"
@@ -1082,8 +1088,9 @@
           <p class="text-xs text-blue-500 font-normal py-4 tracking-wider">Social Media Links</p>
           <div class="flex items-center w-full">
             <svg
+              @click="facebook"
               xmlns="http://www.w3.org/2000/svg"
-              class="h-10 w-10"
+              class="h-10 w-10 cursor-pointer"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               version="1.1"
               id="Capa_1"
@@ -1115,7 +1122,8 @@
               </g>
             </svg>
             <svg
-              class="h-10 w-10 mx-2"
+              @click="twitter"
+              class="h-10 w-10 mx-2 cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               version="1.1"
@@ -1153,7 +1161,7 @@
             </svg>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-10 w-10"
+              class="h-10 w-10 cursor-pointer"
               height="512pt"
               viewBox="0 0 512 512"
               width="512pt"
@@ -1169,7 +1177,8 @@
               />
             </svg>
             <svg
-              class="h-10 w-10 ml-2"
+              @click="youtube"
+              class="h-10 w-10 ml-2 cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               height="512px"
               viewBox="0 0 512 512"
@@ -1531,12 +1540,24 @@ export default {
         }
       });
     },
+    facebook() {
+      window.open("https://web.facebook.com/groups/368974059816565", "_blank");
+    },
+    twitter() {
+      window.open("https://twitter.com/MissionsCare", "_blank");
+    },
+    youtube() {
+      window.open(
+        "https://www.youtube.com/channel/UCPe9rUAnO_P7AFsswV7E2Qw",
+        "_blank"
+      );
+    },
     modalShow() {
       if (this.screen === "testimonies") {
         this.$emit("open");
       }
-      if(this.screen === "Home"){
-        this.$router.push('/about-us')
+      if (this.screen === "Home") {
+        this.$router.push("/about-us");
       }
     }
   }

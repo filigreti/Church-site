@@ -75,7 +75,7 @@
           <button
             type="submit"
             class="font-light mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 border border-blue-500 hover:border-transparent rounded"
-          >Login</button>
+          >Sign up</button>
         </div>
         <span class="mt-4 mb-2 text-gray-500 text-xs text-center block font-light">
           Already have an account ?

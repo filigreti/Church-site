@@ -31,7 +31,7 @@ const routes = [
     name: "ContactUS",
     component: () => import("../views/ContactUs.vue"),
   },
-    {
+  {
     path: "/live",
     name: "live",
     component: () => import("../views/live.vue"),
@@ -64,25 +64,30 @@ const routes = [
         component: () => import("../components/Videos.vue"),
       },
       {
+        path: "articles",
+        name: "Articles",
+        component: () => import("../components/Articles.vue"),
+      },
+      {
         path: "books",
         component: () => import("../components/Books.vue"),
         children: [
           {
-            path: '',
-            name: 'Books',
-            component:() => import("../components/AllBooks.vue")
+            path: "",
+            name: "Books",
+            component: () => import("../components/AllBooks.vue"),
           },
           {
-            path: 'view-book',
-            name: 'ViewBook',
-            component:() => import("../components/ViewBook.vue")
+            path: "view-book",
+            name: "ViewBook",
+            component: () => import("../components/ViewBook.vue"),
           },
-              {
-            path: 'cart',
-            name: 'Cart',
-            component:() => import("../views/Cart.vue")
-          }
-        ]
+          {
+            path: "cart",
+            name: "Cart",
+            component: () => import("../views/Cart.vue"),
+          },
+        ],
       },
     ],
   },

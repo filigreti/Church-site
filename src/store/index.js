@@ -9,237 +9,225 @@ export default new Vuex.Store({
   state: {
     userDetails: {},
     testimonies: {
-      count: '',
-      next: '',
-      previous: '',
-      results:''
+      count: "",
+      next: "",
+      previous: "",
+      results: "",
     },
     events: {
-      count: '',
-      next: '',
-      previous: '',
-      results:''
+      count: "",
+      next: "",
+      previous: "",
+      results: "",
     },
     assets: {
-      count: '',
-      next: '',
-      previous: '',
-      results:''
+      count: "",
+      next: "",
+      previous: "",
+      results: "",
     },
-    youtube:'',
-    workShop:[],
+    youtube: "",
+    workShop: [],
     isAuthenticated: false,
-    loading:false,
-    currentPage:1
+    loading: false,
+    currentPage: 1,
   },
   getters: {
     getUserDetails(state) {
-      return state.userDetails
+      return state.userDetails;
     },
 
     checkAuth(state) {
-      return state.isAuthenticated
+      return state.isAuthenticated;
     },
 
     getAllTestimonies(state) {
-      return state.testimonies
+      return state.testimonies;
     },
 
     getAssets(state) {
-      return state.assets
+      return state.assets;
     },
 
     getAllWorkshops(state) {
-      return state.workShop
+      return state.workShop;
     },
 
     getAllEvents(state) {
-      return state.events
-    }
+      return state.events;
+    },
   },
   mutations: {
-    setAuthentication(state,payload) {
-      state.isAuthenticated = payload
+    setAuthentication(state, payload) {
+      state.isAuthenticated = payload;
     },
 
     restorePage(state) {
-      state.currentPage = 1
+      state.currentPage = 1;
     },
 
     setcurrentPage(state) {
-      state.currentPage += 1
+      state.currentPage += 1;
     },
 
     setUserDetails(state, payload) {
-      state.userDetails = payload
+      state.userDetails = payload;
     },
 
-    setWorkShop(state,payload) {
-      state.workShop = payload
+    setWorkShop(state, payload) {
+      state.workShop = payload;
     },
 
     setTestimonials(state, payload) {
       let data = { ...state.testimonies, ...payload };
       state.testimonies.count = data.count;
       state.testimonies.next = data.next;
-      state.testimonies.previous = data.previous
-      state.testimonies.results = [...state.testimonies.results, ...data.results]
+      state.testimonies.previous = data.previous;
+      state.testimonies.results = [...state.testimonies.results, ...data.results];
     },
 
     setAssets(state, payload) {
       let data = { ...state.assets, ...payload };
       state.assets.count = data.count;
       state.assets.next = data.next;
-      state.assets.previous = data.previous
-      state.assets.results = [...state.assets.results, ...data.results]
+      state.assets.previous = data.previous;
+      state.assets.results = [...state.assets.results, ...data.results];
     },
 
     setEvents(state, payload) {
       let data = { ...state.events, ...payload };
       state.events.count = data.count;
       state.events.next = data.next;
-      state.events.previous = data.previous
-      state.events.results = data.results
+      state.events.previous = data.previous;
+      state.events.results = data.results;
 
       // state.events.results = [...state.events.results, ...data.results]
     },
 
-    setLoading(state,payload) {
-      state.loading = payload
+    setLoading(state, payload) {
+      state.loading = payload;
     },
 
     setYoutubelink(state, payload) {
-      state.youtube = payload
+      state.youtube = payload;
     },
 
-    setToken(state,payload) {
-       localStorage.setItem('access_token', payload.access);
-       localStorage.setItem('refresh_token', payload.refresh);
-    }
+    setToken(state, payload) {
+      localStorage.setItem("access_token", payload.access);
+      localStorage.setItem("refresh_token", payload.refresh);
+    },
   },
 
   actions: {
     async youtubelife({ commit }) {
-      let res = await Api.get('/live/youtube/')
-      commit('setYoutubelink', res.link)
-      return res
+      let res = await Api.get("/live/youtube/");
+      commit("setYoutubelink", res.link);
+      return res;
     },
-    async onlineStores({ commit,state }, payload) {
-      commit('setLoading', true)
+    async onlineStores({ commit, state }, payload) {
+      commit("setLoading", true);
 
-      let res = await Api.get(`/online-store/${payload}/?page=${state.currentPage}`)
-      
-      commit('setLoading', false)
+      let res = await Api.get(`/online-store/${payload}/?page=${state.currentPage}`);
 
-      commit('setTestimonials', res)
+      commit("setLoading", false);
 
-      return res
+      commit("setTestimonials", res);
 
+      return res;
     },
 
     async postTestimony({}, payload) {
+      let res = await Api.post(`/testimony/`, payload);
 
-      let res = await Api.post(`/testimony/`, payload)
-
-      return res
-      
+      return res;
     },
 
     async getTestimonies({ commit, state }) {
+      commit("setLoading", true);
 
-      commit('setLoading', true)
-      
-      let res = await Api.get(`/testimony/?page=${state.currentPage}`)
+      let res = await Api.get(`/testimony/?page=${state.currentPage}`);
 
-      commit('setTestimonials', res)
+      commit("setTestimonials", res);
 
-      commit('setLoading', false)
-      
-      return res
+      commit("setLoading", false);
+
+      return res;
     },
 
     async getWorkshop({ commit }) {
-      
-      let res = await Api.get('/event/workshop/')
+      let res = await Api.get("/event/workshop/");
       let merged = [].concat.apply([], res);
-      commit('setWorkShop', merged)
-      return res
+      commit("setWorkShop", merged);
+      return res;
     },
 
     async postEventRegistration({ commit }, payload) {
-    try {
-      let res = await Api.post('/event/registration/', payload)
-      return res
-    } catch (error) {
-      
-    }
+      try {
+        let res = await Api.post("/event/registration/", payload);
+        return res;
+      } catch (error) {}
     },
 
     async registerUser({ commit }, payload) {
-
-      let res = await Api.post('/user/register/', payload)
+      let res = await Api.post("/user/register/", payload);
 
       if (res.status == 201) {
+        let { email, full_name, id, phone_number, token } = res.data;
 
-        let { email, full_name, id, phone_number, token } = res.data
+        let userData = { email, full_name, id, phone_number };
 
-        let userData = { email, full_name, id, phone_number }
+        commit("setUserDetails", userData);
 
-        commit('setUserDetails', userData)
-        
-        commit('setToken', token)
+        commit("setToken", token);
 
-        commit('setAuthentication',true)
+        commit("setAuthentication", true);
       } else {
-        commit('setAuthentication', false)
+        commit("setAuthentication", false);
       }
-      return res
+      return res;
     },
 
     async loginUser({ commit }, payload) {
-      
-      let res = await Api.post('/user/login/', payload)
+      let res = await Api.post("/user/login/", payload);
 
       if (res.status == 200) {
+        let { email, full_name, id, phone_number, token } = res.data;
 
-        let { email, full_name, id, phone_number, token } = res.data
+        let userData = { email, full_name, id, phone_number };
 
-        let userData = { email, full_name, id, phone_number }
+        commit("setUserDetails", userData);
 
-        commit('setUserDetails', userData)
-        
-        commit('setToken', token)
+        commit("setToken", token);
 
-        commit('setAuthentication',true)
+        commit("setAuthentication", true);
       } else {
-        commit('setAuthentication', false)
+        commit("setAuthentication", false);
       }
-      return res
+      return res;
     },
 
-    async subscribeNewsletter({ }, payload) {
-      let res = await Api.post('/contact-us/subscribe-newsletter/', payload)
-      return res
+    async subscribeNewsletter({}, payload) {
+      let res = await Api.post("/contact-us/subscribe-newsletter/", payload);
+      return res;
     },
 
     async getUpcomingEvents({ commit, state }) {
-      
-      let res = await Api.get(`/event/upcoming/?page=${state.currentPage}`)
+      let res = await Api.get(`/event/upcoming/?page=${state.currentPage}`);
 
-      commit('setEvents', res)
+      commit("setEvents", res);
 
-      return res
-    }
+      return res;
+    },
+    async logoutUser({ commit }) {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
+      commit("setAuthentication", false);
+    },
   },
 
   plugins: [
     createPersistedState({
-      paths:[
-      'userDetails',
-      'isAuthenticated',
-      'events'
-   
-    ]
+      paths: ["userDetails", "isAuthenticated", "events"],
     }),
   ],
 });
