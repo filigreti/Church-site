@@ -163,7 +163,7 @@ export default new Vuex.Store({
 
         async postEventRegistration({ commit }, payload) {
             try {
-                let res = await Api.post(`/event/registration/${payload.id}`, payload.info);
+                let res = await Api.post(`/event/registration/${payload.id}/`, payload.info);
                 return res;
             } catch (error) {}
         },
