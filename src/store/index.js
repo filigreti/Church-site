@@ -212,7 +212,7 @@ export default new Vuex.Store({
         },
 
         async getUpcomingEvents({ commit, state }) {
-            let res = await Api.get(`/event/upcoming/?page=${state.currentPage}`);
+            let res = await Api.get(`/event/upcoming/?page=${state.currentPage}/`);
 
             commit("setEvents", res);
 
