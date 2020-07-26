@@ -169,7 +169,6 @@
           </div>
           <div class="max-w-xl mx-auto">
             <vue-tel-input
-              :class="phoneError"
               required
               autocomplete="off"
               v-on:country-changed="countryChanged"
@@ -365,10 +364,10 @@ export default {
     },
     async send() {
       try {
-        let res = await this.$store.dispatch(
-          "postEventRegistration",
-          this.info
-        );
+        let k = {};
+        k.id = this.getCurrentEvent.id;
+        k.info = this.info;
+        let res = await this.$store.dispatch("postEventRegistration", k);
         if (res.status == 201) {
           console.log(res.data);
           let { bible_study_group_no, reg_no, event_pdf_file } = res.data;
@@ -418,6 +417,7 @@ export default {
     }
     this.info.event_name = this.getCurrentEvent.event_title;
     this.info.event_start_date = this.getCurrentEvent.event_start_date;
+    console.log(this.getCurrentEvent, "id find");
   }
 };
 </script>

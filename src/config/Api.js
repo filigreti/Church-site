@@ -1,12 +1,6 @@
+import axios from "axios";
 
-
-
-
-
-import axios from 'axios'
-
-let API_URL = "https://godscaremissions.herokuapp.com/api/v1"
-
+let API_URL = "https://godscaremissions.herokuapp.com/api/v1";
 
 // request interceptor
 // request interceptor
@@ -18,65 +12,63 @@ let API_URL = "https://godscaremissions.herokuapp.com/api/v1"
 //   error => {}
 // );
 
-
 class Api {
-  static async get(url, requireAuth = false) {
-    try {
-      let config = {
-        headers: {
-          'Authorization': `Token ${localStorage.getItem('bloverse_user_token')}`
+    static async get(url, requireAuth = false) {
+        try {
+            let config = {
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("access_token")}`,
+                },
+            };
+            let response = requireAuth ? await axios.get(API_URL + url, config) : await axios.get(API_URL + url);
+            return response.data;
+        } catch (error) {
+            return error.response;
         }
-      }
-      let response = requireAuth ? await axios.get(API_URL + url, config) : await axios.get(API_URL + url)
-      return response.data
-    } catch (error) { 
-      return error.response
     }
-  }
 
-  static async post(url, payload, requireAuth = false) {
-    try {
-      let config = {
-        headers: {
-          'Authorization': `Token ${localStorage.getItem('bloverse_user_token')}`
+    static async post(url, payload, requireAuth = false) {
+        try {
+            let config = {
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("access_token")}`,
+                },
+            };
+            let response = requireAuth ? await axios.post(API_URL + url, payload, config) : await axios.post(API_URL + url, payload);
+            return response;
+        } catch (error) {
+            console.log(error.response);
+            return error.response;
         }
-      }
-      let response = requireAuth ? await axios.post(API_URL + url, payload, config) : await axios.post(API_URL + url, payload)
-      return response
-    } catch (error) {
-      console.log(error.response)
-      return error.response
     }
-  }
 
-  static async put(url, payload = {}, requireAuth = false) {
-    try {
-      let config = {
-        headers: {
-          'Authorization': `Token ${localStorage.getItem('bloverse_user_token')}`
+    static async put(url, payload = {}, requireAuth = false) {
+        try {
+            let config = {
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("access_token")}`,
+                },
+            };
+            let response = requireAuth ? await axios.put(API_URL + url, payload, config) : await axios.put(API_URL + url, payload);
+            return response;
+        } catch (error) {
+            return error.response;
         }
-      }
-      let response = requireAuth ? await axios.put(API_URL + url, payload, config) : await axios.put(API_URL + url, payload)
-      return response
-    } catch (error) { 
-      return error.response
     }
-  }
 
-  static async delete(url, requireAuth = true) {
-    try {
-      let config = {
-        headers: {
-          'Authorization': `Token ${localStorage.getItem('bloverse_user_token')}`
+    static async delete(url, requireAuth = true) {
+        try {
+            let config = {
+                headers: {
+                    Authorization: `Token ${localStorage.getItem("access_token")}`,
+                },
+            };
+            let response = requireAuth ? await axios.delete(API_URL + url, config) : await axios.delete(API_URL + url);
+            return response;
+        } catch (error) {
+            return error.response;
         }
-      }
-      let response = requireAuth ? await axios.delete(API_URL + url, config) : await axios.delete(API_URL + url)
-      return response
-    } catch (error) { 
-      return error.response
     }
-  }
 }
 
-export default Api
-
+export default Api;
