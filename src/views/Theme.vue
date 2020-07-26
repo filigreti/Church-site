@@ -202,11 +202,36 @@
               v-model="info.attendee_church_name"
             />
           </div>
+
           <div
             class="max-w-xl mt-3 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2 lg:items-center"
           >
+            <div class="text-xs font-light text-gray-800 lg:mr-24">Gender</div>
+            <div class="relative flex items-center">
+              <select
+                v-model="info.attendee_first_time_attending"
+                class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+                type="string"
+                required
+              >
+                <option value disabled>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <svg
+                class="absolute w-4 h-4 right-0 mr-5 text-gray-500 pointer-events-none"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
             <div
-              class="text-xs font-light text-gray-800 lg:mr-24 lowercase"
+              class="text-xs font-light text-gray-800 lg:mr-24"
             >Is this your first time attending {{getCurrentEvent.event_title}}</div>
             <div class="relative flex items-center">
               <select
@@ -232,11 +257,12 @@
               </svg>
             </div>
           </div>
+
           <div
             class="max-w-xl mt-3 mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-5 gap-2 lg:items-center"
           >
             <div
-              class="text-xs font-light text-gray-800 lg:mr-24 lowercase"
+              class="text-xs font-light text-gray-800 lg:mr-24"
             >How many times have you attended {{getCurrentEvent.event_title}} ?</div>
             <div class="relative flex items-center">
               <input
@@ -256,7 +282,7 @@
             >Choose a workshop class you like to join ?</div>
             <div class="relative flex items-center">
               <select
-                v-model="info.workshop_class"
+                v-model="info.attendee_gender"
                 class="text-gray-500 bg-gray-200 text-xs rounded-full font-light focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
                 type="string"
                 required
@@ -341,7 +367,8 @@ export default {
         workshop_class: "",
         attendee_church_name: null,
         attendee_first_time_attending: "",
-        no_of_times_attended: ""
+        no_of_times_attended: "",
+        attendee_gender: ""
       },
       show: false,
       error: false,
