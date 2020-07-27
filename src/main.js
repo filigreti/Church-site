@@ -5,6 +5,7 @@ import store from "./store";
 import "./assets/styles/index.css";
 import * as firebase from "firebase";
 import VueFirebase from "vue-firebase";
+import Toasted from "vue-toasted";
 
 var firebaseConfig = {
     apiKey: "AIzaSyBgeAZZwlmlrSgZKNdyf6KSnaQ9CEU69Yk",
@@ -18,6 +19,7 @@ var firebaseConfig = {
 };
 
 Vue.use(VueFirebase, { firebase: firebase, config: firebaseConfig });
+Vue.use(Toasted);
 
 Vue.config.productionTip = false;
 

@@ -52,6 +52,12 @@ const routes = [{
             import ("../views/Donations.vue"),
     },
     {
+        path: "/salvations",
+        name: "Salvations",
+        component: () =>
+            import ("../views/Salvations.vue"),
+    },
+    {
         path: "/media",
         component: () =>
             import ("../views/AllMedia.vue"),

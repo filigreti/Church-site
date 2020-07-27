@@ -167,7 +167,10 @@ export default new Vuex.Store({
                 return res;
             } catch (error) {}
         },
-
+        async salvationCreate({}, payload) {
+            let res = await Api.post("/salvation/create/", payload);
+            return res;
+        },
         async registerUser({ commit }, payload) {
             let res = await Api.post("/user/register/", payload);
 

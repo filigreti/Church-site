@@ -143,7 +143,7 @@
               <p class="py-3 text-white text-sm">{{ errorValue }}</p>
             </div>
           </div>
-          <div v-show="show">
+          <!-- <div v-show="show">
             <div class="bg-gray-900 max-w-xl mt-4 rounded mx-auto text-center">
               <p class="py-3 text-white text-sm">Your registeration number is {{ reg }}</p>
             </div>
@@ -156,7 +156,7 @@
             <div class="mx-auto max-w-xl mt-4">
               <p class="text-xs text-gray-600">*Please keep this information with you</p>
             </div>
-          </div>
+          </div> -->
 
           <div class="w-full flex items-center mt-4">
             <button type="submit" :class="{ 'cursor-not-allowed pointer-events-none': show }" class="font-light mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded">
@@ -166,10 +166,12 @@
         </form>
       </div>
     </div>
+    <SuccessModal v-if="successprompt" :newdata="successinfo" @closemodal="allClose" />
   </main>
 </template>
 
 <script>
+import SuccessModal from "../components/SuccessModal";
 import { VueTelInput } from "vue-tel-input";
 import Hero from "@/components/Hero";
 import { mapGetters } from "vuex";
@@ -178,9 +180,12 @@ export default {
   components: {
     Hero,
     VueTelInput,
+    SuccessModal,
   },
   data() {
     return {
+      successprompt: false,
+      successinfo: {},
       getCurrentEvent: "",
       info: {
         attendee_first_name: "",
@@ -216,6 +221,20 @@ export default {
     countryChanged(country) {
       this.country = `+${country.dialCode}`;
     },
+    allClose() {
+      this.successprompt = false;
+      this.info.attendee_first_name = "";
+      this.info.attendee_last_name = "";
+      this.info.attendee_mobile_number = "";
+      this.info.attendee_email_address = "";
+      this.info.attendee_state = "";
+      this.info.attendee_country = "";
+      this.info.workshop_class = "";
+      this.info.attendee_church_name = "";
+      this.info.attendee_first_time_attending = "";
+      this.info.attendee_gender = "";
+      this.info.no_of_times_attended = "";
+    },
     async send() {
       try {
         let k = {};
@@ -223,12 +242,18 @@ export default {
         k.info = this.info;
         let res = await this.$store.dispatch("postEventRegistration", k);
         if (res.status == 201) {
-          console.log(res.data);
           let { bible_study_group_no, reg_no, event_pdf_file } = res.data;
-          this.show = true;
-          this.bibleStudy = bible_study_group_no;
-          this.reg = reg_no;
-          this.pdf = event_pdf_file;
+          this.successprompt = true;
+          this.successinfo.firstName = this.info.attendee_first_name;
+          this.successinfo.lastname = this.info.attendee_last_name;
+          this.successinfo.number = this.info.attendee_mobile_number;
+          this.successinfo.email = this.info.attendee_email_address;
+          this.successinfo.state = this.info.attendee_state;
+          this.successinfo.country = this.info.attendee_country;
+          this.successinfo.workshop = this.info.workshop_class;
+          this.successinfo.reg = reg_no;
+          this.successinfo.bibleStudy = bible_study_group_no;
+          this.successinfo.pdf = event_pdf_file;
         }
         if (res.status == 400) {
           this.error = true;
@@ -242,25 +267,6 @@ export default {
         console.log(e);
       }
     },
-    forceFileDownload(response) {
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", `GodsCareMission.pdf`); //or any other extension
-      document.body.appendChild(link);
-      link.click();
-    },
-    download() {
-      axios({
-        method: "get",
-        url: this.pdf,
-        responseType: "arraybuffer",
-      })
-        .then((response) => {
-          this.forceFileDownload(response);
-        })
-        .catch((e) => console.log(e, "error occured"));
-    },
   },
 
   mounted() {
@@ -269,7 +275,6 @@ export default {
     }
     this.info.event_name = this.getCurrentEvent.event_title;
     this.info.event_start_date = this.getCurrentEvent.event_start_date;
-    console.log(this.getCurrentEvent, "id find");
   },
 };
 </script>
