@@ -26,6 +26,7 @@ export default new Vuex.Store({
             previous: "",
             results: "",
         },
+
         youtube: "",
         workShop: [],
         isAuthenticated: false,
@@ -91,8 +92,10 @@ export default new Vuex.Store({
             state.assets.count = data.count;
             state.assets.next = data.next;
             state.assets.previous = data.previous;
-            state.assets.results = [...state.assets.results, ...data.results];
+            state.assets.results = data.results;
         },
+
+
 
         setEvents(state, payload) {
             let data = {...state.events, ...payload };
@@ -131,7 +134,7 @@ export default new Vuex.Store({
 
             commit("setLoading", false);
 
-            commit("setTestimonials", res);
+            commit("setAssets", res);
 
             return res;
         },

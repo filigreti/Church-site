@@ -48,7 +48,10 @@
               </g>
             </g>
           </svg>
-          <p class="text-xs text-blue-500 py-4">Bible School</p>
+          <p class="text-xs text-center text-blue-500 py-4">
+            School of <br />
+            ministerial excellence
+          </p>
         </div>
         <div @click="$router.push('/media')" class="inline-flex shadow items-center flex-col cursor-pointer">
           <svg class="h-12 w-12 text-blue-600 mt-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
@@ -216,7 +219,10 @@
               </g>
             </g>
           </svg>
-          <p class="text-xs text-blue-500 py-4">Bible School</p>
+          <p class="text-xs text-center text-blue-500 py-4">
+            School of <br />
+            ministerial excellence
+          </p>
         </div>
         <div @click="$router.push('/media')" class="inline-flex items-center flex-col cursor-pointer">
           <svg class="h-12 w-12 text-blue-600 mt-4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
@@ -864,10 +870,12 @@
         </router-link>
       </div>
     </div>
+    <BibleSchoolModal />
   </main>
 </template>
 
 <script>
+import BibleSchoolModal from "../components/BibleSchoolModal";
 import { mapGetters } from "vuex";
 export default {
   props: ["bgImage", "mainText", "subText", "buttonText", "screen", "events", "color", "position", "button", "donations", "subTextClass"],
@@ -877,6 +885,9 @@ export default {
         visibility: "hidden",
       },
     };
+  },
+  components: {
+    BibleSchoolModal,
   },
   computed: {
     ...mapGetters(["getAllEvents"]),

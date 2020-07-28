@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     async getAssets(x) {
-      await this.$store.dispatch("onlineStores", x);
+      let res = await this.$store.dispatch("onlineStores", x);
+      console.log(res);
     }
   }
 };

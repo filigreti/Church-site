@@ -69,11 +69,11 @@
           :key="i"
           class="bg-white shadow-lg h-32 flex items-center rounded-md justify-center flex-col cursor-pointer"
         >
-          <p class="text-xs text-gray-700 font-medium tracking-wide">Divine Agenda</p>
-          <p
+          <p class="text-xs text-gray-700 font-medium tracking-wide">{{audio.title}}</p>
+          <!-- <p
             style="font-size:.59rem"
             class="text-gray-500 font-normal tracking-tighter"
-          >Evg. Sunday Oguche</p>
+          >Evg. Sunday Oguche</p>-->
           <div>
             <svg
               class="w-8 h-8 my-3"
@@ -111,7 +111,12 @@
               <g />
             </svg>
           </div>
-          <p style="font-size:.59rem" class="text-blue-600 font-normal tracking-tight">Download</p>
+          <a
+            :href="audio.audio_file"
+            target="_blank"
+            style="font-size:.59rem"
+            class="text-red-500 z-30 font-normal text-right w-full mr-5 tracking-tight"
+          >Download</a>
         </div>
       </div>
       <div class="flex items-center justify-center mt-10 mb-20">

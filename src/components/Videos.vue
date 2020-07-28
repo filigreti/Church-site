@@ -76,7 +76,7 @@
         <p
           style="font-size:.7rem"
           class="text-white font-light leading-tight tracking-tight"
-        >Divine Agenda</p>
+        >{{video.title}}</p>
 
         <div>
           <svg
@@ -119,10 +119,12 @@
             </g>
           </svg>
         </div>
-        <p
+        <a
+          :href="video.video_file"
+          target="_blank"
           style="font-size:.59rem"
-          class="text-white font-normal text-right w-full mr-5 tracking-tight"
-        >Download</p>
+          class="text-red-500 z-30 font-normal text-right w-full mr-5 tracking-tight"
+        >Download</a>
       </div>
     </div>
     <div class="flex items-center justify-center mt-10 mb-20">
