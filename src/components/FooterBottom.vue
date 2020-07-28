@@ -186,7 +186,22 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    facebook() {
+      window.open("https://web.facebook.com/groups/368974059816565", "_blank");
+    },
+    twitter() {
+      window.open("https://twitter.com/MissionsCare", "_blank");
+    },
+    youtube() {
+      window.open(
+        "https://www.youtube.com/channel/UCPe9rUAnO_P7AFsswV7E2Qw",
+        "_blank"
+      );
+    }
+  }
+};
 </script>
 
 <style></style>
