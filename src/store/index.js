@@ -95,8 +95,6 @@ export default new Vuex.Store({
             state.assets.results = data.results;
         },
 
-
-
         setEvents(state, payload) {
             let data = {...state.events, ...payload };
             state.events.count = data.count;
@@ -218,7 +216,7 @@ export default new Vuex.Store({
         },
 
         async getUpcomingEvents({ commit, state }) {
-            let res = await Api.get(`/event/upcoming/?page=${state.currentPage}/`);
+            let res = await Api.get(`/event/upcoming/?page=${state.currentPage}`);
 
             commit("setEvents", res);
 
