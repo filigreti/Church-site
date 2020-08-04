@@ -1,5 +1,5 @@
 <template>
-  <main>Bible School</main>
+  <main></main>
 </template>
 
 <script>
