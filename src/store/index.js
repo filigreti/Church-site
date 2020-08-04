@@ -190,7 +190,10 @@ export default new Vuex.Store({
             }
             return res;
         },
-
+        async contactUs({}, payload) {
+            let res = await Api.post("/contact-us/contact-us/", payload)
+            return res
+        },
         async loginUser({ commit }, payload) {
             let res = await Api.post("/user/login/", payload);
 

@@ -271,7 +271,7 @@ export default {
   },
   methods: {
     send() {
-      this.link = "https://www.youtube.com/embed/ZMtwLvVOUFw";
+      this.link = "https://youtu.be/X13ORUAluQI";
       this.show = true;
     },
     open() {
