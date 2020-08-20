@@ -12,19 +12,19 @@ import FooterBottom from "@/components/FooterBottom";
 export default {
   components: {
     HeaderTop,
-    FooterBottom
+    FooterBottom,
   },
   watch: {
     $route(x) {
       this.$store.commit("restorePage");
-    }
+    },
   },
   async created() {
     await this.$store.dispatch("getTestimonies");
     await this.$store.dispatch("getWorkshop");
     await this.$store.dispatch("youtubelife");
     await this.$store.dispatch("getUpcomingEvents");
-  }
+  },
 };
 </script>
 
@@ -64,5 +64,8 @@ export default {
 .VueCarousel-navigation-button[data-v-453ad8cd] {
   color: black !important;
   outline: none !important;
+}
+.sh {
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48), -4px -2px 16px #ffffff;
 }
 </style>

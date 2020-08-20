@@ -13,7 +13,7 @@
             x="0px"
             y="0px"
             viewBox="0 0 290.5 290.5"
-            style="enable-background:new 0 0 290.5 290.5;"
+            style="enable-background: new 0 0 290.5 290.5;"
             xml:space="preserve"
           >
             <g>
@@ -62,75 +62,60 @@
         />
       </div>
     </div>
-    <div class="grid lg:grid-cols-5 grid-cols-2 lg:px-0 px-3 gap-8 mt-10">
+    <div class="grid lg:grid-cols-3 grid-cols-2 lg:px-0 px-3 gap-8 mt-10">
       <div
-        v-for=" (video,i) in getVideos.results"
+        class="rounded shadow-lg border overflow-hidden"
+        v-for="(video, i) in getVideos.results"
         :key="i"
-        class="bg-black shadow-lg relative h-32 flex items-center rounded-md justify-center flex-col cursor-pointer z-10"
       >
-        <img
-          class="absolute h-full w-full object-cover opacity-25 -z-10"
-          src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-          alt
-        />
-        <p
-          style="font-size:.7rem"
-          class="text-white font-light leading-tight tracking-tight"
-        >{{video.title}}</p>
-
-        <div>
+        <div class="flex items-center justify-center relative h-40">
           <svg
-            class="w-10 h-10 my-3"
+            class="w-16 h-16 absolute text-gray-800 fill-current"
             xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            version="1.1"
-            id="Capa_1"
-            x="0px"
-            y="0px"
-            viewBox="0 0 477.867 477.867"
-            style="enable-background:new 0 0 477.867 477.867;"
-            xml:space="preserve"
-            width="512px"
-            height="512px"
+            viewBox="0 0 419.84 419.84"
           >
-            <g>
-              <g>
-                <g>
-                  <path
-                    d="M238.933,0C106.974,0,0,106.974,0,238.933s106.974,238.933,238.933,238.933s238.933-106.974,238.933-238.933    C477.726,107.033,370.834,0.141,238.933,0z M238.933,443.733c-113.108,0-204.8-91.692-204.8-204.8s91.692-204.8,204.8-204.8    s204.8,91.692,204.8,204.8C443.611,351.991,351.991,443.611,238.933,443.733z"
-                    data-original="#000000"
-                    class="active-path"
-                    data-old_color="#000000"
-                    fill="#FFFFFF"
-                  />
-                </g>
-              </g>
-              <g>
-                <g>
-                  <path
-                    d="M339.557,231.32c-1.654-3.318-4.343-6.008-7.662-7.662l-136.533-68.267c-8.432-4.213-18.682-0.794-22.896,7.638    c-1.185,2.371-1.801,4.986-1.8,7.637V307.2c-0.004,9.426,7.633,17.07,17.059,17.075c2.651,0.001,5.266-0.615,7.637-1.8    l136.533-68.267C340.331,250.004,343.762,239.756,339.557,231.32z M204.8,279.586v-81.306l81.306,40.653L204.8,279.586z"
-                    data-original="#000000"
-                    class="active-path"
-                    data-old_color="#000000"
-                    fill="#FFFFFF"
-                  />
-                </g>
-              </g>
-            </g>
+            <path
+              d="M209.92 0C93.7 0 0 93.7 0 209.92s93.7 209.92 209.92 209.92 209.92-93.7 209.92-209.92S326.14 0 209.92 0zm93.18 219.65l-139.77 81.92c-1.54 1.02-4.1 1.53-5.63 1.53s-4.1-.5-5.64-1.53c-3.58-2.56-5.63-5.63-5.63-9.73V128.51h-.51c0-4.1 2.56-8.19 5.63-9.73 3.07-1.53 8.2-2.56 11.78 0L303.1 200.2c3.59 2.56 5.64 5.63 5.64 9.73s-2.56 8.2-5.64 9.73z"
+            />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-32 fill-current text-gray-300"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M229.32 189.02c-9.4 0-17.03 7.62-17.03 17.03v99.9a17.03 17.03 0 1034.06 0v-99.9c0-9.4-7.62-17.03-17.03-17.03zM176.53 136.23c-9.4 0-17.03 7.62-17.03 17.03v205.49a17.03 17.03 0 1034.06 0v-205.5c0-9.4-7.62-17.02-17.03-17.02zM123.17 86.85c-9.4 0-17.02 7.62-17.02 17.03v304.24a17.03 17.03 0 1034.05 0V103.88c0-9.41-7.62-17.03-17.02-17.03zM70.39 136.23c-9.41 0-17.03 7.62-17.03 17.03v205.49a17.03 17.03 0 1034.05 0v-205.5c0-9.4-7.62-17.02-17.02-17.02zM17.03 185.61c-9.4 0-17.03 7.63-17.03 17.03v106.72a17.03 17.03 0 1034.06 0V202.64c0-9.4-7.63-17.03-17.03-17.03zM388.82 86.85c-9.4 0-17.02 7.62-17.02 17.03v304.24a17.03 17.03 0 1034.05 0V103.88c0-9.41-7.62-17.03-17.03-17.03zM335.47 136.23c-9.4 0-17.03 7.62-17.03 17.03v205.49a17.03 17.03 0 1034.06 0v-205.5c0-9.4-7.63-17.02-17.03-17.02zM282.68 162.9c-9.4 0-17.03 7.63-17.03 17.04v152.12a17.03 17.03 0 1034.06 0V179.94c0-9.4-7.63-17.03-17.03-17.03zM441.61 136.23c-9.4 0-17.03 7.62-17.03 17.03v205.49a17.03 17.03 0 1034.06 0v-205.5c0-9.4-7.62-17.02-17.03-17.02zM494.97 185.61c-9.4 0-17.03 7.63-17.03 17.03v106.72a17.03 17.03 0 1034.06 0V202.64c0-9.4-7.62-17.03-17.03-17.03z"
+            />
           </svg>
         </div>
-        <a
-          :href="video.video_file"
-          target="_blank"
-          style="font-size:.59rem"
-          class="text-red-500 z-30 font-normal text-right w-full mr-5 tracking-tight"
-        >Download</a>
+        <div class="border-t bg-gray-200 p-4 h-full">
+          <p class="text-xs text-gray-700 font-medium tracking-wide">
+            {{ video.title }}
+          </p>
+          <div>
+            <p class="text-xs text-gray-700 font-light tracking-wide">
+              {{ video.publisher }}
+            </p>
+          </div>
+          <a
+            :href="video.video_file"
+            target="_blank"
+            style="font-size: 0.59rem;"
+            class="text-red-500 z-30 font-normal text-right w-full mr-5 tracking-tight"
+            >Download</a
+          >
+        </div>
       </div>
     </div>
     <div class="flex items-center justify-center mt-10 mb-20">
       <button
+        v-if="getAssets.next !== null"
+        @click="loadMore"
         class="text-sm rounded-full bg-transparent hover:bg-blue-500 text-blue-500 font-light hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
-      >Load More</button>
+      >
+        Load More
+      </button>
     </div>
   </main>
   <div class="flex justify-center items-center py-32" v-else>
@@ -146,8 +131,14 @@ export default {
     ...mapGetters(["getAssets"]),
     getVideos() {
       return this.getAssets;
-    }
-  }
+    },
+  },
+  methods: {
+    async loadMore(x) {
+      this.$store.commit("setcurrentPage");
+      await this.$store.dispatch("onlineStores", "audios");
+    },
+  },
 };
 </script>
 

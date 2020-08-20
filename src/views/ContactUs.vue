@@ -100,7 +100,7 @@ export default {
         this.payload.message = "";
         this.payload.email_address = "";
       }
-    },
+    ''},
   },
 };
 </script>

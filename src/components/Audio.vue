@@ -13,7 +13,7 @@
             x="0px"
             y="0px"
             viewBox="0 0 290.5 290.5"
-            style="enable-background:new 0 0 290.5 290.5;"
+            style="enable-background: new 0 0 290.5 290.5;"
             xml:space="preserve"
           >
             <g>
@@ -63,17 +63,62 @@
       </div>
     </div>
     <div>
-      <div class="grid lg:grid-cols-5 grid-cols-2 lg:px-0 px-3 gap-8 mt-10">
+      <div class="grid lg:grid-cols-3 grid-cols-2 lg:px-0 px-3 gap-8 mt-10">
         <div
-          v-for=" (audio,i) in getAudios.results"
+          class="rounded shadow-lg border overflow-hidden"
+          v-for="(audio, i) in getAudios.results"
+          :key="i"
+        >
+          <div class="flex items-center justify-center relative h-40">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-16 h-16 absolute text-gray-800 fill-current"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="m212.628906 324.460938h-11.484375c-19.160156 0-34.75 15.589843-34.75 34.753906 0 19.160156 15.589844 34.75 34.75 34.75h11.484375c19.160156 0 34.75-15.589844 34.75-34.75 0-19.164063-15.589844-34.753906-34.75-34.753906zm0 0"
+              />
+              <path
+                d="m437.019531 74.980469c-48.351562-48.351563-112.640625-74.980469-181.019531-74.980469s-132.667969 26.628906-181.019531 74.980469c-48.351563 48.351562-74.980469 112.640625-74.980469 181.019531s26.628906 132.667969 74.980469 181.019531c48.351562 48.351563 112.640625 74.980469 181.019531 74.980469s132.667969-26.628906 181.019531-74.980469c48.351563-48.351562 74.980469-112.640625 74.980469-181.019531s-26.628906-132.667969-74.980469-181.019531zm-61.414062 163.222656c0 8.285156-6.714844 15-15 15-8.285157 0-15-6.714844-15-15v-45.167969c0-39.074218-30.03125-71.265625-68.226563-74.695312v240.875c0 35.703125-29.046875 64.75-64.75 64.75h-11.484375c-35.703125 0-64.75-29.046875-64.75-64.75 0-35.707032 29.046875-64.753906 64.75-64.753906h11.484375c12.78125 0 24.699219 3.738281 34.75 10.15625v-201.582032c0-8.285156 6.714844-15 15-15h8.226563c57.898437 0 105 47.101563 105 105zm0 0"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-32 fill-current text-gray-300"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M229.32 189.02c-9.4 0-17.03 7.62-17.03 17.03v99.9a17.03 17.03 0 1034.06 0v-99.9c0-9.4-7.62-17.03-17.03-17.03zM176.53 136.23c-9.4 0-17.03 7.62-17.03 17.03v205.49a17.03 17.03 0 1034.06 0v-205.5c0-9.4-7.62-17.02-17.03-17.02zM123.17 86.85c-9.4 0-17.02 7.62-17.02 17.03v304.24a17.03 17.03 0 1034.05 0V103.88c0-9.41-7.62-17.03-17.02-17.03zM70.39 136.23c-9.41 0-17.03 7.62-17.03 17.03v205.49a17.03 17.03 0 1034.05 0v-205.5c0-9.4-7.62-17.02-17.02-17.02zM17.03 185.61c-9.4 0-17.03 7.63-17.03 17.03v106.72a17.03 17.03 0 1034.06 0V202.64c0-9.4-7.63-17.03-17.03-17.03zM388.82 86.85c-9.4 0-17.02 7.62-17.02 17.03v304.24a17.03 17.03 0 1034.05 0V103.88c0-9.41-7.62-17.03-17.03-17.03zM335.47 136.23c-9.4 0-17.03 7.62-17.03 17.03v205.49a17.03 17.03 0 1034.06 0v-205.5c0-9.4-7.63-17.02-17.03-17.02zM282.68 162.9c-9.4 0-17.03 7.63-17.03 17.04v152.12a17.03 17.03 0 1034.06 0V179.94c0-9.4-7.63-17.03-17.03-17.03zM441.61 136.23c-9.4 0-17.03 7.62-17.03 17.03v205.49a17.03 17.03 0 1034.06 0v-205.5c0-9.4-7.62-17.02-17.03-17.02zM494.97 185.61c-9.4 0-17.03 7.63-17.03 17.03v106.72a17.03 17.03 0 1034.06 0V202.64c0-9.4-7.62-17.03-17.03-17.03z"
+              />
+            </svg>
+          </div>
+          <div class="border-t bg-gray-200 p-4 h-full">
+            <p class="text-xs text-gray-700 font-medium tracking-wide">
+              {{ audio.title }}
+            </p>
+            <div>
+              <p class="text-xs text-gray-700 font-light tracking-wide">
+                {{ audio.publisher }}
+              </p>
+            </div>
+            <a
+              :href="audio.audio_file"
+              target="_blank"
+              style="font-size: 0.59rem;"
+              class="text-red-500 z-30 font-normal text-right w-full mr-5 tracking-tight"
+              >Download</a
+            >
+          </div>
+        </div>
+        <!-- <div
+          v-for="(audio, i) in getAudios.results"
           :key="i"
           class="bg-white shadow-lg h-32 flex items-center rounded-md justify-center flex-col cursor-pointer"
         >
-          <p class="text-xs text-gray-700 font-medium tracking-wide">{{audio.title}}</p>
-          <!-- <p
-            style="font-size:.59rem"
-            class="text-gray-500 font-normal tracking-tighter"
-          >Evg. Sunday Oguche</p>-->
+          <p class="text-xs text-gray-700 font-medium tracking-wide">
+            {{ audio.title }}
+          </p>
+
           <div>
             <svg
               class="w-8 h-8 my-3"
@@ -84,7 +129,7 @@
               x="0px"
               y="0px"
               viewBox="0 0 477.867 477.867"
-              style="enable-background:new 0 0 477.867 477.867;"
+              style="enable-background: new 0 0 477.867 477.867;"
               xml:space="preserve"
             >
               <g>
@@ -114,16 +159,20 @@
           <a
             :href="audio.audio_file"
             target="_blank"
-            style="font-size:.59rem"
+            style="font-size: 0.59rem;"
             class="text-red-500 z-30 font-normal text-right w-full mr-5 tracking-tight"
-          >Download</a>
-        </div>
+            >Download</a
+          >
+        </div> -->
       </div>
       <div class="flex items-center justify-center mt-10 mb-20">
         <button
-          v-if="getAudios.results.length"
+          @click="loadMore"
+          v-if="getAssets.next !== null"
           class="text-sm rounded-full bg-transparent hover:bg-blue-500 text-blue-500 font-light hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
-        >Load More</button>
+        >
+          Load More
+        </button>
       </div>
     </div>
   </main>
@@ -139,8 +188,14 @@ export default {
     ...mapGetters(["getAssets"]),
     getAudios() {
       return this.getAssets;
-    }
-  }
+    },
+  },
+  methods: {
+    async loadMore(x) {
+      this.$store.commit("setcurrentPage");
+      await this.$store.dispatch("onlineStores", "audios");
+    },
+  },
 };
 </script>
 
