@@ -68,4 +68,7 @@ export default {
 .sh {
   box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48), -4px -2px 16px #ffffff;
 }
+#audios svg {
+  fill: red !important;
+}
 </style>
