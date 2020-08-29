@@ -245,7 +245,7 @@ export default {
   },
   async mounted() {
     let res = await this.$store.dispatch("onlineStores", "audios");
-    console.log(res);
+    console.log(res, "+");
   },
 };
 </script>
