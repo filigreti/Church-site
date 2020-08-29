@@ -240,7 +240,8 @@ export default {
   methods: {
     async loadMore(x) {
       this.$store.commit("setcurrentPage");
-      await this.$store.dispatch("onlineStores", "audios");
+      let res = await this.$store.dispatch("onlineStores", "audios");
+      console.log(res, "fishies");
     },
   },
 };
