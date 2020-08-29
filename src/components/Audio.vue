@@ -1,5 +1,11 @@
 <template>
-  <main v-if="getAudios.results.length">
+  <div
+    class="flex justify-center h-64 items-center"
+    v-if="$store.state.loading"
+  >
+    <img src="@/assets/36.gif" alt />
+  </div>
+  <main v-else-if="getAudios.results.length">
     <div class="flex items-center lg:px-0 px-3">
       <div class="flex items-center">
         <p class="text-sm font-medium">Filter</p>
@@ -244,8 +250,9 @@ export default {
     },
   },
   async mounted() {
+    this.$store.commit("resetAssets");
     let res = await this.$store.dispatch("onlineStores", "audios");
-    console.log(res, "+");
+    console.log(res, "+00-");
   },
 };
 </script>

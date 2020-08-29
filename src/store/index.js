@@ -141,7 +141,7 @@ export default new Vuex.Store({
 			let res = await Api.get(
 				`/online-store/${payload}/?page=${state.currentPage}`
 			);
-			console.log(res, "if it exists");
+
 			commit("setLoading", false);
 
 			commit("setAssets", res);

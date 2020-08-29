@@ -1,5 +1,11 @@
 <template>
-  <main v-if="getVideos.results.length">
+  <div
+    class="flex justify-center h-64 items-center"
+    v-if="$store.state.loading"
+  >
+    <img src="@/assets/36.gif" alt />
+  </div>
+  <main v-else-if="getVideos.results.length">
     <div class="flex items-center lg:px-0 px-3">
       <div class="flex items-center">
         <p class="text-sm font-medium">Filter</p>
@@ -186,7 +192,8 @@ export default {
     },
   },
   async created() {
-    let res = await this.$store.dispatch("onlineStores", "videos");
+    this.$store.commit("resetAssets");
+    await this.$store.dispatch("onlineStores", "videos");
 
     // let routeName = x.name.toLowerCase();
     // await this.getAssets(routeName);
