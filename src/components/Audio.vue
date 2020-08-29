@@ -240,9 +240,12 @@ export default {
   methods: {
     async loadMore(x) {
       this.$store.commit("setcurrentPage");
-      let res = await this.$store.dispatch("onlineStores", "audios");
-      console.log(res, "fishies");
+      await this.$store.dispatch("onlineStores", "audios");
     },
+  },
+  async mounted() {
+    let res = await this.$store.dispatch("onlineStores", "audios");
+    console.log(res);
   },
 };
 </script>

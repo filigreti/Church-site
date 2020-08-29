@@ -13,7 +13,7 @@
             x="0px"
             y="0px"
             viewBox="0 0 290.5 290.5"
-            style="enable-background:new 0 0 290.5 290.5;"
+            style="enable-background: new 0 0 290.5 290.5;"
             xml:space="preserve"
           >
             <g>
@@ -65,15 +65,19 @@
     <div>
       <div class="grid lg:grid-cols-5 grid-cols-2 lg:px-0 px-3 gap-8 mt-10">
         <div
-          v-for=" (Article,i) in getArticles.results"
+          v-for="(Article, i) in getArticles.results"
           :key="i"
           class="bg-white shadow-lg h-32 flex items-center rounded-md justify-center flex-col cursor-pointer"
         >
-          <p class="text-xs text-gray-700 font-medium tracking-wide">Divine Agenda</p>
+          <p class="text-xs text-gray-700 font-medium tracking-wide">
+            Divine Agenda
+          </p>
           <p
-            style="font-size:.59rem"
+            style="font-size: 0.59rem;"
             class="text-gray-500 font-normal tracking-tighter"
-          >Evg. Sunday Oguche</p>
+          >
+            Evg. Sunday Oguche
+          </p>
           <div>
             <svg
               class="w-8 h-8 my-3"
@@ -84,7 +88,7 @@
               x="0px"
               y="0px"
               viewBox="0 0 477.867 477.867"
-              style="enable-background:new 0 0 477.867 477.867;"
+              style="enable-background: new 0 0 477.867 477.867;"
               xml:space="preserve"
             >
               <g>
@@ -111,14 +115,21 @@
               <g />
             </svg>
           </div>
-          <p style="font-size:.59rem" class="text-blue-600 font-normal tracking-tight">Download</p>
+          <p
+            style="font-size: 0.59rem;"
+            class="text-blue-600 font-normal tracking-tight"
+          >
+            Download
+          </p>
         </div>
       </div>
       <div class="flex items-center justify-center mt-10 mb-20">
         <button
           v-if="getArticles.results.length"
           class="text-sm rounded-full bg-transparent hover:bg-blue-500 text-blue-500 font-light hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
-        >Load More</button>
+        >
+          Load More
+        </button>
       </div>
     </div>
   </main>
@@ -134,8 +145,8 @@ export default {
     ...mapGetters(["getAssets"]),
     getArticles() {
       return this.getAssets;
-    }
-  }
+    },
+  },
 };
 </script>
 

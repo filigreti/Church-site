@@ -178,8 +178,18 @@ export default {
   methods: {
     async loadMore(x) {
       this.$store.commit("setcurrentPage");
-      await this.$store.dispatch("onlineStores", "audios");
+      await this.$store.dispatch("onlineStores", "videos");
     },
+    async makeCalls(x) {
+      let res = await this.$store.dispatch("onlineStores", x);
+      console.log(res);
+    },
+  },
+  async created() {
+    let res = await this.$store.dispatch("onlineStores", "videos");
+
+    // let routeName = x.name.toLowerCase();
+    // await this.getAssets(routeName);
   },
 };
 </script>

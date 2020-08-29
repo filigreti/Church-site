@@ -59,6 +59,12 @@ export default new Vuex.Store({
 		},
 	},
 	mutations: {
+		resetAssets(state) {
+			state.assets.count = "";
+			state.assets.next = "";
+			state.assets.previous = "";
+			state.assets.results = "";
+		},
 		setAuthentication(state, payload) {
 			state.isAuthenticated = payload;
 		},
@@ -128,13 +134,14 @@ export default new Vuex.Store({
 			commit("setYoutubelink", res.link);
 			return res;
 		},
+
 		async onlineStores({ commit, state }, payload) {
 			commit("setLoading", true);
 
 			let res = await Api.get(
 				`/online-store/${payload}/?page=${state.currentPage}`
 			);
-
+			console.log(res, "if it exists");
 			commit("setLoading", false);
 
 			commit("setAssets", res);
