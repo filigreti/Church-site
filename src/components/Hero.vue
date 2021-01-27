@@ -1719,6 +1719,7 @@ export default {
     modalShow() {
       if (this.screen === "testimonies") {
         this.$emit("open");
+        // ele
       }
       if (this.screen === "Home") {
         this.$router.push("/about-us");
