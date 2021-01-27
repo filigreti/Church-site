@@ -13,22 +13,36 @@
     <div class="text-center">
       <h1
         class="uppercase font-light play text-2xl pt-8 text-white lg:pt-16 tracking-wider leading-10 lg:leading-10 lg:text-4xl"
-      >{{ mainText }}</h1>
+      >
+        {{ mainText }}
+      </h1>
       <p
         v-if="screen != 'Salvations'"
         :class="subTextClass"
         class="lg:max-w-2xl mt-2 leading-6 tracking-tight text-gray-300 text-sm lg:mx-auto mx-5 font-light"
-      >{{ subText }}</p>
+      >
+        {{ subText }}
+      </p>
       <div
         v-else
         class="lg:text-center mb-32 lg:px-24 px-4 mt-2 leading-6 tracking-tight text-gray-300 text-xs lg:mx-auto font-light"
       >
-        <p>Choosing to receive Jesus Christ as your Lord and Saviour is the most important decision you'll ever make</p>
-        <p
-          class="mt-2"
-        >If thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved. For with the heart man believeth unto righteousness; and with the mouth confession is made unto salvation... For whosoever shall call upon the name of the Lord shall be saved.</p>
+        <p>
+          Choosing to receive Jesus Christ as your Lord and Saviour is the most
+          important decision you'll ever make
+        </p>
+        <p class="mt-2">
+          If thou shalt confess with thy mouth the Lord Jesus, and shalt believe
+          in thine heart that God hath raised him from the dead, thou shalt be
+          saved. For with the heart man believeth unto righteousness; and with
+          the mouth confession is made unto salvation... For whosoever shall
+          call upon the name of the Lord shall be saved.
+        </p>
       </div>
-      <div v-if="donations" class="text-gray-500 font-light text-xs mt-1 lg:mx-0 mx-6">
+      <div
+        v-if="donations"
+        class="text-gray-500 font-light text-xs mt-1 lg:mx-0 mx-6"
+      >
         {{ donations }}
         <p>We care because God's care</p>
       </div>
@@ -37,7 +51,9 @@
         :class="button"
         :style="!buttonText ? check : ''"
         class="text-sm rounded-full bg-transparent hover:bg-white text-white font-light hover:text-gray-800 outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-white hover:border-transparent rounded"
-      >{{ buttonText }}</button>
+      >
+        {{ buttonText }}
+      </button>
     </div>
 
     <div v-if="screen == 'Home'" class>
@@ -666,20 +682,24 @@
           class="lg:max-w-4xl px-8 mb-20 relative py-4 shadow-xl rounded-lg mt-12 bg-white mx-auto lg:flex hidden items-center justify-between h-38"
         >
           <div
-            class="absolute rounded-full w-20 h-20 bg-white shadow-2xl flex items-center justify-center -mt-24"
+            class="absolute rounded-full w-16 h-16 bg-white shadow-2xl flex items-center justify-center -mt-40"
           >
             <div class="inline-flex flex-col items-center">
               <h1
                 style="color:red"
-                class="text-2xl font-black leading-none tracking-wider"
-              >{{ events.event_start_date | convertDate }}</h1>
-              <h2
-                class="text-blue-500 font-normal tracking-wide leading-none"
-              >{{ events.event_start_date | convertMonth }}</h2>
+                class="text-xl font-black leading-none tracking-wider"
+              >
+                {{ events.event_start_date | convertDate }}
+              </h1>
+              <h2 class="text-blue-500 font-normal tracking-wide leading-none">
+                {{ events.event_start_date | convertMonth }}
+              </h2>
             </div>
           </div>
           <div class="pl-2 w-56">
-            <h1 class="text-2xl leading-7 font-normal text-gray-700">{{ events.event_title }}</h1>
+            <h1 class="text-2xl leading-7 font-normal text-gray-700">
+              {{ events.event_title }}
+            </h1>
           </div>
           <div v-if="events.event_time !== null" class="flex items-center">
             <!-- prettier-ignore -->
@@ -711,9 +731,10 @@
             </svg>
             <div class="ml-2">
               <p class="text-sm font-light text-gray-600">Arrival time</p>
-              <p
-                class="font-light text-sm text-gray-600"
-              >{{ events.event_start_date | convertWeekend }}, {{ events.event_time | convertHour }}</p>
+              <p class="font-light text-sm text-gray-600">
+                {{ events.event_start_date | convertWeekend }},
+                {{ events.event_time | convertHour }}
+              </p>
             </div>
           </div>
           <div class="flex items-center">
@@ -753,13 +774,17 @@
               </g>
             </svg>
             <div class="ml-2 w-40">
-              <p class="text-sm font-light text-gray-600">{{ events.address }}</p>
+              <p class="text-sm font-light text-gray-600">
+                {{ events.address }}
+              </p>
             </div>
           </div>
           <div
             class="h-24 w-24 rounded-full flex items-center justify-center border border-red-500"
           >
-            <p class="text-red-500 uppercase font-light cursor-pointer">Register</p>
+            <p class="text-red-500 uppercase font-light cursor-pointer">
+              Register
+            </p>
           </div>
         </div>
         <div
@@ -768,7 +793,9 @@
           @click="next(events.slug)"
           class="lg:hidden mt-10"
         >
-          <div class="relative shadow-sm rounded-lg bg-white flex h-auto mb-16 mx-3">
+          <div
+            class="relative shadow-sm rounded-lg bg-white flex h-auto mb-16 mx-3"
+          >
             <div class="absolute flex justify-center w-full">
               <div
                 class="rounded-full w-20 h-20 bg-white shadow-2xl flex items-center justify-center -mt-12"
@@ -777,16 +804,25 @@
                   <h1
                     style="color:red"
                     class="text-2xl font-black leading-none tracking-wider"
-                  >{{ events.event_start_date | convertDate }}</h1>
+                  >
+                    {{ events.event_start_date | convertDate }}
+                  </h1>
                   <h2
                     class="text-blue-500 font-normal tracking-wide leading-none"
-                  >{{ events.event_start_date | convertMonth }}</h2>
+                  >
+                    {{ events.event_start_date | convertMonth }}
+                  </h2>
                 </div>
               </div>
             </div>
             <div class="flex flex-col px-5 pt-10 pb-8 w-full items-center">
-              <h1 class="text-xl text-center text-gray-800 leading-none">{{ events.event_title }}</h1>
-              <div v-if="events.event_time !== null" class="flex items-center mt-2">
+              <h1 class="text-xl text-center text-gray-800 leading-none">
+                {{ events.event_title }}
+              </h1>
+              <div
+                v-if="events.event_time !== null"
+                class="flex items-center mt-2"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="w-6 h-6"
@@ -814,10 +850,12 @@
                   </g>
                 </svg>
                 <div class="ml-2 flex items-center">
-                  <p class="text-sm font-light text-gray-600">Arrival time,{{ events.event_time }}</p>
-                  <p
-                    class="font-light text-sm ml-1 text-gray-600"
-                  >{{ events.event_start_date | convertWeekend }}</p>
+                  <p class="text-sm font-light text-gray-600">
+                    Arrival time,{{ events.event_time }}
+                  </p>
+                  <p class="font-light text-sm ml-1 text-gray-600">
+                    {{ events.event_start_date | convertWeekend }}
+                  </p>
                 </div>
               </div>
               <div class="flex items-center mt-2">
@@ -857,14 +895,20 @@
                   </g>
                 </svg>
                 <div class="flex items-center">
-                  <p class="text-sm font-light text-gray-600">Gods Care Mission Tenth</p>
-                  <p class="font-light text-sm ml-1 text-gray-600">Okpo, Kogi State</p>
+                  <p class="text-sm font-light text-gray-600">
+                    Gods Care Mission Tenth
+                  </p>
+                  <p class="font-light text-sm ml-1 text-gray-600">
+                    Okpo, Kogi State
+                  </p>
                 </div>
               </div>
               <div
                 class="py-2 px-4 mt-3 rounded-full flex items-center justify-center border border-red-500"
               >
-                <p class="text-red-500 uppercase font-light cursor-pointer">Register</p>
+                <p class="text-red-500 uppercase font-light cursor-pointer">
+                  Register
+                </p>
               </div>
             </div>
           </div>
@@ -878,7 +922,9 @@
         class="grid box-border lg:hidden mt-40 gap-2 container px-3"
       >
         <div class="inline-flex shadow items-center flex-col p-6">
-          <p class="text-xs text-blue-500 font-normal pb-2 tracking-wider">Email Address</p>
+          <p class="text-xs text-blue-500 font-normal pb-2 tracking-wider">
+            Email Address
+          </p>
           <div class="flex">
             <svg
               class="w-10 h-10"
@@ -909,10 +955,12 @@
               </g>
             </svg>
             <div class="ml-2">
-              <p class="text-gray-600 font-light text-xs tracking-tight">godscaremedia@gmail.com</p>
-              <p
-                class="text-gray-600 font-light text-xs tracking-tight"
-              >admin@godscaremissioninc.org</p>
+              <p class="text-gray-600 font-light text-xs tracking-tight">
+                godscaremedia@gmail.com
+              </p>
+              <p class="text-gray-600 font-light text-xs tracking-tight">
+                admin@godscaremissioninc.org
+              </p>
             </div>
           </div>
         </div>
@@ -949,14 +997,22 @@
               </g>
             </svg>
             <div class="ml-10 flex flex-col">
-              <p class="text-gray-600 font-light text-xs tracking-wider">+234-703-323-9219</p>
-              <p class="text-gray-600 font-light text-xs tracking-wider">+234-815-649-7906</p>
-              <p class="text-gray-600 font-light text-xs tracking-wider">+234-803-389-6852</p>
+              <p class="text-gray-600 font-light text-xs tracking-wider">
+                +234-703-323-9219
+              </p>
+              <p class="text-gray-600 font-light text-xs tracking-wider">
+                +234-815-649-7906
+              </p>
+              <p class="text-gray-600 font-light text-xs tracking-wider">
+                +234-803-389-6852
+              </p>
             </div>
           </div>
         </div>
         <div class="inline-flex shadow items-center flex-col p-6">
-          <p class="text-xs text-blue-500 font-normal pb-3 tracking-wider">Social Media Links</p>
+          <p class="text-xs text-blue-500 font-normal pb-3 tracking-wider">
+            Social Media Links
+          </p>
           <div class="flex items-center justify-center w-full">
             <svg
               @click="facebook"
@@ -1006,7 +1062,12 @@
               xml:space="preserve"
             >
               <g>
-                <circle style="fill:#55ACEE;" cx="56.099" cy="56.098" r="56.098" />
+                <circle
+                  style="fill:#55ACEE;"
+                  cx="56.099"
+                  cy="56.098"
+                  r="56.098"
+                />
                 <g>
                   <path
                     style="fill:#F1F2F2;"
@@ -1079,7 +1140,9 @@
         class="max-w-4xl px-8 py-4 shadow-xl rounded-lg mt-12 bg-white mx-auto justify-evenly h-38 hidden lg:flex"
       >
         <div class="inline-flex items-center flex-col">
-          <p class="text-xs text-blue-500 font-normal py-4 tracking-wider">Email Address</p>
+          <p class="text-xs text-blue-500 font-normal py-4 tracking-wider">
+            Email Address
+          </p>
           <div class="flex">
             <svg
               class="w-10 h-10"
@@ -1110,15 +1173,19 @@
               </g>
             </svg>
             <div class="ml-2">
-              <p class="text-gray-600 font-light text-xs tracking-tight">godscaremedia@gmail.com</p>
-              <p
-                class="text-gray-600 font-light text-xs tracking-tight"
-              >admin@godscaremissioninc.org</p>
+              <p class="text-gray-600 font-light text-xs tracking-tight">
+                godscaremedia@gmail.com
+              </p>
+              <p class="text-gray-600 font-light text-xs tracking-tight">
+                admin@godscaremissioninc.org
+              </p>
             </div>
           </div>
         </div>
         <div class="inline-flex items-center flex-col">
-          <p class="text-xs text-blue-500 font-normal py-4 tracking-wider">Call/Prayers Line</p>
+          <p class="text-xs text-blue-500 font-normal py-4 tracking-wider">
+            Call/Prayers Line
+          </p>
           <div class="flex items-start">
             <svg
               class="w-10 h-10"
@@ -1149,14 +1216,22 @@
               </g>
             </svg>
             <div class="ml-2 flex flex-col">
-              <p class="text-gray-600 font-light text-xs tracking-wider">+234-703-323-9219</p>
-              <p class="text-gray-600 font-light text-xs tracking-wider">+234-815-649-7906</p>
-              <p class="text-gray-600 font-light text-xs tracking-wider">+234-803-389-6852</p>
+              <p class="text-gray-600 font-light text-xs tracking-wider">
+                +234-703-323-9219
+              </p>
+              <p class="text-gray-600 font-light text-xs tracking-wider">
+                +234-815-649-7906
+              </p>
+              <p class="text-gray-600 font-light text-xs tracking-wider">
+                +234-803-389-6852
+              </p>
             </div>
           </div>
         </div>
         <div class="inline-flex items-center flex-col">
-          <p class="text-xs text-blue-500 font-normal py-4 tracking-wider">Social Media Links</p>
+          <p class="text-xs text-blue-500 font-normal py-4 tracking-wider">
+            Social Media Links
+          </p>
           <div class="flex items-center w-full">
             <svg
               @click="facebook"
@@ -1206,7 +1281,12 @@
               xml:space="preserve"
             >
               <g>
-                <circle style="fill:#55ACEE;" cx="56.099" cy="56.098" r="56.098" />
+                <circle
+                  style="fill:#55ACEE;"
+                  cx="56.099"
+                  cy="56.098"
+                  r="56.098"
+                />
                 <g>
                   <path
                     style="fill:#F1F2F2;"
@@ -1282,7 +1362,9 @@
         style="grid-template-columns:1fr 1fr"
         class="grid box-border lg:hidden mt-40 gap-2 container px-3"
       >
-        <div class="inline-flex shadow items-center justify-center flex-col py-5">
+        <div
+          class="inline-flex shadow items-center justify-center flex-col py-5"
+        >
           <router-link to="/media/audio">
             <svg
               class="h-8 w-8 text-blue-500"
@@ -1315,7 +1397,9 @@
             <p class="text-xs font-medium pt-4">Audio</p>
           </router-link>
         </div>
-        <div class="inline-flex shadow items-center flex-col justify-center py-5">
+        <div
+          class="inline-flex shadow items-center flex-col justify-center py-5"
+        >
           <router-link to="/media/videos">
             <svg
               class="h-8 w-8 text-blue-500"
@@ -1360,7 +1444,9 @@
             <p class="text-xs font-medium pt-4">Videos</p>
           </router-link>
         </div>
-        <div class="inline-flex shadow items-center flex-col justify-center py-5">
+        <div
+          class="inline-flex shadow items-center flex-col justify-center py-5"
+        >
           <router-link to="/media/books">
             <svg
               class="h-8 w-8 text-blue-500"
@@ -1393,7 +1479,9 @@
             <p class="text-xs font-medium pt-4">Books</p>
           </router-link>
         </div>
-        <div class="inline-flex shadow items-center flex-col justify-center py-5">
+        <div
+          class="inline-flex shadow items-center flex-col justify-center py-5"
+        >
           <router-link to="/media/articles">
             <svg
               class="h-8 w-8 text-blue-500"
@@ -1588,23 +1676,23 @@ export default {
     "position",
     "button",
     "donations",
-    "subTextClass"
+    "subTextClass",
   ],
   data() {
     return {
       check: {
-        visibility: "hidden"
-      }
+        visibility: "hidden",
+      },
     };
   },
   components: {
-    BibleSchoolModal
+    BibleSchoolModal,
   },
   computed: {
     ...mapGetters(["getAllEvents"]),
     allEvents() {
       return this.getAllEvents;
-    }
+    },
   },
 
   methods: {
@@ -1612,8 +1700,8 @@ export default {
       this.$router.push({
         name: "MainTheme",
         params: {
-          theme: x
-        }
+          theme: x,
+        },
       });
     },
     facebook() {
@@ -1635,8 +1723,8 @@ export default {
       if (this.screen === "Home") {
         this.$router.push("/about-us");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

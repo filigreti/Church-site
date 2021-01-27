@@ -187,6 +187,10 @@ export default new Vuex.Store({
 			let res = await Api.post("/salvation/create/", payload);
 			return res;
 		},
+		async zoomLive({}, payload) {
+			let res = await Api.get("/live/zoom-meeting/", payload);
+			return res;
+		},
 		async registerUser({ commit }, payload) {
 			let res = await Api.post("/user/register/", payload);
 
@@ -207,6 +211,10 @@ export default new Vuex.Store({
 		},
 		async contactUs({}, payload) {
 			let res = await Api.post("/contact-us/contact-us/", payload);
+			return res;
+		},
+		async pledge({}, payload) {
+			let res = await Api.post("/pledge/create/", payload);
 			return res;
 		},
 		async loginUser({ commit }, payload) {

@@ -1,4 +1,3 @@
-
 <template>
   <main>
     <Hero
@@ -8,14 +7,46 @@
       :button="'bg-gray-900 border-none'"
       :screen="'live'"
       :mainText="'Live'"
-      :subText="`Catch up with our series of awesome live programs. You can join on us our live Online Radio Station, or our live media streams here`"
-      :bgImage="'https://images.unsplash.com/photo-1503978581482-e06dc278d5c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'"
+      :subText="
+        `Catch up with our series of awesome live programs. You can join on us our live Online Radio Station, or our live media streams here`
+      "
+      :bgImage="
+        'https://images.unsplash.com/photo-1503978581482-e06dc278d5c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'
+      "
     />
     <div class="mt-40 mb-24">
       <h1
         class="text-2xl font-bold leading-6 tracking-wider text-center pt-3 capitalize"
-      >choose a stream channel</h1>
-      <div class="max-w-4xl lg:mx-auto grid lg:grid-cols-3 gap-10 mt-16 mx-3">
+      >
+        choose a stream channel
+      </h1>
+      <div
+        class="max-w-5xl cursor-pointer lg:mx-auto grid lg:grid-cols-4 gap-10 mt-16 mx-3"
+      >
+        <div
+          @click="zoomModal = true"
+          class="h-40 rounded-lg cursor-pointer shadow-xl bg-blue-600 flex justify-center items-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
+            class="w-12 h-12"
+          >
+            <circle cx="24" cy="24" r="20" fill="#2196f3" />
+            <path
+              fill="#fff"
+              d="M29,31H14c-1.657,0-3-1.343-3-3V17h15c1.657,0,3,1.343,3,3V31z"
+            />
+            <polygon fill="#fff" points="37,31 31,27 31,21 37,17" />
+          </svg>
+          <div class="ml-3">
+            <p
+              class="text-white text-xl font-medium tracking-wider leading-6 leading-5"
+            >
+              Zoom
+            </p>
+          </div>
+        </div>
         <div
           @click="send"
           class="h-40 rounded-lg cursor-pointer shadow-xl bg-blue-600 flex justify-center items-center"
@@ -77,8 +108,14 @@
             </g>
           </svg>
           <div class="ml-3">
-            <p class="text-white text-xl font-medium tracking-wider leading-6 leading-5">Stream</p>
-            <p class="text-white text-xl font-medium leading-7 tracking-wider">Live</p>
+            <p
+              class="text-white text-xl font-medium tracking-wider leading-6 leading-5"
+            >
+              Stream
+            </p>
+            <p class="text-white text-xl font-medium leading-7 tracking-wider">
+              Live
+            </p>
           </div>
         </div>
         <div
@@ -164,8 +201,14 @@
             </g>
           </svg>
           <div class="ml-3">
-            <p class="text-black text-xl font-medium tracking-wider leading-6 leading-5">Online</p>
-            <p class="text-black text-xl font-medium leading-7 tracking-wider">Radio</p>
+            <p
+              class="text-black text-xl font-medium tracking-wider leading-6 leading-5"
+            >
+              Online
+            </p>
+            <p class="text-black text-xl font-medium leading-7 tracking-wider">
+              Radio
+            </p>
           </div>
         </div>
         <div
@@ -235,11 +278,59 @@
           allowfullscreen
         ></iframe>
       </div>
+      <Modal
+        size="max-w-2xl"
+        class="pt-20"
+        v-if="zoomModal"
+        @close="zoomModal = false"
+      >
+        <h1
+          class="text-lg mt-5 font-normal uppercase text-blue-500 tracking-wider text-center"
+        >
+          Zoom Meeting
+        </h1>
+        <p class="mx-auto text-center text-sm mt-1 font-light max-w-4xl ">
+          Please use the credentials below to join our zoom meeting.
+        </p>
+        <div class="flex w-full mt-5 ">
+          <div class="border border-black mx-16 rounded-md w-full px-12">
+            <div class="grid grid-space py-3">
+              <div>Meeting ID:</div>
+              <div class="">{{ zoom.meeting_id }}</div>
+            </div>
+            <div class="grid grid-space pb-3">
+              <div>Password:</div>
+              <div class="">{{ zoom.password }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex mt-10 mb-10  items-center justify-center">
+          <button
+            @click="zoomOpen"
+            class="flex items-center bg-blue-600 px-6 py-2 rounded-full text-white focus:outline-none "
+          >
+            <h1 class="pr-3">Click To Join</h1>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 48"
+              class="w-5 h-5"
+            >
+              <circle cx="24" cy="24" r="20" fill="#2196f3" />
+              <path
+                fill="#fff"
+                d="M29,31H14c-1.657,0-3-1.343-3-3V17h15c1.657,0,3,1.343,3,3V31z"
+              />
+              <polygon fill="#fff" points="37,31 31,27 31,21 37,17" />
+            </svg>
+          </button>
+        </div>
+      </Modal>
     </div>
   </main>
 </template>
 
 <script>
+import Modal from "@/components/Modal";
 import { Carousel, Slide } from "vue-carousel";
 import Hero from "@/components/Hero";
 export default {
@@ -250,10 +341,12 @@ export default {
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/PST-DJIMAS-1.jpg",
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/MAROUA-003.jpg",
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/NGOUNDERE.jpg",
-        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/GAROUA-FLYER-2020-768x1038.png"
+        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/GAROUA-FLYER-2020-768x1038.png",
       ],
       show: false,
-      link: false
+      link: false,
+      zoom: null,
+      zoomModal: false,
     };
   },
   computed: {
@@ -262,14 +355,23 @@ export default {
     },
     page() {
       return window.innerWidth > 650 ? 3 : 1;
-    }
+    },
   },
   components: {
     Carousel,
     Hero,
-    Slide
+    Slide,
+    Modal,
+  },
+  async created() {
+    await this.zoomCall();
   },
   methods: {
+    async zoomCall() {
+      let res = await this.$store.dispatch("zoomLive");
+      console.log(res, "ss");
+      this.zoom = res;
+    },
     send() {
       this.link = "https://youtu.be/X13ORUAluQI";
       this.show = true;
@@ -279,13 +381,19 @@ export default {
         "https://www.youtube.com/channel/UCPe9rUAnO_P7AFsswV7E2Qw",
         "_blank"
       );
-    }
-  }
+    },
+    zoomOpen() {
+      window.open(this.zoom.link, "_blank");
+    },
+  },
 };
 </script>
 
 <style>
 .yt-red {
   background: #ff0000;
+}
+.grid-space {
+  grid-template-columns: 1.4fr 3fr;
 }
 </style>

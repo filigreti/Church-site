@@ -34,6 +34,12 @@ const routes = [{
             import ("../views/ContactUs.vue"),
     },
     {
+        path: "/pledge",
+        name: "Pledge",
+        component: () =>
+            import ("../views/Pledge.vue"),
+    },
+    {
         path: "/live",
         name: "live",
         component: () =>
