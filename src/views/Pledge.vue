@@ -81,7 +81,7 @@
         <div class="w-full">
           <input
             class="bg-gray-200 mt-6 text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
-            type="number"
+            type="string"
             placeholder="Enter amount"
             v-model="payload.amount"
             required
@@ -107,7 +107,7 @@
         <div class="w-full">
           <input
             class="bg-gray-200 mt-6 text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
-            type="number"
+            type="string"
             placeholder="Phone Number"
             v-model="payload.phone_number"
           />
@@ -137,7 +137,6 @@
       </div>
       <div class="w-full flex items-center mt-4">
         <button
-          :disabled="loading"
           type="submit"
           class="font-light mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
         >
@@ -245,6 +244,14 @@ export default {
         this.payload.amount = "";
         this.payload.email = "";
         this.payload.phone_number = "";
+      } else {
+        this.loading = false;
+        this.$toasted.show(`There was an error`, {
+          type: "error",
+          position: "top-center",
+          duration: 3000,
+          theme: "bubble",
+        });
       }
     },
   },

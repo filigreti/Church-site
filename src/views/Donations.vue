@@ -8,18 +8,26 @@
         :buttonText="'Donate Now'"
         :button="'bg-blue-500 border-none'"
         :screen="'testimonies'"
-        :mainText="'Donations'"
+        :mainText="'Givings'"
         :subText="`Support God's Care mission Inc`"
-        :subTextClass="'leading-6 text-white text-base tracking-wide font-light'"
-        :donations="`Feel free to give to give your support to God's Care Missions Inc.`"
-        :bgImage="'https://images.pexels.com/photos/3833052/pexels-photo-3833052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
+        :subTextClass="
+          'leading-6 text-white text-base tracking-wide font-light'
+        "
+        :donations="
+          `Feel free to give to give your support to God's Care Missions Inc.`
+        "
+        :bgImage="
+          'https://images.pexels.com/photos/3833052/pexels-photo-3833052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+        "
       />
-      <div class="flex justify-center lg:flex-row flex-col items-center w-full mt-40 lg:mx-0 px-3">
+      <div
+        class="flex justify-center lg:flex-row flex-col items-center w-full mt-40 lg:mx-0 px-3"
+      >
         <div
           @click="local"
           class="shadow-xl bg-white lg:w-56 w-full px-3 lg:mb-0 mb-3 text-center rounded py-4 flex flex-col justify-center items-center"
         >
-          <h1 class="text-sm font-black text-gray-900">Local Donations</h1>
+          <h1 class="text-sm font-black text-gray-900">Local Givings</h1>
           <div class="my-5">
             <svg
               class="w-10 h-10"
@@ -40,14 +48,18 @@
             </svg>
           </div>
           <h1 class="text-xl font-black text-blue-600">Donate Now</h1>
-          <p class="text-sm text-black font-light tracking-wide">Pay In Naira</p>
+          <p class="text-sm text-black font-light tracking-wide">
+            Pay In Naira
+          </p>
         </div>
 
         <div
           @click="international"
           class="shadow-xl bg-white lg:w-56 w-full px-3 text-center py-4 rounded lg:ml-12 flex flex-col justify-center items-center"
         >
-          <h1 class="text-sm font-black text-gray-900">International Donations</h1>
+          <h1 class="text-sm font-black text-gray-900">
+            International Givings
+          </h1>
           <div class="my-5">
             <svg
               class="w-10 h-10"
@@ -68,7 +80,9 @@
             </svg>
           </div>
           <h1 class="text-xl font-black text-blue-600">Donate Now</h1>
-          <p class="text-sm text-black font-light tracking-wide">Pay In Dollars</p>
+          <p class="text-sm text-black font-light tracking-wide">
+            Pay In Dollars
+          </p>
         </div>
       </div>
       <div class="mt-32 max-w-4xl mx-auto">
@@ -82,20 +96,33 @@
           </div>
           <div class="flex-1 lg:ml-12">
             <div class="w-full">
-              <h2 class="text-3xl font-bold tracking-wide leading-9 text-gray-900 lg:mt-0 mt-5">
+              <h2
+                class="text-3xl font-bold tracking-wide leading-9 text-gray-900 lg:mt-0 mt-5"
+              >
                 You can make a
-                <br />difference, so why
-                <br />don't you ?
+                <br />difference, so why <br />don't you ?
               </h2>
             </div>
             <div class="grid lg:grid-cols-2 gap-5 mt-5">
               <div class="text-xs text-gray-500 leading-6 font-light">
-                The ministry of the word has also provoked revivals in churches and communities, restoration to paths of righteousness and drawn many closer to God.
-                He has a ceaseless passion for lost souls. His joyous moments is when he sees souls saved, the sick healed and the oppressed delivered. His motto is “Reach the lost souls, wherever they may be found”. He runs conferences for Youths and evangelistic campus crusade. These crusades have brought massive harvest of souls from the campuses around Africa to the glory of God.The evangelist has also written more than 25 books that are blessing lives all around the world.
+                The ministry of the word has also provoked revivals in churches
+                and communities, restoration to paths of righteousness and drawn
+                many closer to God. He has a ceaseless passion for lost souls.
+                His joyous moments is when he sees souls saved, the sick healed
+                and the oppressed delivered. His motto is “Reach the lost souls,
+                wherever they may be found”. He runs conferences for Youths and
+                evangelistic campus crusade. These crusades have brought massive
+                harvest of souls from the campuses around Africa to the glory of
+                God.The evangelist has also written more than 25 books that are
+                blessing lives all around the world.
               </div>
-              <div
-                class="text-xs text-gray-500 leading-6 font-light"
-              >He has strong passion to demonstrate God’s love to the widows, orphans and the Fatherless. His ministry has brought tremendous hope to the hopeless. He feeds and cloths them in their thousands in different parts of Africa and offers educational scholarship to them.</div>
+              <div class="text-xs text-gray-500 leading-6 font-light">
+                He has strong passion to demonstrate God’s love to the widows,
+                orphans and the Fatherless. His ministry has brought tremendous
+                hope to the hopeless. He feeds and cloths them in their
+                thousands in different parts of Africa and offers educational
+                scholarship to them.
+              </div>
             </div>
           </div>
         </div>
@@ -108,10 +135,12 @@
         </div>
       </div>
       <div class="max-w-4xl mx-auto mt-20 mb-20">
-        <div class="bg-blue-400 w-full h-32 flex items-center justify-center leading-6">
-          <h1
-            class="lg:text-2xl text-white tracking-wider"
-          >Support God's Care Missions, Donate Now !</h1>
+        <div
+          class="bg-blue-400 w-full h-32 flex items-center justify-center leading-6"
+        >
+          <h1 class="lg:text-2xl text-white tracking-wider">
+            Support God's Care Missions, Donate Now !
+          </h1>
         </div>
       </div>
     </div>
@@ -133,8 +162,8 @@ export default {
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/PST-DJIMAS-1.jpg",
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/MAROUA-003.jpg",
         "https://godscaremissionsinc.org/wp-content/uploads/2020/02/NGOUNDERE.jpg",
-        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/GAROUA-FLYER-2020-768x1038.png"
-      ]
+        "https://godscaremissionsinc.org/wp-content/uploads/2020/02/GAROUA-FLYER-2020-768x1038.png",
+      ],
     };
   },
   watch: {
@@ -144,7 +173,7 @@ export default {
       } else {
         document.body.style.removeProperty("overflow");
       }
-    }
+    },
   },
   computed: {
     width() {
@@ -152,13 +181,13 @@ export default {
     },
     page() {
       return window.innerWidth > 650 ? 3 : 1;
-    }
+    },
   },
   components: {
     Carousel,
     Hero,
     Slide,
-    DonationsModal
+    DonationsModal,
   },
   methods: {
     local() {
@@ -171,10 +200,9 @@ export default {
         "_blank"
       );
       this.close();
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

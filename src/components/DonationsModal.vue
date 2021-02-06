@@ -8,7 +8,9 @@
           <div class="flex w-full items-center justify-center flex-col">
             <h1
               class="uppercase text-2xl font-black tracking-wide text-blue-700 text-center leading-5 lg:mt-0 mt-4"
-            >Choose a Donation Type</h1>
+            >
+              Choose a Donation Type
+            </h1>
 
             <svg
               @click="close"
@@ -54,7 +56,7 @@
               @click="local"
               class="shadow-xl bg-white lg:w-56 w-full px-3 lg:mb-0 mb-3 text-center rounded py-4 flex flex-col justify-center items-center"
             >
-              <h1 class="text-sm font-black text-gray-900">Local Donations</h1>
+              <h1 class="text-sm font-black text-gray-900">Local Givings</h1>
               <div class="my-5">
                 <svg
                   class="w-10 h-10"
@@ -75,14 +77,18 @@
                 </svg>
               </div>
               <h1 class="text-xl font-black text-blue-600">Donate Now</h1>
-              <p class="text-sm text-black font-light tracking-wide">Pay In Naira</p>
+              <p class="text-sm text-black font-light tracking-wide">
+                Pay In Naira
+              </p>
             </div>
 
             <div
               @click="international"
               class="shadow-xl bg-white lg:w-56 w-full px-3 text-center py-4 rounded lg:ml-12 flex flex-col justify-center items-center"
             >
-              <h1 class="text-sm font-black text-gray-900">International Donations</h1>
+              <h1 class="text-sm font-black text-gray-900">
+                International Givings
+              </h1>
               <div class="my-5">
                 <svg
                   class="w-10 h-10"
@@ -103,7 +109,9 @@
                 </svg>
               </div>
               <h1 class="text-xl font-black text-blue-600">Donate Now</h1>
-              <p class="text-sm text-black font-light tracking-wide">Pay In Dollars</p>
+              <p class="text-sm text-black font-light tracking-wide">
+                Pay In Dollars
+              </p>
             </div>
           </div>
           <!-- <div class="flex justify-center items-center w-full mt-12 mb-8">
@@ -183,10 +191,9 @@ export default {
         "_blank"
       );
       this.close();
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

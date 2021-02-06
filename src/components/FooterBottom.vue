@@ -155,10 +155,10 @@
           @click="$router.push('/donations')"
           class="cursor-pointer font-black text-lg"
         >
-          Donations
+          Givings
         </h1>
-        <p class="text-xs">Local Donations</p>
-        <p class="text-xs">International Donations</p>
+        <p class="text-xs">Local Givings</p>
+        <p class="text-xs">International Givings</p>
       </div>
       <div>
         <h1

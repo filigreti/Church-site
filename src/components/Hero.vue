@@ -335,7 +335,7 @@
               </g>
             </g>
           </svg>
-          <p class="text-xs text-blue-500 py-4">Donations</p>
+          <p class="text-xs text-blue-500 py-4">Givings</p>
         </div>
         <div
           @click="$router.push('/salvations')"
@@ -642,7 +642,7 @@
               </g>
             </g>
           </svg>
-          <p class="text-xs text-blue-500 py-4">Donations</p>
+          <p class="text-xs text-blue-500 py-4">Givings</p>
         </div>
         <div
           @click="$router.push('/salvations')"
