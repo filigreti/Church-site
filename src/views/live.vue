@@ -369,7 +369,6 @@ export default {
   methods: {
     async zoomCall() {
       let res = await this.$store.dispatch("zoomLive");
-      console.log(res, "ss");
       this.zoom = res;
     },
     send() {

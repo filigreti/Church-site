@@ -3,6 +3,19 @@
     <div class="flex justify-between w-64 items-center mx-auto mt-8">
       <div class="flex items-center justify-center w-full">
         <svg
+          @click="zoomCall"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 48 48"
+          class="h-12 w-12 mr-2 cursor-pointer"
+        >
+          <circle cx="24" cy="24" r="20" fill="#2196f3" />
+          <path
+            fill="#fff"
+            d="M29,31H14c-1.657,0-3-1.343-3-3V17h15c1.657,0,3,1.343,3,3V31z"
+          />
+          <polygon fill="#fff" points="37,31 31,27 31,21 37,17" />
+        </svg>
+        <svg
           @click="facebook"
           xmlns="http://www.w3.org/2000/svg"
           class="h-10 w-10 cursor-pointer"
@@ -125,7 +138,12 @@
       class="lg:max-w-4xl lg:mx-auto lg:grid-flow-col grid grid-cols-2 ml-3 gap-4 lg:grid mt-6 lg:justify-between lg:grid-cols-6"
     >
       <div>
-        <h1 @click="$router.push('/events')" class="cursor-pointer font-black text-lg">Events</h1>
+        <h1
+          @click="$router.push('/events')"
+          class="cursor-pointer font-black text-lg"
+        >
+          Events
+        </h1>
         <p class="text-xs">Calebites</p>
         <p class="text-xs">Conferences</p>
         <p class="text-xs">Crusades</p>
@@ -133,12 +151,22 @@
         <p class="text-xs">Retreats</p>
       </div>
       <div>
-        <h1 @click="$router.push('/donations')" class="cursor-pointer font-black text-lg">Donations</h1>
+        <h1
+          @click="$router.push('/donations')"
+          class="cursor-pointer font-black text-lg"
+        >
+          Donations
+        </h1>
         <p class="text-xs">Local Donations</p>
         <p class="text-xs">International Donations</p>
       </div>
       <div>
-        <h1 @click="$router.push('/media')" class="font-black cursor-pointer text-lg">Media</h1>
+        <h1
+          @click="$router.push('/media')"
+          class="font-black cursor-pointer text-lg"
+        >
+          Media
+        </h1>
         <p class="text-xs">Books</p>
         <p class="text-xs">Audios</p>
         <p class="text-xs">Videos</p>
@@ -148,20 +176,30 @@
         <h1
           @click="$router.push('/contact-us')"
           class="font-black cursor-pointer text-lg"
-        >Social Links</h1>
+        >
+          Social Links
+        </h1>
         <p class="text-xs">Conferences</p>
         <p class="text-xs">Youtube</p>
         <p class="text-xs">Instagram</p>
         <p class="text-xs">Mixr</p>
       </div>
       <div>
-        <h1 @click="$router.push('/live')" class="font-black cursor-pointer text-lg">Live</h1>
+        <h1
+          @click="$router.push('/live')"
+          class="font-black cursor-pointer text-lg"
+        >
+          Live
+        </h1>
         <p class="text-xs">Youtube redirect Link</p>
         <p class="text-xs">Facebook redirect Link</p>
         <p class="text-xs">Live Radio</p>
       </div>
       <div>
-        <h1 @click="$router.push('/bible-school')" class="font-black cursor-pointer text-lg">
+        <h1
+          @click="$router.push('/bible-school')"
+          class="font-black cursor-pointer text-lg"
+        >
           School of
           <br />ministerial excellence
         </h1>
@@ -179,7 +217,9 @@
         </h1>
       </div>
       <div>
-        <h1 class="font-black cursor-pointer text-sm ml-4">+234 080 080 5674</h1>
+        <h1 class="font-black cursor-pointer text-sm ml-4">
+          +234 080 080 5674
+        </h1>
       </div>
     </div>
   </main>
@@ -187,6 +227,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      zoom: null,
+    };
+  },
   methods: {
     facebook() {
       window.open("https://web.facebook.com/groups/368974059816565", "_blank");
@@ -199,8 +244,15 @@ export default {
         "https://www.youtube.com/channel/UCPe9rUAnO_P7AFsswV7E2Qw",
         "_blank"
       );
-    }
-  }
+    },
+    zoomCall() {
+      window.open(this.zoom.link, "_blank");
+    },
+  },
+  async mounted() {
+    let res = await this.$store.dispatch("zoomLive");
+    this.zoom = res;
+  },
 };
 </script>
 

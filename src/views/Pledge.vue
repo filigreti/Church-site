@@ -88,6 +88,48 @@
           />
         </div>
       </div>
+      <p class="mt-5 px-16 text-xs  text-red-500 text-center pb-2">
+        Please Provide us with your email and phone number below, these are
+        optional details. We just need it to keep in touch with you, on your
+        pledges and commitment.
+      </p>
+      <div
+        class="flex lg:space-x-10 space-x-4 lg:px-20 justify-center items-center"
+      >
+        <div class="w-full">
+          <input
+            class="bg-gray-200 mt-6 text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+            type="email"
+            placeholder="Email"
+            v-model="payload.email"
+          />
+        </div>
+        <div class="w-full">
+          <input
+            class="bg-gray-200 mt-6 text-xs rounded-full focus:outline-none focus:shadow-outline border-0 border-gray-300 rounded-lg py-2 px-4 w-full block mx-auto appearance-none leading-6"
+            type="number"
+            placeholder="Phone Number"
+            v-model="payload.phone_number"
+          />
+        </div>
+      </div>
+      <p class=" mt-5 px-16 text-xs text-center pb-3">
+        All pledges in cash / cheque in favour of God’s Care Missions to be paid
+        into the missions account
+      </p>
+      <div class=" flex flex-col text-sm items-center justify-center">
+        <div class="text-sm">
+          Account Number: <span class=" font-medium ml-3">1011595967</span>
+        </div>
+        <div class="text-sm">
+          Bank Name: <span class=" font-medium ml-3">Zenith Bank</span>
+        </div>
+      </div>
+      <div class="  flex items-center justify-center mt-4">
+        <div class="text-sm border border-black py-2 px-5">
+          “Sow bountifully and reap bountifully” 2 Corinthians 9:6
+        </div>
+      </div>
       <div
         class="relative flex justify-center  text-xs items-center w-full mt-8"
       >
@@ -95,6 +137,7 @@
       </div>
       <div class="w-full flex items-center mt-4">
         <button
+          :disabled="loading"
           type="submit"
           class="font-light mx-auto text-sm rounded-full bg-blue-500 hover:bg-blue-500 text-white hover:text-white outline-none shadow-none focus:outline-none py-2 leading-7 px-12 mt-6 border border-blue-500 hover:border-transparent rounded"
         >
@@ -172,10 +215,13 @@ import Hero from "@/components/Hero";
 export default {
   data() {
     return {
+      loading: false,
       payload: {
         full_name: "",
         title: "",
         amount: "",
+        email: "",
+        phone_number: "",
       },
     };
   },
@@ -184,8 +230,10 @@ export default {
   },
   methods: {
     async send() {
+      this.loading = true;
       let res = await this.$store.dispatch("pledge", this.payload);
       if (res.status == 201) {
+        this.loading = false;
         this.$toasted.show(`Pledge Registered, Thank You`, {
           type: "success",
           position: "top-center",
@@ -195,8 +243,9 @@ export default {
         this.payload.full_name = "";
         this.payload.title = "";
         this.payload.amount = "";
+        this.payload.email = "";
+        this.payload.phone_number = "";
       }
-      ("");
     },
   },
 };
